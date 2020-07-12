@@ -1,0 +1,42 @@
+{
+    "name": "svelte-starter",
+    "version": "0.0.1",
+    "description": "🤖 cybernetically enhanced svelte starter",
+    "keywords": [
+        "svelte",
+        "starter",
+        "template",
+        "netlify",
+        "prettier"
+    ],
+    "homepage": "https://cybernetic-starter.netlify.app",
+    "bugs": {
+        "url": "https://github.com/bradgarropy/svelte-starter/issues"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Brad Garropy",
+        "email": "bradgarropy@gmail.com",
+        "url": "https://bradgarropy.com"
+    },
+    "main": "src/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bradgarropy/svelte-starter"
+    },
+    "scripts": {
+        "start": "rollup -c --watch",
+        "build": "rollup -c --environment BUILD:production"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@rollup/plugin-html": "^0.2.0",
+        "@rollup/plugin-node-resolve": "^8.1.0",
+        "rollup": "^2.20.0",
+        "rollup-plugin-livereload": "^1.3.0",
+        "rollup-plugin-serve": "^1.0.1",
+        "rollup-plugin-svelte": "^5.2.3",
+        "svelte": "^3.23.2"
+    },
+    "peerDependencies": {}
+}

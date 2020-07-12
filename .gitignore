@@ -1,0 +1,14 @@
+# editor
+.vscode
+
+# dependencies
+node_modules
+
+# build
+dist
+
+# host
+.netlify
+
+# secrets
+.env*
