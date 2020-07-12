@@ -19,7 +19,10 @@
 </script>
 
 <div>
+    <h1>Murph Tracker</h1>
+
     <pre>{format(elapsed, 'mm:ss:SS')}</pre>
+
     <button on:click={startTimer}>START</button>
     <button on:click={stopTimer}>STOP</button>
     <button on:click={resetTimer}>RESET</button>
