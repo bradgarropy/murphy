@@ -28,7 +28,9 @@
         "start": "rollup -c --watch",
         "build": "rollup -c --environment BUILD:production"
     },
-    "dependencies": {},
+    "dependencies": {
+        "date-fns": "^2.14.0"
+    },
     "devDependencies": {
         "@rollup/plugin-html": "^0.2.0",
         "@rollup/plugin-node-resolve": "^8.1.0",
