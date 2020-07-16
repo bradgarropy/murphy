@@ -1,5 +1,9 @@
 <script>
-    import {format} from "date-fns"
+    import Time from "./components/Time.svelte"
+    import LapTimes from "./components/LapTimes.svelte"
+    import NextButton from "./components/NextButton.svelte"
+    import ResetButton from "./components/ResetButton.svelte"
+    import StartStopButton from "./components/StartStopButton.svelte"
 
     const config = {
         run: true,
@@ -25,6 +29,9 @@
     let elapsed = 0
     let ticking = false
     let previouslyElapsed = 0
+    let lapTimes = []
+    let deltas = []
+    let done = false
 
     let exercise = 0
 
@@ -32,10 +39,9 @@
         ticking = true
         start = Date.now()
 
-        id = setInterval(
-            () => (elapsed = previouslyElapsed + Date.now() - start),
-            10,
-        )
+        id = setInterval(() => {
+            elapsed = previouslyElapsed + Date.now() - start
+        }, 10)
     }
 
     const stopTimer = () => {
@@ -46,8 +52,18 @@
     }
 
     const lapTimer = () => {
+        lapTimes.push(elapsed)
+
+        const delta =
+            lapTimes.length === 1
+                ? elapsed
+                : lapTimes[exercise] - lapTimes[exercise - 1]
+
+        deltas.push(delta)
+
         if (exercise === exercises.length - 1) {
             stopTimer()
+            done = true
             return
         }
 
@@ -69,14 +85,17 @@
     <h1>Murph Tracker</h1>
     <h2>Exercise {exercise}: {exercises[exercise]}</h2>
 
-    <p>{format(elapsed, 'mm:ss:SS')}</p>
+    <Time time={elapsed} />
 
-    {#if !ticking}
-        <button on:click={startTimer}>START</button>
-    {:else}
-        <button on:click={stopTimer}>STOP</button>
+    <StartStopButton onStart={startTimer} onStop={stopTimer} {ticking} />
+
+    {#if ticking}
+        <NextButton onNext={lapTimer} />
     {/if}
 
-    <button on:click={lapTimer}>NEXT</button>
-    <button on:click={resetTimer}>RESET</button>
+    {#if elapsed}
+        <ResetButton onReset={resetTimer} />
+    {/if}
+
+    <LapTimes times={deltas} />
 </div>
