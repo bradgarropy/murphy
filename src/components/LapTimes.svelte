@@ -1,7 +1,7 @@
 <script>
-    export let times
+    export let times = []
 </script>
 
 {#each times as time}
-    <p>hey</p>
+    <p>{time}</p>
 {/each}

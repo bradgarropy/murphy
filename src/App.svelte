@@ -59,7 +59,7 @@
                 ? elapsed
                 : lapTimes[exercise] - lapTimes[exercise - 1]
 
-        deltas.push(delta)
+        deltas = [...deltas, delta]
 
         if (exercise === exercises.length - 1) {
             stopTimer()

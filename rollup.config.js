@@ -12,11 +12,11 @@ const config = {
         file: `${path}/bundle.js`,
     },
     plugins: [
-        svelte(),
+        svelte({dev: process.env.ROLLUP_WATCH}),
         resolve(),
         html(),
-        !process.env.BUILD && serve(path),
-        !process.env.BUILD && livereload(path),
+        process.env.ROLLUP_WATCH && serve(path),
+        process.env.ROLLUP_WATCH && livereload(path),
     ],
 }
 
