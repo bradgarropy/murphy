@@ -4,4 +4,4 @@
     export let time
 </script>
 
-<p>{format(time, 'mm:ss:SS')}</p>
+<span>{format(time, 'mm:ss:SS')}</span>

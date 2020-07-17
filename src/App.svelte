@@ -5,24 +5,21 @@
     import ResetButton from "./components/ResetButton.svelte"
     import StartStopButton from "./components/StartStopButton.svelte"
 
-    const config = {
-        run: true,
-        rounds: 20,
-    }
+    import config from "./stores/config.js"
 
-    const constructExercises = () => {
+    $: exercises = constructExercises($config)
+
+    const constructExercises = config => {
         const base = ["pull ups", "push ups", "squats"]
         const exercises = new Array(config.rounds).fill(base).flat()
 
-        if (config.run) {
+        if (config.runs) {
             exercises.unshift("run")
             exercises.push("run")
         }
 
         return exercises
     }
-
-    const exercises = constructExercises()
 
     let id
     let start
@@ -32,7 +29,6 @@
     let lapTimes = []
     let deltas = []
     let done = false
-
     let exercise = 0
 
     const startTimer = () => {
@@ -74,7 +70,9 @@
         elapsed = 0
         ticking = false
         previouslyElapsed = 0
-
+        lapTimes = []
+        deltas = []
+        done = false
         exercise = 0
 
         clearInterval(id)
@@ -83,7 +81,19 @@
 
 <div>
     <h1>Murph Tracker</h1>
-    <h2>Exercise {exercise}: {exercises[exercise]}</h2>
+
+    <label>run</label>
+    <input type="checkbox" bind:checked={$config.runs} disabled={elapsed} />
+
+    <label>rounds</label>
+    <input
+        type="number"
+        bind:value={$config.rounds}
+        min="1"
+        max="20"
+        disabled={elapsed} />
+
+    <h2>Exercise {exercise}/{exercises.length}: {exercises[exercise]}</h2>
 
     <Time time={elapsed} />
 
