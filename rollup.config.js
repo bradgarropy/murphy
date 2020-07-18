@@ -10,6 +10,7 @@ const config = {
     input: "src/index.js",
     output: {
         file: `${path}/bundle.js`,
+        sourcemap: process.env.ROLLUP_WATCH,
     },
     plugins: [
         svelte({dev: process.env.ROLLUP_WATCH}),

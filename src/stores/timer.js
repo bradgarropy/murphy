@@ -1,4 +1,4 @@
-import {writable} from "svelte/store"
+import {writable, get} from "svelte/store"
 
 let id
 let previouslyElapsed = 0
@@ -17,7 +17,7 @@ const start = () => {
 
 const stop = () => {
     running.set(false)
-    previouslyElapsed = elapsed
+    previouslyElapsed = get(elapsed)
 
     clearInterval(id)
 }
