@@ -84,4 +84,4 @@
     <NextButton {onNext} />
 {/if}
 
-<LapTimes times={deltas} />
+<LapTimes times={deltas} {exercises} />
