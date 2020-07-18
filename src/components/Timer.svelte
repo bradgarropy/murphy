@@ -2,8 +2,9 @@
     import Time from "./Time.svelte"
     import LapTimes from "./LapTimes.svelte"
     import NextButton from "./NextButton.svelte"
+    import StopButton from "./StopButton.svelte"
     import ResetButton from "./ResetButton.svelte"
-    import StartStopButton from "./StartStopButton.svelte"
+    import StartButton from "./StartButton.svelte"
 
     import {running, elapsed, start, stop, reset} from "../stores/timer.js"
     import {runs, rounds} from "../stores/config.js"
@@ -69,14 +70,18 @@
 
 <Time time={$elapsed} />
 
-<StartStopButton {onStart} {onStop} running={$running} />
+{#if $elapsed}
+    <ResetButton {onReset} />
+{/if}
+
+{#if !$running}
+    <StartButton {onStart} />
+{:else}
+    <StopButton {onStop} />
+{/if}
 
 {#if $running}
     <NextButton {onNext} />
-{/if}
-
-{#if $elapsed}
-    <ResetButton {onReset} />
 {/if}
 
 <LapTimes times={deltas} />
