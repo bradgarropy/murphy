@@ -5,6 +5,10 @@
     import Settings from "./components/Settings.svelte"
 </script>
 
+<svelte:head>
+    <link rel="stylesheet" href="index.css" />
+</svelte:head>
+
 <Router>
     <Link to="/timer">Timer</Link>
     <Link to="/settings">Settings</Link>
