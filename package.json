@@ -29,7 +29,8 @@
         "build": "rollup -c"
     },
     "dependencies": {
-        "date-fns": "^2.14.0"
+        "date-fns": "^2.14.0",
+        "svelte-routing": "^1.4.2"
     },
     "devDependencies": {
         "@rollup/plugin-html": "^0.2.0",

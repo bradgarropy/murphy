@@ -15,7 +15,12 @@ const config = {
         svelte({dev: process.env.ROLLUP_WATCH}),
         resolve(),
         html(),
-        process.env.ROLLUP_WATCH && serve(path),
+        process.env.ROLLUP_WATCH &&
+            serve({
+                contentBase: path,
+                port: 8000,
+                historyApiFallback: true,
+            }),
         process.env.ROLLUP_WATCH && livereload(path),
     ],
 }

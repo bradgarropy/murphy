@@ -1,5 +1,4 @@
 import {writable} from "svelte/store"
-import {roundToNearestMinutes} from "date-fns/esm"
 
 let id
 let previouslyElapsed = 0
