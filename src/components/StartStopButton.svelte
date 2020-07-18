@@ -1,10 +1,10 @@
 <script>
     export let onStart
     export let onStop
-    export let ticking
+    export let running
 </script>
 
-{#if !ticking}
+{#if !running}
     <button on:click={onStart}>START</button>
 {:else}
     <button on:click={onStop}>STOP</button>

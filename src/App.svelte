@@ -5,15 +5,16 @@
     import ResetButton from "./components/ResetButton.svelte"
     import StartStopButton from "./components/StartStopButton.svelte"
 
-    import config from "./stores/config.js"
+    import {running, elapsed, start, stop, reset} from "./stores/timer.js"
+    import {runs, rounds} from "./stores/config.js"
 
-    $: exercises = constructExercises($config)
+    $: exercises = constructExercises($runs, $rounds)
 
-    const constructExercises = config => {
+    const constructExercises = (runs, rounds) => {
         const base = ["pull ups", "push ups", "squats"]
-        const exercises = new Array(config.rounds).fill(base).flat()
+        const exercises = new Array(rounds).fill(base).flat()
 
-        if (config.runs) {
+        if (runs) {
             exercises.unshift("run")
             exercises.push("run")
         }
@@ -21,44 +22,32 @@
         return exercises
     }
 
-    let id
-    let start
-    let elapsed = 0
-    let ticking = false
     let previouslyElapsed = 0
     let lapTimes = []
     let deltas = []
     let done = false
     let exercise = 0
 
-    const startTimer = () => {
-        ticking = true
-        start = Date.now()
-
-        id = setInterval(() => {
-            elapsed = previouslyElapsed + Date.now() - start
-        }, 10)
+    const onStart = () => {
+        start()
     }
 
-    const stopTimer = () => {
-        ticking = false
-        previouslyElapsed = elapsed
-
-        clearInterval(id)
+    const onStop = () => {
+        stop()
     }
 
     const lapTimer = () => {
-        lapTimes.push(elapsed)
+        lapTimes.push($elapsed)
 
         const delta =
             lapTimes.length === 1
-                ? elapsed
+                ? $elapsed
                 : lapTimes[exercise] - lapTimes[exercise - 1]
 
         deltas = [...deltas, delta]
 
         if (exercise === exercises.length - 1) {
-            stopTimer()
+            stop()
             done = true
             return
         }
@@ -66,16 +55,13 @@
         exercise += 1
     }
 
-    const resetTimer = () => {
-        elapsed = 0
-        ticking = false
-        previouslyElapsed = 0
+    const onReset = () => {
+        reset()
+
         lapTimes = []
         deltas = []
         done = false
         exercise = 0
-
-        clearInterval(id)
     }
 </script>
 
@@ -83,28 +69,28 @@
     <h1>Murph Tracker</h1>
 
     <label>run</label>
-    <input type="checkbox" bind:checked={$config.runs} disabled={elapsed} />
+    <input type="checkbox" bind:checked={$runs} disabled={$elapsed} />
 
     <label>rounds</label>
     <input
         type="number"
-        bind:value={$config.rounds}
+        bind:value={$rounds}
         min="1"
         max="20"
-        disabled={elapsed} />
+        disabled={$elapsed} />
 
-    <h2>Exercise {exercise}/{exercises.length}: {exercises[exercise]}</h2>
+    <h2>Exercise {exercise + 1}/{exercises.length}: {exercises[exercise]}</h2>
 
-    <Time time={elapsed} />
+    <Time time={$elapsed} />
 
-    <StartStopButton onStart={startTimer} onStop={stopTimer} {ticking} />
+    <StartStopButton {onStart} {onStop} running={$running} />
 
-    {#if ticking}
+    {#if $running}
         <NextButton onNext={lapTimer} />
     {/if}
 
-    {#if elapsed}
-        <ResetButton onReset={resetTimer} />
+    {#if $elapsed}
+        <ResetButton {onReset} />
     {/if}
 
     <LapTimes times={deltas} />
