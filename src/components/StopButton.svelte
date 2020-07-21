@@ -1,5 +1,12 @@
 <script>
+    import {elapsed} from "../stores/timer.js"
+
     export let onStop
 </script>
 
-<button on:click={onStop}>STOP</button>
+<button
+    on:click={onStop}
+    disabled={!$elapsed}
+    class="w-full bg-red-700 text-5xl text-white font-bold h-32">
+    STOP
+</button>

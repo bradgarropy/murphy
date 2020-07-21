@@ -1,7 +1,10 @@
 <script>
     import {format} from "date-fns"
 
+    let className
+    export {className as class}
+
     export let time
 </script>
 
-<span>{format(time, 'mm:ss:SS')}</span>
+<time class="text-center text-6xl {className}">{format(time, 'mm:ss:SS')}</time>

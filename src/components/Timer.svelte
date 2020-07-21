@@ -9,7 +9,6 @@
     import {exercises} from "../stores/exercises.js"
     import {running, elapsed, start, stop, reset} from "../stores/timer.js"
 
-    let previouslyElapsed = 0
     let lapTimes = []
     let deltas = []
     let done = false
@@ -52,24 +51,22 @@
     }
 </script>
 
-<h2>
+<!-- <h2>
     Exercise {exercise + 1}/{$exercises.length}: {$exercises[exercise].name}
-</h2>
+</h2> -->
 
-<Time time={$elapsed} />
+<Time time={$elapsed} class="block" />
 
-{#if $elapsed}
-    <ResetButton {onReset} />
-{/if}
+<!-- <LapTimes times={deltas} /> -->
 
 {#if !$running}
     <StartButton {onStart} />
 {:else}
-    <StopButton {onStop} />
-{/if}
-
-{#if $running}
     <NextButton {onNext} />
 {/if}
 
-<LapTimes times={deltas} />
+{#if !$running && $elapsed}
+    <ResetButton {onReset} />
+{:else}
+    <StopButton {onStop} />
+{/if}

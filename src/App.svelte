@@ -10,21 +10,24 @@
 </svelte:head>
 
 <Router>
-    <Link to="/timer">Timer</Link>
-    <Link to="/settings">Settings</Link>
+    <div class="min-h-screen grid grid-rows-layout">
+        <h1 class="bg-yellow-400 text-center text-6xl p-6 uppercase">murphy</h1>
 
-    <h1>Murph Tracker</h1>
+        <!-- <Link to="/timer">Timer</Link>
+        <Link to="/settings">Settings</Link> -->
 
-    <Route path="/">
-        <Timer />
-    </Route>
+        <main>
+            <Route path="/">
+                <Timer />
+            </Route>
 
-    <Route path="/timer">
-        <Timer />
-    </Route>
+            <Route path="/timer">
+                <Timer />
+            </Route>
 
-    <Route path="/settings">
-        <Settings />
-    </Route>
-
+            <Route path="/settings">
+                <Settings />
+            </Route>
+        </main>
+    </div>
 </Router>
