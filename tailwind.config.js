@@ -9,6 +9,9 @@ const config = {
             red: "#CB152B",
             green: "#3F8445",
         },
+        variants: {
+            backgroundColor: ["responsive", "hover", "focus", "disabled"],
+        },
         fontFamily: {
             header: ["Rowdies", "cursive"],
             body: ["Roboto", "sans-serif"],

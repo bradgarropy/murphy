@@ -7,6 +7,7 @@
 <button
     on:click={onStop}
     disabled={!$elapsed}
-    class="w-full bg-red text-5xl text-white font-bold h-32 font-body">
+    class="w-full disabled:bg-gray bg-red text-5xl text-white font-bold h-32
+    font-body">
     STOP
 </button>
