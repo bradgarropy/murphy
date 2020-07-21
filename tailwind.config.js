@@ -9,9 +9,6 @@ const config = {
             red: "#CB152B",
             green: "#3F8445",
         },
-        variants: {
-            backgroundColor: ["responsive", "hover", "focus", "disabled"],
-        },
         fontFamily: {
             header: ["Rowdies", "cursive"],
             body: ["Roboto", "sans-serif"],
@@ -19,10 +16,13 @@ const config = {
         extend: {
             gridTemplateRows: {
                 layout: "auto 1fr",
+                timer: "1fr auto auto",
             },
         },
     },
-    variants: {},
+    variants: {
+        backgroundColor: ["responsive", "hover", "focus", "disabled"],
+    },
     plugins: [],
 }
 

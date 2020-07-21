@@ -51,22 +51,24 @@
     }
 </script>
 
-<!-- <h2>
+<div class="h-full grid grid-rows-timer gap-4 items-center">
+    <!-- <h2>
     Exercise {exercise + 1}/{$exercises.length}: {$exercises[exercise].name}
 </h2> -->
 
-<Time time={$elapsed} class="block" />
+    <Time time={$elapsed} class="block" />
 
-<!-- <LapTimes times={deltas} /> -->
+    <!-- <LapTimes times={deltas} /> -->
 
-{#if !$running}
-    <StartButton {onStart} />
-{:else}
-    <NextButton {onNext} />
-{/if}
+    {#if !$running}
+        <StartButton {onStart} />
+    {:else}
+        <NextButton {onNext} />
+    {/if}
 
-{#if !$running && $elapsed}
-    <ResetButton {onReset} />
-{:else}
-    <StopButton {onStop} />
-{/if}
+    {#if !$running && $elapsed}
+        <ResetButton {onReset} />
+    {:else}
+        <StopButton {onStop} />
+    {/if}
+</div>
