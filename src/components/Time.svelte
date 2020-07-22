@@ -7,4 +7,4 @@
     export let time
 </script>
 
-<time class="text-center text-6xl {className}">{format(time, 'mm:ss:SS')}</time>
+<time class="tracking-widest {className}">{format(time, 'mm:ss:SS')}</time>

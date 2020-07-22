@@ -51,12 +51,15 @@
     }
 </script>
 
-<div class="h-full grid grid-rows-timer gap-4 items-center">
-    <!-- <h2>
-    Exercise {exercise + 1}/{$exercises.length}: {$exercises[exercise].name}
-</h2> -->
+<main class="h-full grid grid-rows-timer gap-4 items-center">
 
-    <Time time={$elapsed} class="block" />
+    <section class="text-center text-6xl">
+        <h2 class="font-body font-black uppercase tracking-tighter">
+            {$exercises[exercise].name}
+        </h2>
+
+        <Time time={$elapsed} class="block" />
+    </section>
 
     <!-- <LapTimes times={deltas} /> -->
 
@@ -71,4 +74,4 @@
     {:else}
         <StopButton {onStop} />
     {/if}
-</div>
+</main>

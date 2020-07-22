@@ -23,18 +23,17 @@
         <!-- <Link to="/timer">Timer</Link>
         <Link to="/settings">Settings</Link> -->
 
-        <main>
-            <Route path="/">
-                <Timer />
-            </Route>
+        <Route path="/">
+            <Timer />
+        </Route>
 
-            <Route path="/timer">
-                <Timer />
-            </Route>
+        <Route path="/timer">
+            <Timer />
+        </Route>
 
-            <Route path="/settings">
-                <Settings />
-            </Route>
-        </main>
+        <Route path="/settings">
+            <Settings />
+        </Route>
+
     </div>
 </Router>

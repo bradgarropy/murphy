@@ -25,7 +25,7 @@ const createExercises = (runs, rounds) => {
     const exercises = []
 
     if (runs) {
-        exercises.push(createExercise("run"))
+        exercises.push(createExercise("1 mile run"))
     }
 
     for (let index = 0; index < rounds; index++) {
@@ -33,7 +33,7 @@ const createExercises = (runs, rounds) => {
     }
 
     if (runs) {
-        exercises.push(createExercise("run"))
+        exercises.push(createExercise("1 mile run"))
     }
 
     return exercises
