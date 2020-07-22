@@ -1,5 +1,7 @@
 <header class="bg-yellow">
-    <h1 class="text-center text-5xl p-6 uppercase font-header text-black">
+    <h1
+        class="text-center text-5xl p-6 uppercase font-header text-black
+        tracking-tighter">
         murphy
     </h1>
 </header>

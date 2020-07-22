@@ -4,6 +4,7 @@
 
 <button
     on:click={onStart}
-    class="w-full bg-green text-5xl text-white font-bold h-64 font-body">
+    class="w-full bg-green text-7xl text-white font-bold py-64 font-body
+    tracking-widest">
     START
 </button>

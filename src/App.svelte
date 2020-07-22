@@ -7,6 +7,8 @@
 </script>
 
 <svelte:head>
+    <title>MURPHY</title>
+
     <link rel="stylesheet" href="index.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap"
