@@ -17,6 +17,9 @@ const config = {
             fontSize: {
                 "7xl": "5rem",
             },
+            scale: {
+                "500": "5",
+            },
             inset: {
                 "middle": "50%",
                 "20": "20px",
@@ -24,6 +27,10 @@ const config = {
             gridTemplateRows: {
                 layout: "auto 1fr",
                 timer: "50fr 35fr 15fr",
+                settings: "85fr 15fr",
+            },
+            gridTemplateColumns: {
+                form: "repeat(2, auto)",
             },
         },
     },

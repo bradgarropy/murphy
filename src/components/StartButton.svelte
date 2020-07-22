@@ -5,6 +5,6 @@
 <button
     on:click={onStart}
     class="w-full h-full bg-green text-7xl text-white font-bold font-body
-    tracking-widest">
-    START
+    uppercase">
+    start
 </button>
