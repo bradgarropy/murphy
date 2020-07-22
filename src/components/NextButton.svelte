@@ -4,7 +4,7 @@
 
 <button
     on:click={onNext}
-    class="w-full bg-green text-7xl text-white font-bold py-64 font-body
+    class="w-full h-full bg-green text-7xl text-white font-bold font-body
     tracking-widest">
     NEXT
 </button>

@@ -4,7 +4,7 @@
 
 <button
     on:click={onReset}
-    class="w-full bg-red text-5xl text-white font-bold py-20 font-body
+    class="w-full h-full bg-red text-5xl text-white font-bold font-body
     tracking-widest">
     RESET
 </button>
