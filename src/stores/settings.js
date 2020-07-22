@@ -6,11 +6,11 @@ const load = name => {
 
     switch (name) {
         case "runs":
-            value = item === "true"
+            value = item ? item === "true" : true
             break
 
         case "rounds":
-            value = parseInt(item)
+            value = item ? parseInt(item) : 20
             break
     }
 
