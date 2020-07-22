@@ -1,8 +1,13 @@
 <script>
-    import {runs, rounds} from "../stores/config.js"
+    import {runs, rounds, save} from "../stores/settings.js"
+
+    const onSubmit = () => {
+        save()
+    }
 </script>
 
 <form
+    on:submit|preventDefault={onSubmit}
     class="text-6xl text-black font-body font-black uppercase tracking-tighter
     grid grid-rows-settings items-center">
     <div

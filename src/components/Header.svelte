@@ -11,7 +11,7 @@
         </h1>
     </Link>
 
-    <Link to="/settings" aria-label="settings">
+    <Link to="/settings">
         <svg
             class="absolute right-20 top-middle transform -translate-y-1/2
             fill-current"
