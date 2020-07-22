@@ -29,7 +29,7 @@ const config = {
         extend: {
             gridTemplateRows: {
                 layout: "auto 1fr",
-                timer: "1fr auto auto",
+                timer: "50fr 35fr 15fr",
             },
         },
     },
