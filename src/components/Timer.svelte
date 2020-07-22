@@ -53,7 +53,7 @@
 
 <main class="h-full grid grid-rows-timer gap-4 items-center">
 
-    <section class="text-center text-6xl">
+    <section class="text-center text-6xl text-black">
         <h2 class="font-body font-black uppercase tracking-tighter">
             {$exercises[exercise].name}
         </h2>

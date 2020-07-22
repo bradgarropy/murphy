@@ -2,10 +2,10 @@
     import {Link} from "svelte-routing"
 </script>
 
-<header class="bg-yellow relative">
+<header class="bg-yellow relative text-black">
     <Link to="/">
         <h1
-            class="text-center text-5xl p-6 uppercase font-header text-black
+            class="text-center text-5xl p-6 uppercase font-header
             tracking-tighter">
             murphy
         </h1>
@@ -13,9 +13,10 @@
 
     <Link to="/settings" aria-label="settings">
         <svg
-            class="w-16 h-16 absolute right-20 top-middle transform
-            -translate-y-1/2"
-            fill="currentColor"
+            class="absolute right-20 top-middle transform -translate-y-1/2
+            fill-current"
+            width="64px"
+            height="64px"
             viewBox="0 0 20 20">
             <path
                 fill-rule="evenodd"
