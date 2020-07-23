@@ -7,14 +7,7 @@
 
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", function() {
-            navigator.serviceWorker.register("/sw.js").then(
-                function() {
-                    console.log("service worker registration succeeded")
-                },
-                function() {
-                    console.log("service worker registration failed")
-                },
-            )
+            navigator.serviceWorker.register("/sw.js").then(() => {}, () => {})
         })
     }
 </script>

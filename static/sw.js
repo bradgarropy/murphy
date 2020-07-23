@@ -1,7 +1,3 @@
-self.addEventListener("install", () => {
-    console.log("service worker installed")
-})
+self.addEventListener("install", () => {})
 
-self.addEventListener("fetch", () => {
-    console.log("service worked detected fetch")
-})
+self.addEventListener("fetch", () => {})

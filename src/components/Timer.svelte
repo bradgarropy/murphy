@@ -58,7 +58,7 @@
             {$exercises[exercise].name}
         </h2>
 
-        <Time time={$elapsed} class="block" />
+        <Time time={$elapsed} blink={!$running && $elapsed} class="block" />
     </section>
 
     <!-- <LapTimes times={deltas} /> -->
