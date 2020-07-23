@@ -1,3 +1,4 @@
+import copy from "rollup-plugin-copy"
 import html from "@rollup/plugin-html"
 import serve from "rollup-plugin-serve"
 import svelte from "rollup-plugin-svelte"
@@ -16,6 +17,7 @@ const config = {
         svelte({dev: process.env.ROLLUP_WATCH}),
         resolve(),
         html(),
+        copy({targets: [{src: "static/*", dest: path}]}),
         process.env.ROLLUP_WATCH &&
             serve({
                 contentBase: path,

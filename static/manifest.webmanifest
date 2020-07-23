@@ -1,0 +1,38 @@
+{
+    "short_name": "MURPHY",
+    "name": "MURPHY",
+    "description": "Murph workout timer.",
+    "icons": [
+        {
+            "src": "/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#F7CB1D",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#F7CB1D",
+    "shortcuts": [
+        {
+            "name": "How's weather today?",
+            "short_name": "Today",
+            "description": "View weather information for today",
+            "url": "/today?source=pwa",
+            "icons": [{"src": "/images/today.png", "sizes": "192x192"}]
+        },
+        {
+            "name": "How's weather tomorrow?",
+            "short_name": "Tomorrow",
+            "description": "View weather information for tomorrow",
+            "url": "/tomorrow?source=pwa",
+            "icons": [{"src": "/images/tomorrow.png", "sizes": "192x192"}]
+        }
+    ]
+}
