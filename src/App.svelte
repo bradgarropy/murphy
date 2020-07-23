@@ -24,7 +24,6 @@
 
     <link rel="stylesheet" href="index.css" />
     <link rel="manifest" href="manifest.webmanifest" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link
         href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap"
@@ -37,9 +36,6 @@
 <Router>
     <div class="h-full grid grid-rows-layout">
         <Header />
-
-        <!-- <Link to="/timer">Timer</Link>
-        <Link to="/settings">Settings</Link> -->
 
         <Route path="/">
             <Timer />
