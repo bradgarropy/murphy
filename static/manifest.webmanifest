@@ -7,13 +7,13 @@
             "src": "/icon-192.png",
             "type": "image/png",
             "sizes": "192x192",
-            "purpose": "maskable"
+            "purpose": "maskable any"
         },
         {
             "src": "/icon-512.png",
             "type": "image/png",
             "sizes": "512x512",
-            "purpose": "maskable"
+            "purpose": "maskable any"
         }
     ],
     "start_url": "/",
@@ -27,14 +27,28 @@
             "short_name": "Timer",
             "description": "Start a workout",
             "url": "/",
-            "icons": [{"src": "/icon-192.png", "sizes": "192x192"}]
+            "icons": [
+                {
+                    "src": "/icon-192.png",
+                    "type": "image/png",
+                    "sizes": "192x192",
+                    "purpose": "maskable any"
+                }
+            ]
         },
         {
             "name": "Settings",
             "short_name": "Settings",
             "description": "Scale your workout",
             "url": "/settings",
-            "icons": [{"src": "/icon-192.png", "sizes": "192x192"}]
+            "icons": [
+                {
+                    "src": "/icon-192.png",
+                    "type": "image/png",
+                    "sizes": "192x192",
+                    "purpose": "maskable any"
+                }
+            ]
         }
     ]
 }
