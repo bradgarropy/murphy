@@ -23,18 +23,18 @@
     "theme_color": "#F7CB1D",
     "shortcuts": [
         {
-            "name": "How's weather today?",
-            "short_name": "Today",
-            "description": "View weather information for today",
-            "url": "/today?source=pwa",
-            "icons": [{"src": "/images/today.png", "sizes": "192x192"}]
+            "name": "Timer",
+            "short_name": "Timer",
+            "description": "Start a workout",
+            "url": "/",
+            "icons": [{"src": "/icon-192.png", "sizes": "192x192"}]
         },
         {
-            "name": "How's weather tomorrow?",
-            "short_name": "Tomorrow",
-            "description": "View weather information for tomorrow",
-            "url": "/tomorrow?source=pwa",
-            "icons": [{"src": "/images/tomorrow.png", "sizes": "192x192"}]
+            "name": "Settings",
+            "short_name": "Settings",
+            "description": "Scale your workout",
+            "url": "/settings",
+            "icons": [{"src": "/icon-192.png", "sizes": "192x192"}]
         }
     ]
 }
