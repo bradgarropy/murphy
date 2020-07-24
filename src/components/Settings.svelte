@@ -8,16 +8,16 @@
 
 <form
     on:submit|preventDefault={onSubmit}
-    class="text-6xl text-black font-body font-black uppercase tracking-tighter
-    grid grid-rows-settings items-center">
+    class="text-5xl text-black font-body font-black uppercase tracking-tighter
+    grid grid-rows-settings row-gap-4 items-center">
     <div
-        class="grid grid-cols-form grid-rows-2 col-gap-8 px-16 justify-center
-        content-center items-center">
+        class="grid grid-cols-form col-gap-8 px-16 justify-center content-center
+        items-center">
         <input
             type="checkbox"
             id="runs"
             bind:checked={$runs}
-            class="w-full transform scale-500" />
+            class="w-full transform scale-300" />
         <label for="runs">run</label>
 
         <input
@@ -31,7 +31,7 @@
     </div>
 
     <button
-        class="w-full h-full bg-green text-5xl text-white font-bold font-body
+        class="w-full h-full bg-green text-2xl text-white font-bold font-body
         uppercase">
         save
     </button>

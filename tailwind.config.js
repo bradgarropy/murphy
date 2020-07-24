@@ -18,7 +18,7 @@ const config = {
                 "7xl": "5rem",
             },
             scale: {
-                "500": "5",
+                "300": "3",
             },
             inset: {
                 "middle": "50%",
