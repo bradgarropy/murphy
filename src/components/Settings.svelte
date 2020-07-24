@@ -10,9 +10,7 @@
     on:submit|preventDefault={onSubmit}
     class="text-5xl text-black font-body font-black uppercase tracking-tighter
     grid grid-rows-settings row-gap-4 items-center">
-    <div
-        class="grid grid-cols-form col-gap-8 px-16 justify-center content-center
-        items-center">
+    <div class="grid grid-cols-form justify-center content-center items-center">
         <input
             type="checkbox"
             id="runs"
