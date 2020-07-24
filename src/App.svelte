@@ -1,7 +1,7 @@
 <script>
     import {Router, Route, Link} from "svelte-routing"
 
-    import Timer from "./components/Timer.svelte"
+    import Home from "./components/Home.svelte"
     import Header from "./components/Header.svelte"
     import Settings from "./components/Settings.svelte"
 
@@ -28,15 +28,15 @@
 </svelte:head>
 
 <Router>
-    <div class="h-full grid grid-rows-layout">
+    <div class="h-full grid grid-rows-layout row-gap-4">
         <Header />
 
         <Route path="/">
-            <Timer />
+            <Home />
         </Route>
 
         <Route path="/timer">
-            <Timer />
+            <Home />
         </Route>
 
         <Route path="/settings">

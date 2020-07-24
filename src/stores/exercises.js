@@ -2,7 +2,7 @@ import {derived} from "svelte/store"
 
 import {runs, rounds} from "./settings.js"
 
-const createExercise = (name, round = null) => {
+const createExercise = (name, round) => {
     const exercise = {
         name,
         startTime: null,
@@ -15,7 +15,7 @@ const createExercise = (name, round = null) => {
 }
 
 const createRound = number => {
-    const exercises = ["push ups", "pull ups", "squats"]
+    const exercises = ["pull ups", "push ups", "squats"]
     const round = exercises.map(exercise => createExercise(exercise, number))
 
     return round
@@ -23,17 +23,18 @@ const createRound = number => {
 
 const createExercises = (runs, rounds) => {
     const exercises = []
+    const base = runs ? 1 : 0
 
     if (runs) {
-        exercises.push(createExercise("1 mile run"))
+        exercises.push(createExercise("1 mile run", base))
     }
 
-    for (let index = 0; index < rounds; index++) {
-        createRound(index + 1).forEach(exercise => exercises.push(exercise))
+    for (let index = 1; index <= rounds; index++) {
+        createRound(index + base).forEach(exercise => exercises.push(exercise))
     }
 
     if (runs) {
-        exercises.push(createExercise("1 mile run"))
+        exercises.push(createExercise("1 mile run", rounds + base * 2))
     }
 
     return exercises

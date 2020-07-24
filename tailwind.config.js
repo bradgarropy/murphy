@@ -4,6 +4,7 @@ const config = {
         colors: {
             black: "#312221",
             gray: "#8D8F91",
+            silver: "#B6B8B9",
             white: "#FFFFFF",
             yellow: "#F7CB1D",
             red: "#CB152B",
@@ -27,10 +28,12 @@ const config = {
             gridTemplateRows: {
                 layout: "auto 1fr",
                 timer: "50fr 35fr 15fr",
+                stats: "auto 1fr",
                 settings: "85fr 15fr",
             },
             gridTemplateColumns: {
                 form: "repeat(2, auto)",
+                round: "repeat(3, auto)",
             },
         },
     },

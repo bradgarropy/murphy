@@ -21,6 +21,6 @@
     }
 </style>
 
-<time class="tracking-widest {blink && 'blink'} {className}">
+<time class="tracking-widest text-6xl {blink && 'blink'} {className}">
     {format(time, 'mm:ss:SS')}
 </time>
