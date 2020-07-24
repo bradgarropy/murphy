@@ -1,4 +1,6 @@
 <script>
+    import {fade} from "svelte/transition"
+
     import {runs, rounds, save} from "../stores/settings.js"
 
     const onSubmit = () => {
@@ -7,6 +9,7 @@
 </script>
 
 <form
+    in:fade={{duration: 500}}
     on:submit|preventDefault={onSubmit}
     class="text-5xl text-black font-body font-black uppercase tracking-tighter
     grid grid-rows-settings row-gap-4 items-center">

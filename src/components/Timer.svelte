@@ -1,4 +1,6 @@
 <script>
+    import {fade} from "svelte/transition"
+
     import Time from "./Time.svelte"
     import LapTimes from "./LapTimes.svelte"
     import NextButton from "./NextButton.svelte"
@@ -51,7 +53,9 @@
     }
 </script>
 
-<main class="h-full grid grid-rows-timer row-gap-4 items-center">
+<main
+    class="h-full grid grid-rows-timer row-gap-4 items-center"
+    in:fade={{duration: 500}}>
 
     <section class="text-center text-5xl text-black">
         <h2 class="font-body font-black uppercase tracking-tighter">
