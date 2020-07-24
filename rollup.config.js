@@ -1,5 +1,4 @@
 import copy from "rollup-plugin-copy"
-import html from "@rollup/plugin-html"
 import serve from "rollup-plugin-serve"
 import svelte from "rollup-plugin-svelte"
 import resolve from "@rollup/plugin-node-resolve"
@@ -16,16 +15,6 @@ const config = {
     plugins: [
         svelte({dev: process.env.ROLLUP_WATCH}),
         resolve(),
-        html({
-            title: "MURPHY",
-            meta: [
-                {charset: "utf-8"},
-                {
-                    name: "viewport",
-                    content: "width=device-width, initial-scale=1",
-                },
-            ],
-        }),
         copy({targets: [{src: "static/*", dest: path}]}),
         process.env.ROLLUP_WATCH &&
             serve({

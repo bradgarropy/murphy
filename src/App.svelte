@@ -12,19 +12,6 @@
     }
 </script>
 
-<svelte:head>
-    <link rel="icon" href="/icon-192.png" />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="manifest" href="manifest.webmanifest" />
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet" />
-</svelte:head>
-
 <Router>
     <div class="h-full grid grid-rows-layout row-gap-4">
         <Header />
