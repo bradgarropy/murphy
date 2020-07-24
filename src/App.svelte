@@ -18,7 +18,6 @@
     <link rel="icon" href="/icon-192.png" />
     <link rel="stylesheet" href="index.css" />
     <link rel="manifest" href="manifest.webmanifest" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link
         href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap"

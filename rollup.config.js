@@ -16,7 +16,16 @@ const config = {
     plugins: [
         svelte({dev: process.env.ROLLUP_WATCH}),
         resolve(),
-        html(),
+        html({
+            title: "MURPHY",
+            meta: [
+                {charset: "utf-8"},
+                {
+                    name: "viewport",
+                    content: "width=device-width, initial-scale=1",
+                },
+            ],
+        }),
         copy({targets: [{src: "static/*", dest: path}]}),
         process.env.ROLLUP_WATCH &&
             serve({
