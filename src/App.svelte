@@ -13,8 +13,6 @@
 </script>
 
 <svelte:head>
-    <title>MURPHY</title>
-
     <link rel="icon" href="/icon-192.png" />
     <link rel="stylesheet" href="index.css" />
     <link rel="manifest" href="manifest.webmanifest" />
