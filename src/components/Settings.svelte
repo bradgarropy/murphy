@@ -1,10 +1,12 @@
 <script>
     import {fade} from "svelte/transition"
+    import {navigate} from "svelte-routing"
 
     import {runs, rounds, save} from "../stores/settings.js"
 
     const onSubmit = () => {
         save()
+        navigate("/")
     }
 </script>
 
