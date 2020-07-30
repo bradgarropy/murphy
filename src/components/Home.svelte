@@ -15,7 +15,15 @@
 
     import {rounds} from "../stores/settings.js"
     import {exercises} from "../stores/exercises.js"
-    import {running, elapsed, start, stop, reset} from "../stores/timer.js"
+    import {
+        running,
+        elapsed,
+        laps,
+        start,
+        lap,
+        stop,
+        reset,
+    } from "../stores/timer.js"
 
     let done = false
     let exercise = 0
@@ -29,16 +37,16 @@
     }
 
     const onNext = () => {
+        lap()
+
         const endTime = $elapsed
         const startTime = $elapsed
-        const time = !exercise
-            ? $elapsed
-            : $elapsed - $exercises[exercise].startTime
+        const time = !exercise ? $elapsed : $elapsed - $laps[exercise].startTime
 
-        $exercises[exercise] = {...$exercises[exercise], endTime, time}
+        $laps[exercise] = {...$laps[exercise], endTime, time}
 
         if ($exercises[exercise + 1]) {
-            $exercises[exercise + 1] = {...$exercises[exercise + 1], startTime}
+            $laps[exercise + 1] = {...$laps[exercise + 1], startTime}
         }
 
         if (exercise === $exercises.length - 1) {
