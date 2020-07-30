@@ -17,7 +17,20 @@ const start = () => {
 }
 
 const lap = () => {
-    console.log("lap")
+    const newLaps = get(laps)
+    const elapsedTime = get(elapsed)
+    const index = newLaps.length - 1
+
+    newLaps[index].endTime = elapsedTime
+    newLaps[index].time = newLaps[index].endTime - newLaps[index].startTime
+
+    newLaps.push({
+        startTime: elapsedTime,
+        endTime: null,
+        time: null,
+    })
+
+    laps.set(newLaps)
 }
 
 const stop = () => {

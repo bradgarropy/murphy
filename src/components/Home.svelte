@@ -39,16 +39,6 @@
     const onNext = () => {
         lap()
 
-        const endTime = $elapsed
-        const startTime = $elapsed
-        const time = !exercise ? $elapsed : $elapsed - $laps[exercise].startTime
-
-        $laps[exercise] = {...$laps[exercise], endTime, time}
-
-        if ($exercises[exercise + 1]) {
-            $laps[exercise + 1] = {...$laps[exercise + 1], startTime}
-        }
-
         if (exercise === $exercises.length - 1) {
             stop()
             done = true
