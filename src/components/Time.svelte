@@ -2,11 +2,11 @@
     import {format} from "date-fns"
     import {onDestroy} from "svelte"
 
-    let className
+    let className = ""
     export {className as class}
 
     export let time
-    export let blink
+    export let blink = false
 </script>
 
 <style>

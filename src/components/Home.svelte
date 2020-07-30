@@ -1,10 +1,12 @@
 <script>
     import {fade} from "svelte/transition"
+    import {get} from "svelte/store"
 
     import Time from "./Time.svelte"
     import Timer from "./Timer.svelte"
     import LetsGo from "./LetsGo.svelte"
     import LapTimes from "./LapTimes.svelte"
+    import Completed from "./Completed.svelte"
     import NextButton from "./NextButton.svelte"
     import StopButton from "./StopButton.svelte"
     import ResetButton from "./ResetButton.svelte"
@@ -21,6 +23,8 @@
     let done = false
     let exercise = 0
 
+    $: console.table($exercises)
+
     const onStart = () => {
         start()
     }
@@ -30,14 +34,20 @@
     }
 
     const onNext = () => {
-        lapTimes.push($elapsed)
+        $exercises[exercise] = {...$exercises[exercise], endTime: $elapsed}
 
-        const delta =
-            lapTimes.length === 1
-                ? $elapsed
-                : lapTimes[exercise] - lapTimes[exercise - 1]
+        if (exercise < $exercises.length - 1) {
+            $exercises[exercise + 1] = {
+                ...$exercises[exercise + 1],
+                startTime: $elapsed,
+            }
+        }
 
-        deltas = [...deltas, delta]
+        const time = !exercise
+            ? $elapsed
+            : $elapsed - $exercises[exercise].startTime
+
+        $exercises[exercise] = {...$exercises[exercise], time}
 
         if (exercise === $exercises.length - 1) {
             stop()
@@ -62,21 +72,26 @@
     class="h-full grid grid-rows-timer row-gap-4 items-center"
     in:fade={{duration: 500}}>
 
-    {#if !$running && !$elapsed}
-        <LetsGo />
+    {#if !done}
+        {#if !$running && !$elapsed}
+            <LetsGo />
+        {:else}
+            <Timer {exercise} />
+        {/if}
+
+        {#if !$running}
+            <StartButton {onStart} />
+        {:else}
+            <NextButton {onNext} />
+        {/if}
+
+        {#if !$running && $elapsed}
+            <ResetButton {onReset} />
+        {:else}
+            <StopButton {onStop} />
+        {/if}
     {:else}
-        <Timer {exercise} />
+        <Completed times={lapTimes} />
     {/if}
 
-    {#if !$running}
-        <StartButton {onStart} />
-    {:else}
-        <NextButton {onNext} />
-    {/if}
-
-    {#if !$running && $elapsed}
-        <ResetButton {onReset} />
-    {:else}
-        <StopButton {onStop} />
-    {/if}
 </main>

@@ -1,5 +1,4 @@
-import {derived} from "svelte/store"
-
+import {writable, get} from "svelte/store"
 import {runs, rounds} from "./settings.js"
 
 const createExercise = (name, round) => {
@@ -37,13 +36,19 @@ const createExercises = (runs, rounds) => {
         exercises.push(createExercise("1 mile run", rounds + base * 2))
     }
 
+    exercises[0].startTime = 0
+
     return exercises
 }
 
-const exercises = derived(
-    [runs, rounds],
-    ([$runs, $rounds]) => createExercises($runs, $rounds),
-    [],
+const exercises = writable(createExercises(get(runs), get(rounds)))
+
+runs.subscribe(value =>
+    exercises.update(() => createExercises(value, get(rounds))),
+)
+
+rounds.subscribe(value =>
+    exercises.update(() => createExercises(get(runs), value)),
 )
 
 export {exercises}
