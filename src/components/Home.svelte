@@ -23,8 +23,6 @@
     let done = false
     let exercise = 0
 
-    $: console.table($exercises)
-
     const onStart = () => {
         start()
     }
@@ -34,20 +32,17 @@
     }
 
     const onNext = () => {
-        $exercises[exercise] = {...$exercises[exercise], endTime: $elapsed}
-
-        if (exercise < $exercises.length - 1) {
-            $exercises[exercise + 1] = {
-                ...$exercises[exercise + 1],
-                startTime: $elapsed,
-            }
-        }
-
+        const endTime = $elapsed
+        const startTime = $elapsed
         const time = !exercise
             ? $elapsed
             : $elapsed - $exercises[exercise].startTime
 
-        $exercises[exercise] = {...$exercises[exercise], time}
+        $exercises[exercise] = {...$exercises[exercise], endTime, time}
+
+        if ($exercises[exercise + 1]) {
+            $exercises[exercise + 1] = {...$exercises[exercise + 1], startTime}
+        }
 
         if (exercise === $exercises.length - 1) {
             stop()
