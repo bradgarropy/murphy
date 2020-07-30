@@ -5,7 +5,6 @@
     import Time from "./Time.svelte"
     import Timer from "./Timer.svelte"
     import LetsGo from "./LetsGo.svelte"
-    import LapTimes from "./LapTimes.svelte"
     import Completed from "./Completed.svelte"
     import NextButton from "./NextButton.svelte"
     import StopButton from "./StopButton.svelte"
@@ -18,8 +17,6 @@
     import {exercises} from "../stores/exercises.js"
     import {running, elapsed, start, stop, reset} from "../stores/timer.js"
 
-    let lapTimes = []
-    let deltas = []
     let done = false
     let exercise = 0
 
@@ -56,8 +53,6 @@
     const onReset = () => {
         reset()
 
-        lapTimes = []
-        deltas = []
         done = false
         exercise = 0
     }
@@ -86,7 +81,6 @@
             <StopButton {onStop} />
         {/if}
     {:else}
-        <Completed times={lapTimes} />
+        <Completed />
     {/if}
-
 </main>
