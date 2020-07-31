@@ -19,7 +19,7 @@
 {#if !$elapsed}
     <Redirect to="/" />
 {:else}
-    <main class="grid grid-rows-completed justify-center items-center">
+    <main class="grid grid-rows-completed justify-center items-center pb-10">
         <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
             completed
         </h2>

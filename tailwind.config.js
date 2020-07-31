@@ -15,6 +15,9 @@ const config = {
             body: ["Roboto", "sans-serif"],
         },
         extend: {
+            height: {
+                details: "45vh",
+            },
             fontSize: {
                 "7xl": "5rem",
             },
@@ -30,7 +33,8 @@ const config = {
                 timer: "50fr 35fr 15fr",
                 stats: "auto 1fr",
                 settings: "85fr 15fr",
-                completed: "auto 35fr 65fr",
+                completed: "auto 1fr 45vh",
+                details: "auto 1fr 45vh",
             },
             gridTemplateColumns: {
                 form: "repeat(2, auto)",
