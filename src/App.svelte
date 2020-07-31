@@ -3,7 +3,9 @@
 
     import Home from "./components/Home.svelte"
     import Header from "./components/Header.svelte"
+    import Details from "./components/Details.svelte"
     import Settings from "./components/Settings.svelte"
+    import Completed from "./components/Completed.svelte"
 
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", function() {
@@ -26,6 +28,14 @@
 
         <Route path="/settings">
             <Settings />
+        </Route>
+
+        <Route path="/completed">
+            <Completed />
+        </Route>
+
+        <Route path="/details">
+            <Details />
         </Route>
 
     </div>

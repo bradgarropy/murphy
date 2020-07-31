@@ -1,12 +1,9 @@
-import {writable, get, derived} from "svelte/store"
+import {derived} from "svelte/store"
 import {runs, rounds} from "./settings.js"
 
 const createExercise = (name, round) => {
     const exercise = {
         name,
-        startTime: null,
-        endTime: null,
-        time: null,
         round,
     }
 
@@ -35,8 +32,6 @@ const createExercises = (runs, rounds) => {
     if (runs) {
         exercises.push(createExercise("1 mile run", rounds + base * 2))
     }
-
-    exercises[0].startTime = 0
 
     return exercises
 }

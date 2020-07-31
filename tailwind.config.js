@@ -30,6 +30,7 @@ const config = {
                 timer: "50fr 35fr 15fr",
                 stats: "auto 1fr",
                 settings: "85fr 15fr",
+                completed: "auto 35fr 65fr",
             },
             gridTemplateColumns: {
                 form: "repeat(2, auto)",

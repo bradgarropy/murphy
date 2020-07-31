@@ -1,11 +1,11 @@
 <script>
-    import {fade} from "svelte/transition"
     import {get} from "svelte/store"
+    import {fade} from "svelte/transition"
+    import {navigate} from "svelte-routing"
 
     import Time from "./Time.svelte"
     import Timer from "./Timer.svelte"
     import LetsGo from "./LetsGo.svelte"
-    import Completed from "./Completed.svelte"
     import NextButton from "./NextButton.svelte"
     import StopButton from "./StopButton.svelte"
     import ResetButton from "./ResetButton.svelte"
@@ -25,7 +25,6 @@
         reset,
     } from "../stores/timer.js"
 
-    let done = false
     let exercise = 0
 
     const onStart = () => {
@@ -41,7 +40,7 @@
 
         if (exercise === $exercises.length - 1) {
             stop()
-            done = true
+            navigate("/completed")
             return
         }
 
@@ -51,7 +50,6 @@
     const onReset = () => {
         reset()
 
-        done = false
         exercise = 0
     }
 </script>
@@ -59,26 +57,21 @@
 <main
     class="h-full grid grid-rows-timer row-gap-4 items-center"
     in:fade={{duration: 500}}>
-
-    {#if !done}
-        {#if !$running && !$elapsed}
-            <LetsGo />
-        {:else}
-            <Timer {exercise} />
-        {/if}
-
-        {#if !$running}
-            <StartButton {onStart} />
-        {:else}
-            <NextButton {onNext} />
-        {/if}
-
-        {#if !$running && $elapsed}
-            <ResetButton {onReset} />
-        {:else}
-            <StopButton {onStop} />
-        {/if}
+    {#if !$running && !$elapsed}
+        <LetsGo />
     {:else}
-        <Completed />
+        <Timer {exercise} />
+    {/if}
+
+    {#if !$running}
+        <StartButton {onStart} />
+    {:else}
+        <NextButton {onNext} />
+    {/if}
+
+    {#if !$running && $elapsed}
+        <ResetButton {onReset} />
+    {:else}
+        <StopButton {onStop} />
     {/if}
 </main>
