@@ -15,9 +15,6 @@ const config = {
             body: ["Roboto", "sans-serif"],
         },
         extend: {
-            height: {
-                details: "45vh",
-            },
             fontSize: {
                 "7xl": "5rem",
             },

@@ -49,7 +49,7 @@
 
         <Time time={$elapsed} />
 
-        <div class="overflow-y-scroll h-details">
+        <div class="overflow-y-scroll h-full">
             {#each roundTimes as roundTime, index}
                 <div class="flex justify-between text-xl uppercase">
                     <span class="tracking-tighter font-bold">
