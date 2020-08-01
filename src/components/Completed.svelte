@@ -5,9 +5,27 @@
     import Redirect from "./Redirect.svelte"
 
     import {elapsed, reset} from "../stores/timer.js"
+    import {WORKOUT_MUTATION} from "../graphql/mutations.js"
 
     const onDetails = () => {
         navigate("/details")
+    }
+
+    const onSave = async () => {
+        const workout = {
+            user: 3,
+            exercises: new Date().toISOString(),
+        }
+
+        fetch("/api/fauna", {
+            method: "POST",
+            body: JSON.stringify({
+                query: WORKOUT_MUTATION,
+                variables: {data: workout},
+            }),
+        })
+
+        // TODO: handle fetch error
     }
 
     const onReset = () => {
@@ -26,12 +44,19 @@
 
         <Time time={$elapsed} />
 
-        <div class="grid grid-rows-2 gap-10 justify-center text-xl">
+        <div class="grid grid-rows-3 gap-6 justify-center text-xl">
             <button
                 on:click={onDetails}
                 class="w-64 h-20 bg-green text-white font-bold font-body
                 uppercase ">
                 details
+            </button>
+
+            <button
+                on:click={onSave}
+                class="w-64 h-20 bg-yellow text-white font-bold font-body
+                uppercase ">
+                save
             </button>
 
             <button
