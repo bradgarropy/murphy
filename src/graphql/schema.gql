@@ -1,0 +1,9 @@
+type Workout {
+    user: Int!
+    exercises: String!
+}
+
+type Query {
+    allWorkouts: [Workout!]
+    findWorkoutsByUser(user: Int!): [Workout!]
+}

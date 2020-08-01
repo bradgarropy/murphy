@@ -14,12 +14,12 @@ const config = {
     },
     plugins: [
         svelte({dev: process.env.ROLLUP_WATCH}),
-        resolve(),
+        resolve({browser: true}),
         copy({targets: [{src: "static/*", dest: path}]}),
         process.env.ROLLUP_WATCH &&
             serve({
                 contentBase: path,
-                port: 8000,
+                port: 5000,
                 historyApiFallback: true,
             }),
         process.env.ROLLUP_WATCH && livereload(path),
