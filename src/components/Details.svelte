@@ -6,16 +6,12 @@
     import Time from "./Time.svelte"
     import Redirect from "./Redirect.svelte"
 
+    import {workout} from "../stores/workout.js"
     import {elapsed, laps} from "../stores/timer.js"
     import {exercises} from "../stores/exercises.js"
     import {runs, rounds} from "../stores/settings.js"
 
-    const results = $exercises.map((exercise, index) => ({
-        ...exercise,
-        ...$laps[index],
-    }))
-
-    const roundTimes = results.reduce((acc, curr) => {
+    const roundTimes = $workout.reduce((acc, curr) => {
         const index = acc.findIndex(e => e.number === curr.round)
 
         if (index > 0) {

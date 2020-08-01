@@ -4,6 +4,7 @@
     import Time from "./Time.svelte"
     import Redirect from "./Redirect.svelte"
 
+    import {workout} from "../stores/workout.js"
     import {elapsed, reset} from "../stores/timer.js"
     import {WORKOUT_MUTATION} from "../graphql/mutations.js"
 
@@ -12,20 +13,21 @@
     }
 
     const onSave = async () => {
-        const workout = {
-            user: 3,
-            exercises: new Date().toISOString(),
+        const data = {
+            user: 1,
+            exercises: JSON.stringify($workout),
         }
 
         fetch("/api/fauna", {
             method: "POST",
             body: JSON.stringify({
                 query: WORKOUT_MUTATION,
-                variables: {data: workout},
+                variables: {data},
             }),
         })
 
         // TODO: handle fetch error
+        // TODO: handle saving state
     }
 
     const onReset = () => {
