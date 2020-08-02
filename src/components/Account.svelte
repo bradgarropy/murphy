@@ -29,8 +29,8 @@
             ],
             mode: "payment",
             customerEmail: $user.email,
-            successUrl: "/thanks",
-            cancelUrl: "/account",
+            successUrl: "https://murphee.netlify.app/thanks",
+            cancelUrl: "https://murphee.netlify.app/account",
         })
     }
 </script>
