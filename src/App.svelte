@@ -3,15 +3,13 @@
 
     import Home from "./components/Home.svelte"
     import Header from "./components/Header.svelte"
+    import Account from "./components/Account.svelte"
     import Details from "./components/Details.svelte"
     import Settings from "./components/Settings.svelte"
     import Completed from "./components/Completed.svelte"
 
-    if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function() {
-            navigator.serviceWorker.register("/sw.js").then(() => {}, () => {})
-        })
-    }
+    import "./utils/pwa.js"
+    import "./utils/identity.js"
 </script>
 
 <Router>
@@ -36,6 +34,10 @@
 
         <Route path="/details">
             <Details />
+        </Route>
+
+        <Route path="/account">
+            <Account />
         </Route>
 
     </div>

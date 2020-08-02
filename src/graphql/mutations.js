@@ -1,7 +1,8 @@
 const WORKOUT_MUTATION = `
     mutation createWorkout($data: WorkoutInput!) {
         createWorkout(data: $data) {
-            user
+            id
+            email
             exercises
         }
     }

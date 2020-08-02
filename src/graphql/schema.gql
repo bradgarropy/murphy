@@ -1,9 +1,11 @@
 type Workout {
-    user: Int!
+    id: String!
+    email: String!
     exercises: String!
 }
 
 type Query {
     allWorkouts: [Workout!]
-    findWorkoutsByUser(user: Int!): [Workout!]
+    findWorkoutsById(id: String!): [Workout!]
+    findWorkoutsByEmail(email: String!): [Workout!]
 }

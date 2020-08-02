@@ -21,10 +21,6 @@ const config = {
             scale: {
                 "300": "3",
             },
-            inset: {
-                "middle": "50%",
-                "20": "20px",
-            },
             gridTemplateRows: {
                 layout: "auto 1fr",
                 timer: "50fr 35fr 15fr",

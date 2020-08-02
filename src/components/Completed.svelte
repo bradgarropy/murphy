@@ -1,9 +1,11 @@
 <script>
     import {navigate} from "svelte-routing"
+    import netlifyIdentity from "netlify-identity-widget"
 
     import Time from "./Time.svelte"
     import Redirect from "./Redirect.svelte"
 
+    import {user} from "../stores/user.js"
     import {workout} from "../stores/workout.js"
     import {elapsed, reset} from "../stores/timer.js"
     import {WORKOUT_MUTATION} from "../graphql/mutations.js"
@@ -14,12 +16,16 @@
 
     const onSave = async () => {
         const data = {
-            user: 1,
+            id: $user.id,
+            email: $user.email,
             exercises: JSON.stringify($workout),
         }
 
         fetch("/api/fauna", {
             method: "POST",
+            headers: {
+                Authorization: `Bearer ${$user.token.access_token}`,
+            },
             body: JSON.stringify({
                 query: WORKOUT_MUTATION,
                 variables: {data},
@@ -46,25 +52,26 @@
 
         <Time time={$elapsed} />
 
-        <div class="grid grid-rows-3 gap-6 justify-center text-xl">
+        <div class="grid grid-rows-3 gap-6 justify-center">
             <button
                 on:click={onDetails}
-                class="w-64 h-20 bg-green text-white font-bold font-body
-                uppercase ">
+                class="w-64 h-20 bg-green text-white text-2xl font-bold
+                font-body uppercase ">
                 details
             </button>
 
             <button
                 on:click={onSave}
-                class="w-64 h-20 bg-yellow text-white font-bold font-body
-                uppercase ">
+                disabled={!$user}
+                class="w-64 h-20 bg-yellow disabled:bg-gray text-white text-2xl
+                font-bold font-body uppercase ">
                 save
             </button>
 
             <button
                 on:click={onReset}
-                class="w-64 h-20 bg-red text-white font-bold font-body uppercase
-                ">
+                class="w-64 h-20 bg-red text-white text-2xl font-bold font-body
+                uppercase ">
                 reset
             </button>
         </div>
