@@ -1,5 +1,6 @@
 <script>
     import {navigate} from "svelte-routing"
+    import {loadStripe} from "@stripe/stripe-js"
     import netlifyIdentity from "netlify-identity-widget"
 
     import {user} from "../stores/user.js"
@@ -15,6 +16,23 @@
     const onSignup = () => {
         netlifyIdentity.open("signup")
     }
+
+    const onPro = async () => {
+        const stripe = await loadStripe("pk_test_dhKNdBfrivRQXMnWPd7Msrow")
+
+        stripe.redirectToCheckout({
+            lineItems: [
+                {
+                    price: "price_1HBlrkBthckZG10zk9Ho2WRR",
+                    quantity: 1,
+                },
+            ],
+            mode: "payment",
+            customerEmail: $user.email,
+            successUrl: "/thanks",
+            cancelUrl: "/account",
+        })
+    }
 </script>
 
 <main class="grid content-center justify-center gap-6">
@@ -25,6 +43,13 @@
             class="w-64 h-20 bg-red text-white text-2xl font-bold font-body
             uppercase ">
             logout
+        </button>
+
+        <button
+            on:click={onPro}
+            class="w-64 h-20 bg-yellow text-white text-2xl font-bold font-body
+            uppercase ">
+            go pro
         </button>
     {:else}
         <button

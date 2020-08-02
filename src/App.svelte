@@ -3,6 +3,7 @@
 
     import Home from "./components/Home.svelte"
     import Header from "./components/Header.svelte"
+    import Thanks from "./components/Thanks.svelte"
     import Account from "./components/Account.svelte"
     import Details from "./components/Details.svelte"
     import Settings from "./components/Settings.svelte"
@@ -40,5 +41,8 @@
             <Account />
         </Route>
 
+        <Route path="/thanks">
+            <Thanks />
+        </Route>
     </div>
 </Router>
