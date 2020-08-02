@@ -26,6 +26,7 @@
     },
     "scripts": {
         "start": "npm-run-all --parallel watch:**",
+        "prebuild": "cd functions/fauna && npm install",
         "build": "npm-run-all --parallel build:**",
         "watch:svelte": "rollup -c --watch",
         "build:svelte": "rollup -c",
