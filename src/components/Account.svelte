@@ -6,11 +6,19 @@
     import {user} from "../stores/user.js"
 
     const onLogin = () => {
+        netlifyIdentity.on("login", u => {
+            user.set(u)
+            netlifyIdentity.close()
+            netlifyIdentity.off("login")
+            navigate("/")
+        })
+
         netlifyIdentity.open("login")
     }
 
     const onLogout = () => {
         netlifyIdentity.logout()
+        navigate("/")
     }
 
     const onSignup = () => {

@@ -52,7 +52,7 @@
         "rollup-plugin-serve": "^1.0.3",
         "rollup-plugin-svelte": "^5.2.3",
         "svelte": "^3.24.0",
-        "tailwindcss": "^1.6.1"
+        "tailwindcss": "^1.6.2"
     },
     "peerDependencies": {}
 }
