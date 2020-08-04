@@ -1,4 +1,4 @@
-const handler = () => {
+const handler = async () => {
     console.log("signup")
 
     const response = {
@@ -9,6 +9,8 @@ const handler = () => {
             },
         }),
     }
+
+    console.log(response)
 
     return response
 }
