@@ -1,16 +1,14 @@
 const handler = async () => {
-    console.log("signup")
+    const body = {
+        app_metadata: {
+            roles: ["free"],
+        },
+    }
 
     const response = {
         statusCode: 200,
-        body: JSON.stringify({
-            app_metadata: {
-                roles: ["free"],
-            },
-        }),
+        body: JSON.stringify(body),
     }
-
-    console.log(response)
 
     return response
 }
