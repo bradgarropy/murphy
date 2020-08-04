@@ -26,6 +26,7 @@
     }
 
     const onPro = async () => {
+        console.log("onPro")
         const stripe = await loadStripe("pk_test_dhKNdBfrivRQXMnWPd7Msrow")
 
         stripe.redirectToCheckout({
@@ -37,8 +38,10 @@
             ],
             mode: "payment",
             customerEmail: $user.email,
-            successUrl: "https://murphee.netlify.app/thanks",
-            cancelUrl: "https://murphee.netlify.app/account",
+            // successUrl: "https://murphee.netlify.app/thanks",
+            // cancelUrl: "https://murphee.netlify.app/account",
+            successUrl: "http://localhost:8888/thanks",
+            cancelUrl: "http://localhost:8888/account",
         })
     }
 </script>
