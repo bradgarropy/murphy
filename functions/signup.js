@@ -1,5 +1,5 @@
 const handler = () => {
-    console.log("identity-signup")
+    console.log("signup")
 
     const response = {
         statusCode: 200,
