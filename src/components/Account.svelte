@@ -37,7 +37,6 @@
                 },
             ],
             mode: "payment",
-            customerEmail: $user.email,
             // successUrl: "https://murphee.netlify.app/thanks",
             // cancelUrl: "https://murphee.netlify.app/account",
             successUrl: "http://localhost:8888/thanks",
@@ -55,13 +54,6 @@
             uppercase ">
             logout
         </button>
-
-        <button
-            on:click={onPro}
-            class="w-64 h-20 bg-yellow text-white text-2xl font-bold font-body
-            uppercase ">
-            go pro
-        </button>
     {:else}
         <button
             on:click={onLogin}
@@ -75,6 +67,13 @@
             class="w-64 h-20 bg-yellow text-white text-2xl font-bold font-body
             uppercase ">
             signup
+        </button>
+
+        <button
+            on:click={onPro}
+            class="w-64 h-20 bg-yellow text-white text-2xl font-bold font-body
+            uppercase ">
+            go pro
         </button>
     {/if}
 

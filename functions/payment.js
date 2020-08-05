@@ -8,10 +8,12 @@ const handler = async (event, context) => {
         return {statusCode: 200}
     }
 
-    const email = body.data.object.customer_email
+    console.log(context)
+    const customerId = body.data.object.customer
 
-    const customer = await stripe.customers.create({email})
-    console.log(customer)
+    const customer = await stripe.customers.retrieve(customerId)
+    console.log(customer.email)
+    console.log(context)
 
     // const body = {
     //     app_metadata: {
