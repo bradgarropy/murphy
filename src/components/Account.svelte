@@ -69,12 +69,12 @@
             signup
         </button>
 
-        <button
+        <!-- <button
             on:click={onPro}
             class="w-64 h-20 bg-yellow text-white text-2xl font-bold font-body
             uppercase ">
             go pro
-        </button>
+        </button> -->
     {/if}
 
 </main>

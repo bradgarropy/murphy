@@ -8,6 +8,7 @@
     import Details from "./components/Details.svelte"
     import Settings from "./components/Settings.svelte"
     import Completed from "./components/Completed.svelte"
+    import ProtectedRoute from "./components/ProtectedRoute.svelte"
 
     import "./utils/pwa.js"
     import "./utils/identity.js"
@@ -17,32 +18,32 @@
     <div class="h-full grid grid-rows-layout row-gap-4">
         <Header />
 
-        <Route path="/">
+        <ProtectedRoute path="/">
             <Home />
-        </Route>
+        </ProtectedRoute>
 
-        <Route path="/timer">
+        <ProtectedRoute path="/timer">
             <Home />
-        </Route>
+        </ProtectedRoute>
 
-        <Route path="/settings">
+        <ProtectedRoute path="/settings">
             <Settings />
-        </Route>
+        </ProtectedRoute>
 
-        <Route path="/completed">
+        <ProtectedRoute path="/completed">
             <Completed />
-        </Route>
+        </ProtectedRoute>
 
-        <Route path="/details">
+        <ProtectedRoute path="/details">
             <Details />
-        </Route>
+        </ProtectedRoute>
 
         <Route path="/account">
             <Account />
         </Route>
 
-        <Route path="/thanks">
+        <ProtectedRoute path="/thanks">
             <Thanks />
-        </Route>
+        </ProtectedRoute>
     </div>
 </Router>
