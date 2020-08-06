@@ -16,7 +16,11 @@
         exercise => exercise.round === round.number,
     )
 
-    const onClick = () => expanded.set(!$expanded)
+    const onClick = () => {
+        if (workoutExercises.length > 1) {
+            expanded.set(!$expanded)
+        }
+    }
 </script>
 
 <div class="grid grid-cols-2 text-xl uppercase" on:click={onClick}>
