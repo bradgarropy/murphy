@@ -5,6 +5,7 @@ const config = {
             black: "#312221",
             gray: "#8D8F91",
             silver: "#B6B8B9",
+            offWhite: "#EAEBEB",
             white: "#FFFFFF",
             yellow: "#F7CB1D",
             red: "#CB152B",

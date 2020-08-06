@@ -1,15 +1,13 @@
 <script>
-    import {format} from "date-fns"
-    import {onMount} from "svelte"
+    import {writable} from "svelte/store"
     import {navigate} from "svelte-routing"
 
     import Time from "./Time.svelte"
+    import Round from "./Round.svelte"
     import Redirect from "./Redirect.svelte"
 
     import {workout} from "../stores/workout.js"
     import {elapsed, laps} from "../stores/timer.js"
-    import {exercises} from "../stores/exercises.js"
-    import {runs, rounds} from "../stores/settings.js"
 
     const roundTimes = $workout.reduce((acc, curr) => {
         const index = acc.findIndex(e => e.number === curr.round)
@@ -25,14 +23,6 @@
 
         return acc
     }, [])
-
-    const getRoundLabel = number => {
-        if ((number === 1 || number === $rounds + 2) && $runs) {
-            return $exercises[0].name
-        }
-
-        return `Round ${number - 1}`
-    }
 </script>
 
 {#if !$laps[0].time}
@@ -46,16 +36,8 @@
         <Time time={$elapsed} />
 
         <div class="overflow-y-scroll h-full">
-            {#each roundTimes as roundTime, index}
-                <div class="flex justify-between text-xl uppercase">
-                    <span class="tracking-tighter font-bold">
-                        {getRoundLabel(roundTime.number)}
-                    </span>
-
-                    <span class="tracking-widest">
-                        {format($laps[index].time, 'mm:ss:SS')}
-                    </span>
-                </div>
+            {#each roundTimes as round}
+                <Round {round} />
             {/each}
         </div>
     </main>
