@@ -1,10 +1,13 @@
 <script>
+    import {completed} from "../stores/workout.js"
+
     export let onStart
 </script>
 
 <button
     on:click={onStart}
-    class="w-full h-full bg-green text-5xl text-white font-bold font-body
-    uppercase">
+    disabled={$completed}
+    class="w-full h-full bg-green disabled:bg-gray text-5xl text-white font-bold
+    font-body uppercase">
     start
 </button>

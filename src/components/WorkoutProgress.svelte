@@ -1,11 +1,17 @@
 <script>
     import {runs, rounds} from "../stores/settings.js"
-
-    export let round
+    import {workout, completed} from "../stores/workout.js"
 
     $: {
-        const totalRounds = $rounds + ($runs ? 2 : 0)
-        const progress = Math.round((round / totalRounds) * 100)
+        let progress
+
+        if ($completed) {
+            progress = 100
+        } else {
+            const exercise = $workout.find(e => !e.time)
+            const totalRounds = $rounds + ($runs ? 2 : 0)
+            progress = Math.round((exercise.round / totalRounds) * 100)
+        }
 
         document.documentElement.style.setProperty(
             "--percentage",

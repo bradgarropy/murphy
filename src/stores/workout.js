@@ -1,4 +1,4 @@
-import {derived} from "svelte/store"
+import {derived, writable} from "svelte/store"
 
 import {laps} from "./timer.js"
 import {exercises} from "./exercises.js"
@@ -10,4 +10,6 @@ const workout = derived([laps, exercises], ([$laps, $exercises]) =>
     })),
 )
 
-export {workout}
+const completed = writable(false)
+
+export {workout, completed}

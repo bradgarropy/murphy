@@ -1,4 +1,5 @@
 <script>
+    import {fade} from "svelte/transition"
     import {navigate} from "svelte-routing"
     import {loadStripe} from "@stripe/stripe-js"
     import netlifyIdentity from "netlify-identity-widget"
@@ -26,7 +27,6 @@
     }
 
     const onPro = async () => {
-        console.log("onPro")
         const stripe = await loadStripe("pk_test_dhKNdBfrivRQXMnWPd7Msrow")
 
         stripe.redirectToCheckout({
@@ -45,7 +45,9 @@
     }
 </script>
 
-<main class="grid content-center justify-center gap-6">
+<main
+    class="grid content-center justify-center gap-6"
+    in:fade={{duration: 500}}>
 
     {#if $user}
         <button

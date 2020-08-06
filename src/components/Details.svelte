@@ -1,5 +1,6 @@
 <script>
     import {writable} from "svelte/store"
+    import {fade} from "svelte/transition"
     import {navigate} from "svelte-routing"
 
     import Time from "./Time.svelte"
@@ -28,7 +29,9 @@
 {#if !$laps[0].time}
     <Redirect to="/" />
 {:else}
-    <main class="grid grid-rows-details justify-center items-center pb-10">
+    <main
+        class="grid grid-rows-details justify-center items-center pb-10"
+        in:fade={{duration: 500}}>
         <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
             completed
         </h2>
