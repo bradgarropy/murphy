@@ -10,6 +10,7 @@
     import StartButton from "./StartButton.svelte"
 
     import {user} from "../stores/user.js"
+    import {saving} from "../stores/app.js"
     import {rounds} from "../stores/settings.js"
     import {exercises} from "../stores/exercises.js"
     import {workout, completed} from "../stores/workout.js"
@@ -41,8 +42,7 @@
         if (exercise === $exercises.length - 1) {
             stop()
             completed.set(true)
-
-            console.log("START SAVING")
+            saving.set(true)
 
             const data = {
                 id: $user.id,
@@ -61,12 +61,9 @@
                 }),
             })
 
-            const res = await response.json()
-
-            console.log("FINISH SAVING")
-
             // TODO: handle fetch error
-            // TODO: handle saving state
+            const res = await response.json()
+            saving.set(false)
 
             navigate("/completed")
             return

@@ -37,7 +37,7 @@
         "date-fns": "^2.15.0",
         "netlify-identity-widget": "^1.9.1",
         "node-fetch": "^2.6.0",
-        "stripe": "^8.82.0",
+        "stripe": "^8.83.0",
         "svelte-routing": "^1.4.2"
     },
     "devDependencies": {
@@ -52,7 +52,7 @@
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-serve": "^1.0.3",
         "rollup-plugin-svelte": "^5.2.3",
-        "svelte": "^3.24.0",
+        "svelte": "^3.24.1",
         "tailwindcss": "^1.6.2"
     },
     "peerDependencies": {}
