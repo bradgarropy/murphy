@@ -1,6 +1,8 @@
 <script>
     import {fade} from "svelte/transition"
 
+    import Details from "../components/Details.svelte"
+
     import {WORKOUT_QUERY} from "../graphql/queries.js"
 
     export let params
@@ -31,7 +33,7 @@
     {#await workout}
         <p>loading</p>
     {:then workout}
-        <p>{workout.email}</p>
+        <Details workout={workout.exercises} />
     {/await}
 
 </main>
