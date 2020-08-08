@@ -3,9 +3,9 @@
     import {fade} from "svelte/transition"
     import {navigate} from "svelte-routing"
 
-    import Time from "./Time.svelte"
-    import Round from "./Round.svelte"
-    import Redirect from "./Redirect.svelte"
+    import Time from "../components/Time.svelte"
+    import Round from "../components/Round.svelte"
+    import Redirect from "../components/Redirect.svelte"
 
     import {workout} from "../stores/workout.js"
     import {elapsed, laps} from "../stores/timer.js"

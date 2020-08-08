@@ -1,14 +1,16 @@
 <script>
     import {Router, Route, Link} from "svelte-routing"
 
-    import Home from "./components/Home.svelte"
+    import HomePage from "./pages/HomePage.svelte"
     import Header from "./components/Header.svelte"
     import Saving from "./components/Saving.svelte"
-    import Thanks from "./components/Thanks.svelte"
-    import Account from "./components/Account.svelte"
-    import Details from "./components/Details.svelte"
-    import Settings from "./components/Settings.svelte"
-    import Completed from "./components/Completed.svelte"
+    import ThanksPage from "./pages/ThanksPage.svelte"
+    import AccountPage from "./pages/AccountPage.svelte"
+    import DetailsPage from "./pages/DetailsPage.svelte"
+    import WorkoutPage from "./pages/WorkoutPage.svelte"
+    import SettingsPage from "./pages/SettingsPage.svelte"
+    import WorkoutsPage from "./pages/WorkoutsPage.svelte"
+    import CompletedPage from "./pages/CompletedPage.svelte"
     import ProtectedRoute from "./components/ProtectedRoute.svelte"
 
     import {saving} from "./stores/app.js"
@@ -26,31 +28,39 @@
         {/if}
 
         <ProtectedRoute path="/">
-            <Home />
+            <HomePage />
         </ProtectedRoute>
 
         <ProtectedRoute path="/timer">
-            <Home />
+            <HomePage />
         </ProtectedRoute>
 
         <ProtectedRoute path="/settings">
-            <Settings />
+            <SettingsPage />
         </ProtectedRoute>
 
         <ProtectedRoute path="/completed">
-            <Completed />
+            <CompletedPage />
         </ProtectedRoute>
 
         <ProtectedRoute path="/details">
-            <Details />
+            <DetailsPage />
         </ProtectedRoute>
 
         <Route path="/account">
-            <Account />
+            <AccountPage />
         </Route>
 
+        <ProtectedRoute path="/workouts">
+            <WorkoutsPage />
+        </ProtectedRoute>
+
+        <ProtectedRoute path="/workout/:id" let:params>
+            <WorkoutPage id={params.id} />
+        </ProtectedRoute>
+
         <ProtectedRoute path="/thanks">
-            <Thanks />
+            <ThanksPage />
         </ProtectedRoute>
     </div>
 </Router>

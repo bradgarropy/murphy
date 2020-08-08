@@ -3,8 +3,8 @@
     import {navigate} from "svelte-routing"
     import netlifyIdentity from "netlify-identity-widget"
 
-    import Time from "./Time.svelte"
-    import Redirect from "./Redirect.svelte"
+    import Time from "../components/Time.svelte"
+    import Redirect from "../components/Redirect.svelte"
 
     import {user} from "../stores/user.js"
     import {completed} from "../stores/workout.js"

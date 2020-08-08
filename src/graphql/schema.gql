@@ -1,11 +1,9 @@
 type Workout {
-    id: String!
     email: String!
     exercises: String!
 }
 
 type Query {
     allWorkouts: [Workout!]
-    findWorkoutsById(id: String!): [Workout!]
     findWorkoutsByEmail(email: String!): [Workout!]
 }

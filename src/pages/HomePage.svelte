@@ -2,12 +2,12 @@
     import {fade} from "svelte/transition"
     import {navigate} from "svelte-routing"
 
-    import Timer from "./Timer.svelte"
-    import LetsGo from "./LetsGo.svelte"
-    import NextButton from "./NextButton.svelte"
-    import StopButton from "./StopButton.svelte"
-    import ResetButton from "./ResetButton.svelte"
-    import StartButton from "./StartButton.svelte"
+    import Timer from "../components/Timer.svelte"
+    import LetsGo from "../components/LetsGo.svelte"
+    import NextButton from "../components/NextButton.svelte"
+    import StopButton from "../components/StopButton.svelte"
+    import ResetButton from "../components/ResetButton.svelte"
+    import StartButton from "../components/StartButton.svelte"
 
     import {user} from "../stores/user.js"
     import {saving} from "../stores/app.js"
@@ -45,7 +45,6 @@
             saving.set(true)
 
             const data = {
-                id: $user.id,
                 email: $user.email,
                 exercises: JSON.stringify($workout),
             }
