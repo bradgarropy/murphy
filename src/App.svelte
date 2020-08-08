@@ -56,7 +56,7 @@
         </ProtectedRoute>
 
         <ProtectedRoute path="/workout/:id" let:params>
-            <WorkoutPage id={params.id} />
+            <WorkoutPage {params} />
         </ProtectedRoute>
 
         <ProtectedRoute path="/thanks">

@@ -10,6 +10,16 @@ const WORKOUTS_QUERY = `
     }
 `
 
+const WORKOUT_QUERY = `
+    query findWorkoutById($id: ID!) {
+        findWorkoutByID(id: $id) {
+            _ts
+            email
+            exercises
+        }
+    }
+`
+
 const USER_WORKOUTS_QUERY = `
     query findWorkoutsByEmail($email: String!) {
         findWorkoutsByEmail(email: $email) {
@@ -23,4 +33,4 @@ const USER_WORKOUTS_QUERY = `
     }
 `
 
-export {WORKOUTS_QUERY, USER_WORKOUTS_QUERY}
+export {WORKOUTS_QUERY, WORKOUT_QUERY, USER_WORKOUTS_QUERY}

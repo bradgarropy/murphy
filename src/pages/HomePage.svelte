@@ -51,9 +51,6 @@
 
             const response = await fetch("/api/fauna", {
                 method: "POST",
-                headers: {
-                    Authorization: `Bearer ${$user.token.access_token}`,
-                },
                 body: JSON.stringify({
                     query: WORKOUT_MUTATION,
                     variables: {data},

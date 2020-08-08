@@ -8,10 +8,10 @@
     export let path
 </script>
 
-<Route {path}>
+<Route {path} let:params>
     {#if !$user}
         <Redirect to="/account" />
     {:else}
-        <slot />
+        <slot {params} />
     {/if}
 </Route>
