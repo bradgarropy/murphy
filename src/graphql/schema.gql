@@ -1,4 +1,5 @@
 type Workout {
+    date: Time!
     email: String!
     exercises: String!
 }

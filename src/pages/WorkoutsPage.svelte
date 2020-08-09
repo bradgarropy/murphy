@@ -21,7 +21,7 @@
 
         const workouts = res.data.findWorkoutsByEmail.data.map(workout => ({
             ...workout,
-            _ts: workout._ts / 1000,
+            date: Date.parse(workout.date),
             exercises: JSON.parse(workout.exercises),
         }))
 
@@ -37,7 +37,7 @@
     {:then workouts}
         {#each workouts as workout}
             <Link to={`/workout/${workout._id}`}>
-                <p>{format(workout._ts, 'PPPpp')}</p>
+                <p>{format(workout.date, 'PPPpp')}</p>
             </Link>
         {/each}
     {/await}

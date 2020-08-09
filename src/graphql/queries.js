@@ -2,7 +2,7 @@ const WORKOUTS_QUERY = `
     query allWorkouts {
         allWorkouts {
             data {
-                _ts
+                date
                 email
                 exercises
             }
@@ -13,7 +13,7 @@ const WORKOUTS_QUERY = `
 const WORKOUT_QUERY = `
     query findWorkoutById($id: ID!) {
         findWorkoutByID(id: $id) {
-            _ts
+            date
             email
             exercises
         }
@@ -25,7 +25,7 @@ const USER_WORKOUTS_QUERY = `
         findWorkoutsByEmail(email: $email) {
             data {
                 _id
-                _ts
+                date
                 email
                 exercises
             }

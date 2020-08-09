@@ -10,6 +10,12 @@ const workout = derived([laps, exercises], ([$laps, $exercises]) =>
     })),
 )
 
+const date = writable()
 const completed = writable(false)
 
-export {workout, completed}
+const resetWorkout = () => {
+    date.set()
+    completed.set(false)
+}
+
+export {date, completed, workout, resetWorkout}

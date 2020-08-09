@@ -6,18 +6,17 @@
     import Time from "../components/Time.svelte"
     import Redirect from "../components/Redirect.svelte"
 
+    import {elapsed, resetTimer} from "../stores/timer.js"
     import {user} from "../stores/user.js"
-    import {completed} from "../stores/workout.js"
-    import {elapsed, reset} from "../stores/timer.js"
-    import {WORKOUT_MUTATION} from "../graphql/mutations.js"
+    import {resetWorkout} from "../stores/workout.js"
 
     const onDetails = () => {
         navigate("/details")
     }
 
     const onReset = () => {
-        reset()
-        completed.set(false)
+        resetTimer()
+        resetWorkout()
         navigate("/")
     }
 </script>

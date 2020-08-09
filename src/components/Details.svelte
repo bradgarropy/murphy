@@ -1,8 +1,7 @@
 <script>
+    import {format} from "date-fns"
     import Time from "./Time.svelte"
     import Round from "./Round.svelte"
-
-    import {elapsed} from "../stores/timer.js"
 
     export let workout
 
@@ -21,17 +20,14 @@
         return acc
     }, [])
 
-    $: {
-        console.log(workout)
-        console.log(rounds)
-    }
+    const elapsed = workout.reduce((acc, curr) => acc + curr.time, 0)
 </script>
 
 <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
-    completed
+    {workout.date ? format(workout.date, 'PPPpp') : 'completed'}
 </h2>
 
-<Time time={$elapsed} />
+<Time time={elapsed} />
 
 <div class="overflow-y-scroll h-full">
     {#each rounds as round}

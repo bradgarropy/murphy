@@ -20,7 +20,7 @@
         const res = await response.json()
 
         const workout = res.data.findWorkoutByID
-        workout._ts = workout._ts / 1000
+        workout.date = Date.parse(workout.date)
         workout.exercises = JSON.parse(workout.exercises)
 
         return workout

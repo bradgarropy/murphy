@@ -40,7 +40,7 @@ const stop = () => {
     clearInterval(id)
 }
 
-const reset = () => {
+const resetTimer = () => {
     elapsed.set(0)
     running.set(false)
     laps.set([{startTime: 0, endTime: null, time: null}])
@@ -50,4 +50,4 @@ const reset = () => {
     clearInterval(id)
 }
 
-export {running, elapsed, laps, start, lap, stop, reset}
+export {running, elapsed, laps, start, lap, stop, resetTimer}

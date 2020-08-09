@@ -11,17 +11,16 @@
 
     import {user} from "../stores/user.js"
     import {saving} from "../stores/app.js"
+    import {date, completed, workout} from "../stores/workout.js"
     import {rounds} from "../stores/settings.js"
     import {exercises} from "../stores/exercises.js"
-    import {workout, completed} from "../stores/workout.js"
     import {
         running,
         elapsed,
-        laps,
         start,
         lap,
         stop,
-        reset,
+        resetTimer,
     } from "../stores/timer.js"
 
     import {WORKOUT_MUTATION} from "../graphql/mutations.js"
@@ -30,6 +29,7 @@
 
     const onStart = () => {
         start()
+        date.set(Date.now())
     }
 
     const onStop = () => {
@@ -45,6 +45,7 @@
             saving.set(true)
 
             const data = {
+                date: new Date($date).toISOString(),
                 email: $user.email,
                 exercises: JSON.stringify($workout),
             }
@@ -69,8 +70,8 @@
     }
 
     const onReset = () => {
-        reset()
-        completed.set(false)
+        resetTimer()
+        resetWorkout()
 
         exercise = 0
     }
