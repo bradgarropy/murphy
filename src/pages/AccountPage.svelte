@@ -1,7 +1,7 @@
 <script>
     import {fade} from "svelte/transition"
     import {navigate} from "svelte-routing"
-    import {loadStripe} from "@stripe/stripe-js"
+    // import {loadStripe} from "@stripe/stripe-js"
     import netlifyIdentity from "netlify-identity-widget"
 
     import {user} from "../stores/user.js"
@@ -26,23 +26,21 @@
         netlifyIdentity.open("signup")
     }
 
-    const onPro = async () => {
-        const stripe = await loadStripe("pk_test_dhKNdBfrivRQXMnWPd7Msrow")
+    // const onPro = async () => {
+    //     const stripe = await loadStripe("pk_test_dhKNdBfrivRQXMnWPd7Msrow")
 
-        stripe.redirectToCheckout({
-            lineItems: [
-                {
-                    price: "price_1HBlrkBthckZG10zk9Ho2WRR",
-                    quantity: 1,
-                },
-            ],
-            mode: "payment",
-            // successUrl: "https://murphee.netlify.app/thanks",
-            // cancelUrl: "https://murphee.netlify.app/account",
-            successUrl: "http://localhost:8888/thanks",
-            cancelUrl: "http://localhost:8888/account",
-        })
-    }
+    //     stripe.redirectToCheckout({
+    //         lineItems: [
+    //             {
+    //                 price: "price_1HBlrkBthckZG10zk9Ho2WRR",
+    //                 quantity: 1,
+    //             },
+    //         ],
+    //         mode: "payment",
+    //         successUrl: "https://murphee.netlify.app/thanks",
+    //         cancelUrl: "https://murphee.netlify.app/account",
+    //     })
+    // }
 </script>
 
 <main

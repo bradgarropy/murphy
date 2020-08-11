@@ -20,7 +20,7 @@ const config = {
                 "7xl": "5rem",
             },
             scale: {
-                "300": "3",
+                300: "3",
             },
             gridTemplateRows: {
                 layout: "auto 1fr",

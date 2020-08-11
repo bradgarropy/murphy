@@ -31,7 +31,7 @@
     </span>
 
     <span class="tracking-widest text-right">
-        {format(round.time, 'mm:ss:SS')}
+        {format(round.time, "mm:ss:SS")}
     </span>
 
     {#if $expanded}
@@ -44,7 +44,7 @@
                 </span>
 
                 <span class="tracking-widest text-right">
-                    {format(exercise.time, `mm:ss:SS`)}
+                    {format(exercise.time, "mm:ss:SS")}
                 </span>
             {/each}
         </div>

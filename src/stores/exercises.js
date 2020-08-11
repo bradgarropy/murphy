@@ -37,7 +37,6 @@ const createExercises = (runs, rounds) => {
 }
 
 const exercises = derived([runs, rounds], ([$runs, $rounds]) =>
-    createExercises($runs, $rounds),
-)
+    createExercises($runs, $rounds),)
 
 export {exercises}

@@ -2,6 +2,7 @@ const fetch = require("node-fetch")
 
 exports.handler = async (event, context) => {
     // TODO: make sure user exists
+    // eslint-disable-next-line
     const {user} = context.clientContext
 
     const response = await fetch("https://graphql.fauna.com/graphql", {

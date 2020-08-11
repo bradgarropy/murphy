@@ -12,7 +12,6 @@
     import {user} from "../stores/user.js"
     import {saving} from "../stores/app.js"
     import {date, completed, workout, resetWorkout} from "../stores/workout.js"
-    import {rounds} from "../stores/settings.js"
     import {exercises} from "../stores/exercises.js"
     import {
         running,
@@ -59,7 +58,7 @@
             })
 
             // TODO: handle fetch error
-            const res = await response.json()
+            await response.json()
             saving.set(false)
 
             navigate("/completed")

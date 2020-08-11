@@ -7,8 +7,7 @@ const workout = derived([laps, exercises], ([$laps, $exercises]) =>
     $exercises.map((exercise, index) => ({
         ...exercise,
         ...$laps[index],
-    })),
-)
+    })),)
 
 const date = writable()
 const completed = writable(false)

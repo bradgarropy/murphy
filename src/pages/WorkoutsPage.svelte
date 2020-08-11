@@ -37,7 +37,7 @@
     {:then workouts}
         {#each workouts as workout}
             <Link to={`/workout/${workout._id}`}>
-                <p>{format(workout.date, 'PPPpp')}</p>
+                <p>{format(workout.date, "PPPpp")}</p>
             </Link>
         {/each}
     {/await}

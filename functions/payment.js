@@ -1,4 +1,4 @@
-const fetch = require("node-fetch")
+// const fetch = require("node-fetch")
 const stripe = require("stripe")("sk_test_m51gis4Lr4sqvj291N8BucPW")
 
 const handler = async (event, context) => {

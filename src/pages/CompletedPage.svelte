@@ -1,13 +1,11 @@
 <script>
     import {fade} from "svelte/transition"
     import {navigate} from "svelte-routing"
-    import netlifyIdentity from "netlify-identity-widget"
 
     import Time from "../components/Time.svelte"
     import Redirect from "../components/Redirect.svelte"
 
     import {elapsed, resetTimer} from "../stores/timer.js"
-    import {user} from "../stores/user.js"
     import {resetWorkout} from "../stores/workout.js"
 
     const onDetails = () => {

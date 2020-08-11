@@ -1,6 +1,5 @@
 <script>
     import {format} from "date-fns"
-    import {onDestroy} from "svelte"
 
     let className = ""
     export {className as class}
@@ -22,5 +21,5 @@
 </style>
 
 <time class="font-body tracking-widest text-6xl {blink && 'blink'} {className}">
-    {format(time, 'mm:ss:SS')}
+    {format(time, "mm:ss:SS")}
 </time>

@@ -25,7 +25,7 @@
 </script>
 
 <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
-    {date ? format(date, 'PPPpp') : 'completed'}
+    {date ? format(date, "PPPpp") : "completed"}
 </h2>
 
 <Time time={elapsed} />
