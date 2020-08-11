@@ -11,7 +11,7 @@
 
     import {user} from "../stores/user.js"
     import {saving} from "../stores/app.js"
-    import {date, completed, workout} from "../stores/workout.js"
+    import {date, completed, workout, resetWorkout} from "../stores/workout.js"
     import {rounds} from "../stores/settings.js"
     import {exercises} from "../stores/exercises.js"
     import {

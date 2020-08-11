@@ -3,9 +3,10 @@
     import Time from "./Time.svelte"
     import Round from "./Round.svelte"
 
-    export let workout
+    export let date = null
+    export let exercises
 
-    const rounds = workout.reduce((acc, curr) => {
+    const rounds = exercises.reduce((acc, curr) => {
         const index = acc.findIndex(e => e.number === curr.round)
 
         if (index > 0) {
@@ -20,11 +21,11 @@
         return acc
     }, [])
 
-    const elapsed = workout.reduce((acc, curr) => acc + curr.time, 0)
+    const elapsed = exercises.reduce((acc, curr) => acc + curr.time, 0)
 </script>
 
 <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
-    {workout.date ? format(workout.date, 'PPPpp') : 'completed'}
+    {date ? format(date, 'PPPpp') : 'completed'}
 </h2>
 
 <Time time={elapsed} />

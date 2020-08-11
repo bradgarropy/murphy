@@ -33,7 +33,7 @@
     {#await workout}
         <p>loading</p>
     {:then workout}
-        <Details workout={workout.exercises} />
+        <Details exercises={workout.exercises} date={workout.date} />
     {/await}
 
 </main>

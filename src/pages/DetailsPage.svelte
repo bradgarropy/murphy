@@ -14,6 +14,6 @@
     {#if !$laps[0].time}
         <Redirect to="/" />
     {:else}
-        <Details workout={$workout} />
+        <Details exercises={$workout} />
     {/if}
 </main>
