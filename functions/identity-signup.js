@@ -1,12 +1,28 @@
-const stripe = require("stripe")("sk_test_m51gis4Lr4sqvj291N8BucPW")
+const {USER_MUTATION} = require("../src/graphql/mutations")
 
 const handler = async (event, context) => {
     console.log(event)
     console.log(context)
     const {user} = JSON.parse(event.body)
+    console.log(user)
 
-    const customer = await stripe.customers.create({email: user.email})
-    console.log(customer)
+    const variables = {
+        id: user.id,
+        email: user.email,
+    }
+    console.log(variables)
+
+    const response = await fetch("/api/fauna", {
+        method: "POST",
+        body: JSON.stringify({
+            query: USER_MUTATION,
+            variables,
+        }),
+    })
+
+    // TODO: handle fetch error
+    const data = await response.json()
+    console.log(data)
 
     const body = {
         app_metadata: {
@@ -14,12 +30,10 @@ const handler = async (event, context) => {
         },
     }
 
-    const response = {
+    return {
         statusCode: 200,
         body: JSON.stringify(body),
     }
-
-    return response
 }
 
 module.exports = {handler}
