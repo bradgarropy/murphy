@@ -8,9 +8,12 @@ const handler = async (event, context) => {
     console.log(user)
 
     const variables = {
-        id: user.id,
-        email: user.email,
+        data: {
+            id: user.id,
+            email: user.email,
+        },
     }
+
     console.log(variables)
 
     const data = await graphql({query: USER_MUTATION, variables})
