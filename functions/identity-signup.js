@@ -1,3 +1,4 @@
+const fetch = require("node-fetch")
 const {USER_MUTATION} = require("./graphql/mutations")
 
 const handler = async (event, context) => {
