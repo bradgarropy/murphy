@@ -16,10 +16,9 @@ const handler = async (event, context) => {
         variables: {email},
     })
 
+    console.log(data)
     const {id} = data.getUserByEmail
     console.log(id)
-
-    // update user role
 
     const {url, token} = context.clientContext.identity
 
