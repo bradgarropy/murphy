@@ -12,7 +12,7 @@ const handler = async (event, context) => {
     }
 
     // get users id
-    const data = graphql({
+    const data = await graphql({
         query: USER_QUERY,
         variables: {email},
     })
