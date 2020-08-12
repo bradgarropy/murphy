@@ -5,7 +5,6 @@ const {USER_QUERY} = require("./graphql/queries")
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
     const email = body.data.object.customer_email
-    console.log(email)
 
     if (body.type !== "checkout.session.completed") {
         return {statusCode: 200}
@@ -16,10 +15,7 @@ const handler = async (event, context) => {
         variables: {email},
     })
 
-    console.log(data)
     const {id} = data.getUserByEmail
-    console.log(id)
-
     const {url, token} = context.clientContext.identity
 
     const updates = {
@@ -28,14 +24,11 @@ const handler = async (event, context) => {
         },
     }
 
-    const res = await fetch(`${url}/admin/users/${id}`, {
+    fetch(`${url}/admin/users/${id}`, {
         method: "PUT",
         headers: {Authorization: `Bearer ${token}`},
         body: JSON.stringify(updates),
     })
-
-    const d = await res.json()
-    console.log(d)
 
     const response = {
         statusCode: 200,
