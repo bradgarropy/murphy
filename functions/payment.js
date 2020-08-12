@@ -3,8 +3,10 @@ const stripe = require("stripe")("sk_test_m51gis4Lr4sqvj291N8BucPW")
 
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
+    console.log(body)
 
     if (body.type !== "checkout.session.completed") {
+        console.log("returning")
         return {statusCode: 200}
     }
 
