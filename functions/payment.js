@@ -11,7 +11,7 @@ const handler = async (event, context) => {
         return {statusCode: 200}
     }
 
-    const data = await graphql({
+    const {data} = await graphql({
         query: USER_QUERY,
         variables: {email},
     })
