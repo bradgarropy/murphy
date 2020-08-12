@@ -24,7 +24,7 @@ const handler = async (event, context) => {
         },
     }
 
-    fetch(`${url}/admin/users/${id}`, {
+    await fetch(`${url}/admin/users/${id}`, {
         method: "PUT",
         headers: {Authorization: `Bearer ${token}`},
         body: JSON.stringify(updates),
