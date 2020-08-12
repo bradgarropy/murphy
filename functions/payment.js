@@ -11,40 +11,39 @@ const handler = async (event, context) => {
         return {statusCode: 200}
     }
 
-    // get users id
     const data = await graphql({
         query: USER_QUERY,
         variables: {email},
     })
 
-    console.log(data)
-    return {statusCode: 200}
+    const {id} = data.getUserByEmail
+    console.log(id)
 
     // update user role
 
-    // const {url, token} = context.clientContext.identity
+    const {url, token} = context.clientContext.identity
 
-    // const updates = {
-    //     app_metadata: {
-    //         roles: ["free", "pro"],
-    //     },
-    // }
+    const updates = {
+        app_metadata: {
+            roles: ["free", "pro"],
+        },
+    }
 
-    // const res = await fetch(`${url}/admin/user`, {
-    //     method: "PUT",
-    //     headers: {Authorization: `Bearer ${token}`},
-    //     body: JSON.stringify(updates),
-    // })
+    const res = await fetch(`${url}/admin/users/${id}`, {
+        method: "PUT",
+        headers: {Authorization: `Bearer ${token}`},
+        body: JSON.stringify(updates),
+    })
 
-    // const data = await res.json()
-    // console.log(data)
+    const d = await res.json()
+    console.log(d)
 
-    // const response = {
-    //     statusCode: 200,
-    //     body: "payment",
-    // }
+    const response = {
+        statusCode: 200,
+        body: "pro",
+    }
 
-    // return response
+    return response
 }
 
 module.exports = {handler}
