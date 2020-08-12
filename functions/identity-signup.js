@@ -1,4 +1,4 @@
-const {USER_MUTATION} = require("../src/graphql/mutations")
+const {USER_MUTATION} = require("./graphql/mutations")
 
 const handler = async (event, context) => {
     console.log(event)
