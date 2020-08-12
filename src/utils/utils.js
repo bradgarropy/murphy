@@ -1,9 +1,11 @@
-const getRoundLabel = (number, runs, rounds, exercises) => {
-    if ((number === 1 || number === rounds + 2) && runs) {
+const getRoundLabel = round => {
+    const {number, exercises} = round
+
+    if (exercises.length === 1) {
         return exercises[0].name
     }
 
-    return `Round ${number - 1}`
+    return `Round ${number}`
 }
 
 export {getRoundLabel}

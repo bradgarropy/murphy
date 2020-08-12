@@ -9,18 +9,15 @@
     rounded-tl-md"
     in:fly={{duration: 300, opacity: 1, y: 20, easing: sineOut}}
     out:fly={{duration: 300, opacity: 1, y: 20, easing: sineIn}}>
-    <svg
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        width="24px"
-        height="24px"
-        viewBox="0 0 24 24"
-        stroke="currentColor">
+    <svg width="20px"
+        height="20px"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        class="animate-spin">
         <path
-            d="M8 17a5 5 0 01-.916-9.916 5.002 5.002 0 019.832 0A5.002 5.002 0
-            0116 17m-7-5l3-3m0 0l3 3m-3-3v12" />
+            fill-rule="evenodd"
+            d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+            clip-rule="evenodd"/>
     </svg>
 
     <span>saving</span>

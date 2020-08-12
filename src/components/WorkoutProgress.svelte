@@ -1,5 +1,4 @@
 <script>
-    import {runs, rounds} from "../stores/settings.js"
     import {workout, completed} from "../stores/workout.js"
 
     $: {
@@ -8,9 +7,8 @@
         if ($completed) {
             progress = 100
         } else {
-            const exercise = $workout.find(e => !e.time)
-            const totalRounds = $rounds + ($runs ? 2 : 0)
-            progress = Math.round((exercise.round / totalRounds) * 100)
+            const exercise = $workout.findIndex(e => !e.time)
+            progress = Math.round(((exercise + 1) / $workout.length) * 100)
         }
 
         document.documentElement.style.setProperty(

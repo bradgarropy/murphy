@@ -2,6 +2,7 @@
     import {fade} from "svelte/transition"
 
     import Details from "../components/Details.svelte"
+    import Loading from "../components/Loading.svelte"
 
     import {WORKOUT_QUERY} from "../graphql/queries.js"
 
@@ -29,9 +30,9 @@
     const workout = getWorkout()
 </script>
 
-<main in:fade={{duration: 500}}>
+<main class="grid grid-rows-completed justify-center items-center pb-10" in:fade={{duration: 500}}>
     {#await workout}
-        <p>loading</p>
+        <Loading/>
     {:then workout}
         <Details exercises={workout.exercises} date={workout.date} />
     {/await}

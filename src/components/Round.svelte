@@ -4,22 +4,14 @@
     import {cubicOut} from "svelte/easing"
     import {slide} from "svelte/transition"
 
-    import {workout} from "../stores/workout.js"
-    import {exercises} from "../stores/exercises.js"
-    import {runs, rounds} from "../stores/settings.js"
-
     import {getRoundLabel} from "../utils/utils.js"
 
     export let round
 
     const expanded = writable(false)
 
-    const workoutExercises = $workout.filter(
-        exercise => exercise.round === round.number,
-    )
-
     const onClick = () => {
-        if (workoutExercises.length > 1) {
+        if (round.exercises.length > 1) {
             expanded.set(!$expanded)
         }
     }
@@ -27,7 +19,7 @@
 
 <div class="grid grid-cols-2 text-xl uppercase font-body" on:click={onClick}>
     <span class="tracking-tighter font-bold">
-        {getRoundLabel(round.number, $runs, $rounds, $exercises)}
+        {getRoundLabel(round)}
     </span>
 
     <span class="tracking-widest text-right">
@@ -38,7 +30,7 @@
         <div
             class="grid grid-cols-2 text-xl uppercase col-span-2 py-2"
             transition:slide={{duration: 500, easing: cubicOut}}>
-            {#each workoutExercises as exercise}
+            {#each round.exercises as exercise}
                 <span class="tracking-tighter font-bold pl-4">
                     {exercise.name}
                 </span>
