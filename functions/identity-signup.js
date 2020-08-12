@@ -3,8 +3,8 @@ const {USER_MUTATION} = require("./graphql/mutations")
 
 const handler = async event => {
     console.log(event.body)
-    console.log(user)
     const {user} = JSON.parse(event.body)
+    console.log(user)
 
     const variables = {
         data: {
