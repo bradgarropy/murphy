@@ -1,3 +1,8 @@
+type User {
+    netlifyID: ID!
+    stripeID: ID!
+}
+
 type Workout {
     date: Time!
     email: String!
@@ -7,4 +12,6 @@ type Workout {
 type Query {
     allWorkouts: [Workout!]
     findWorkoutsByEmail(email: String!): [Workout!]
+    getUserByNetlifyID(netlifyID: ID!): User!
+    getUserByStripeID(stripeID: ID!): User!
 }
