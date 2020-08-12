@@ -1,4 +1,4 @@
-const fetch = require("node-fetch")
+const graphql = require("./utils/graphql")
 const {USER_MUTATION} = require("./graphql/mutations")
 
 const handler = async (event, context) => {
@@ -13,16 +13,7 @@ const handler = async (event, context) => {
     }
     console.log(variables)
 
-    const response = await fetch("/api/fauna", {
-        method: "POST",
-        body: JSON.stringify({
-            query: USER_MUTATION,
-            variables,
-        }),
-    })
-
-    // TODO: handle fetch error
-    const data = await response.json()
+    const data = await graphql({query: USER_MUTATION, variables})
     console.log(data)
 
     const body = {
