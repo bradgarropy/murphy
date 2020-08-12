@@ -1,4 +1,5 @@
 const fetch = require("node-fetch")
+// TODO: refactor to use graphql
 
 exports.handler = async (event, context) => {
     // TODO: make sure user exists
