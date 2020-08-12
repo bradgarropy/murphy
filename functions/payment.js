@@ -1,5 +1,6 @@
 const fetch = require("node-fetch")
-// const stripe = require("stripe")("sk_test_m51gis4Lr4sqvj291N8BucPW")
+const graphql = require("./utils/graphql")
+const {USER_QUERY} = require("./graphql/queries")
 
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
@@ -10,29 +11,40 @@ const handler = async (event, context) => {
         return {statusCode: 200}
     }
 
-    const {url, token} = context.clientContext.identity
-
-    const updates = {
-        app_metadata: {
-            roles: ["free", "pro"],
-        },
-    }
-
-    const res = await fetch(`${url}/admin/user`, {
-        method: "PUT",
-        headers: {Authorization: `Bearer ${token}`},
-        body: JSON.stringify(updates),
+    // get users id
+    const data = graphql({
+        query: USER_QUERY,
+        variables: {email},
     })
 
-    const data = await res.json()
     console.log(data)
+    return {statusCode: 200}
 
-    const response = {
-        statusCode: 200,
-        body: "payment",
-    }
+    // update user role
 
-    return response
+    // const {url, token} = context.clientContext.identity
+
+    // const updates = {
+    //     app_metadata: {
+    //         roles: ["free", "pro"],
+    //     },
+    // }
+
+    // const res = await fetch(`${url}/admin/user`, {
+    //     method: "PUT",
+    //     headers: {Authorization: `Bearer ${token}`},
+    //     body: JSON.stringify(updates),
+    // })
+
+    // const data = await res.json()
+    // console.log(data)
+
+    // const response = {
+    //     statusCode: 200,
+    //     body: "payment",
+    // }
+
+    // return response
 }
 
 module.exports = {handler}
