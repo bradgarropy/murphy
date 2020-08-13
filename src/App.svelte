@@ -27,25 +27,25 @@
             <Saving />
         {/if}
 
-        <ProtectedRoute path="/">
+        <Route path="/">
             <HomePage />
-        </ProtectedRoute>
+        </Route>
 
-        <ProtectedRoute path="/timer">
+        <Route path="/timer">
             <HomePage />
-        </ProtectedRoute>
+        </Route>
 
-        <ProtectedRoute path="/settings">
+        <Route path="/settings">
             <SettingsPage />
-        </ProtectedRoute>
+        </Route>
 
-        <ProtectedRoute path="/completed">
+        <Route path="/completed">
             <CompletedPage />
-        </ProtectedRoute>
+        </Route>
 
-        <ProtectedRoute path="/details">
+        <Route path="/details">
             <DetailsPage />
-        </ProtectedRoute>
+        </Route>
 
         <Route path="/account">
             <AccountPage />
@@ -59,8 +59,8 @@
             <WorkoutPage {params} />
         </ProtectedRoute>
 
-        <ProtectedRoute path="/thanks">
+        <Route path="/thanks">
             <ThanksPage />
-        </ProtectedRoute>
+        </Route>
     </div>
 </Router>

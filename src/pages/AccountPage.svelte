@@ -6,6 +6,8 @@
 
     import {user} from "../stores/user.js"
 
+    import {isPro} from "../utils/utils.js"
+
     const onLogin = () => {
         netlifyIdentity.on("login", u => {
             user.set(u)
@@ -58,12 +60,14 @@
             logout
         </button>
 
-        <button
-            on:click={onPro}
-            class="w-64 h-20 bg-yellow text-white text-2xl font-bold font-body
-            uppercase ">
-            go pro
-        </button>
+        {#if !isPro($user)}
+            <button
+                on:click={onPro}
+                class="w-64 h-20 bg-yellow text-white text-2xl font-bold font-body
+                uppercase ">
+                go pro
+            </button>
+        {/if}
     {:else}
         <button
             on:click={onLogin}
