@@ -4,18 +4,20 @@ const {USER_QUERY} = require("./graphql/queries")
 
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
+
+    // TODO: verify this came from stripe
     const email = body.data.object.customer_email
 
     if (body.type !== "checkout.session.completed") {
         return {statusCode: 200}
     }
 
-    const {data} = await graphql({
+    const graphqlResponse = await graphql({
         query: USER_QUERY,
         variables: {email},
     })
 
-    const {id} = data.getUserByEmail
+    const {id} = graphqlResponse.data.getUserByEmail
     const {url, token} = context.clientContext.identity
 
     const updates = {
@@ -24,11 +26,14 @@ const handler = async (event, context) => {
         },
     }
 
-    await fetch(`${url}/admin/users/${id}`, {
+    const fetchResponse = await fetch(`${url}/admin/users/${id}`, {
         method: "PUT",
         headers: {Authorization: `Bearer ${token}`},
         body: JSON.stringify(updates),
     })
+
+    // TODO: handle fetch error
+    await fetchResponse.json()
 
     const response = {
         statusCode: 200,

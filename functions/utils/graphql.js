@@ -7,6 +7,7 @@ const graphql = async ({query, variables}) => {
         body: JSON.stringify({query, variables}),
     })
 
+    // TODO: handle fetch error
     const data = await response.json()
     return data
 }
