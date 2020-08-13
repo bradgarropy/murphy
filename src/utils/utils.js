@@ -13,7 +13,7 @@ const isPro = user => {
         return false
     }
 
-    const pro = user.app_metadata.roles.includes("pro")
+    const pro = user?.app_metadata?.roles?.includes("pro")
     return pro
 }
 
