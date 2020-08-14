@@ -2,9 +2,7 @@ const graphql = require("./utils/graphql")
 const {USER_MUTATION} = require("./graphql/mutations")
 
 const handler = async event => {
-    console.log("identity-signup")
     const {user} = JSON.parse(event.body)
-    console.log(user)
 
     const variables = {
         data: {
@@ -13,8 +11,7 @@ const handler = async event => {
         },
     }
 
-    const data = await graphql({query: USER_MUTATION, variables})
-    console.log(data)
+    await graphql({query: USER_MUTATION, variables})
 
     const body = {
         app_metadata: {

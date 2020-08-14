@@ -8,19 +8,7 @@
 
     import {isPro} from "../utils/utils.js"
 
-    $: console.log($user)
-
     const onLogin = () => {
-        console.log("onLogin")
-
-        netlifyIdentity.on("login", u => {
-            console.log("login")
-            user.set(u)
-            netlifyIdentity.close()
-            netlifyIdentity.off("login")
-            navigate("/")
-        })
-
         netlifyIdentity.open("login")
     }
 
@@ -30,7 +18,6 @@
     }
 
     const onSignup = () => {
-        console.log("onSignup")
         netlifyIdentity.open("signup")
     }
 
