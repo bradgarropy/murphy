@@ -11,7 +11,7 @@ const handler = async (event, context) => {
     console.log(event.headers)
 
     try {
-        const event = stripe.webhooks.constructEvent(
+        const stripeEvent = stripe.webhooks.constructEvent(
             event.body,
             event.headers["stripe-signature"],
             process.env.STRIPE_WEBHOOK_SECRET,
@@ -19,7 +19,7 @@ const handler = async (event, context) => {
 
         console.log(event.headers)
         console.log(body)
-        console.log(event)
+        console.log(stripeEvent)
     } catch (err) {
         console.log(err)
         return {
