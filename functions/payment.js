@@ -10,12 +10,10 @@ const handler = async (event, context) => {
     console.log(body)
     console.log(event.headers)
 
-    const signature = event.headers["stripe-signature"]
-
     try {
         const event = stripe.webhooks.constructEvent(
-            body,
-            signature,
+            event.body,
+            event.headers["stripe-signature"],
             process.env.STRIPE_WEBHOOK_SECRET,
         )
 
