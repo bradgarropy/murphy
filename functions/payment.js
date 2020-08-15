@@ -7,21 +7,15 @@ const handler = async (event, context) => {
     const body = JSON.parse(event.body)
     const email = body.data.object.customer_email
 
-    console.log(body)
-    console.log(event.headers)
-
     try {
-        const stripeEvent = stripe.webhooks.constructEvent(
+        stripe.webhooks.constructEvent(
             event.body,
             event.headers["stripe-signature"],
             process.env.STRIPE_WEBHOOK_SECRET,
         )
-
-        console.log(event.headers)
-        console.log(body)
-        console.log(stripeEvent)
     } catch (err) {
-        console.log(err)
+        console.log(`Webhook Error: ${err.message}`)
+
         return {
             statusCode: 400,
             body: `Webhook Error: ${err.message}`,
