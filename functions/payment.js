@@ -1,12 +1,32 @@
 const fetch = require("node-fetch")
 const graphql = require("./utils/graphql")
 const {USER_QUERY} = require("./graphql/queries")
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
+    const email = body.data.object.customer_email
+
+    const signature = event.headers["stripe-signature"]
+
+    try {
+        const event = stripe.webhooks.constructEvent(
+            body,
+            signature,
+            process.env.STRIPE_WEBHOOK_SECRET,
+        )
+
+        console.log(event.headers)
+        console.log(body)
+        console.log(event)
+    } catch (err) {
+        return {
+            statusCode: 400,
+            body: `Webhook Error: ${err.message}`,
+        }
+    }
 
     // TODO: verify this came from stripe
-    const email = body.data.object.customer_email
 
     if (body.type !== "checkout.session.completed") {
         return {statusCode: 200}
