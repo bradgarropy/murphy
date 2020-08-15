@@ -23,6 +23,7 @@ const handler = async (event, context) => {
         console.log(body)
         console.log(event)
     } catch (err) {
+        console.log(err)
         return {
             statusCode: 400,
             body: `Webhook Error: ${err.message}`,
