@@ -7,6 +7,9 @@ const handler = async (event, context) => {
     const body = JSON.parse(event.body)
     const email = body.data.object.customer_email
 
+    console.log(body)
+    console.log(event.headers)
+
     const signature = event.headers["stripe-signature"]
 
     try {
