@@ -2,7 +2,7 @@ const fetch = require("node-fetch")
 // TODO: refactor to use graphql
 
 exports.handler = async (event, context) => {
-    // TODO: make sure user exists
+    // TODO: make sure user exists and has proper roles
     const {user} = context.clientContext
 
     const response = await fetch("https://graphql.fauna.com/graphql", {
