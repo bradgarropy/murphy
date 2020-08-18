@@ -24,7 +24,6 @@
     import {date, completed, workout, resetWorkout} from "../stores/workout.js"
 
     import {isPro} from "../utils/utils.js"
-    import {WORKOUT_MUTATION} from "../graphql/mutations.js"
 
     let exercise = 0
 
@@ -52,6 +51,8 @@
                     date: new Date($date).toISOString(),
                     exercises: JSON.stringify($workout),
                 }
+
+                console.log($user)
 
                 const response = await fetch("/api/workout", {
                     method: "POST",
