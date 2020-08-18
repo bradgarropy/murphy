@@ -50,16 +50,12 @@
 
                 const data = {
                     date: new Date($date).toISOString(),
-                    email: $user.email,
                     exercises: JSON.stringify($workout),
                 }
 
-                const response = await fetch("/api/fauna", {
+                const response = await fetch("/api/workout", {
                     method: "POST",
-                    body: JSON.stringify({
-                        query: WORKOUT_MUTATION,
-                        variables: {data},
-                    }),
+                    body: JSON.stringify(data),
                 })
 
                 // TODO: handle fetch error
