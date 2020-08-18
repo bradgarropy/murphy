@@ -17,12 +17,11 @@
 
         // TODO: handle fetch error
         const {data} = await response.json()
-        console.log(data)
 
         const workouts = data.map(workout => ({
-            ...workout,
-            date: Date.parse(workout.date),
-            exercises: JSON.parse(workout.exercises),
+            ...workout.data,
+            date: Date.parse(workout.data.date),
+            exercises: JSON.parse(workout.data.exercises),
         }))
 
         return workouts
