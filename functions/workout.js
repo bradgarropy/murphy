@@ -5,6 +5,7 @@ const handler = async (event, context) => {
     const body = JSON.parse(event.body)
     const {user} = context.clientContext
 
+    console.log(context)
     console.log(user)
     console.log(body)
 
