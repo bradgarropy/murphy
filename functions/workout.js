@@ -5,7 +5,6 @@ const handler = async (event, context) => {
     console.log(context)
 
     const method = event.httpMethod
-    const body = JSON.parse(event.body)
     const {user} = context.clientContext
 
     let data
@@ -15,9 +14,11 @@ const handler = async (event, context) => {
             data = await fauna.readWorkoutsByEmail(user.email)
             break
 
-        case "POST":
+        case "POST": {
+            const body = JSON.parse(event.body)
             data = await fauna.createWorkout(user, body)
             break
+        }
     }
 
     const response = {
