@@ -17,8 +17,9 @@
 
         // TODO: handle fetch error
         const {data} = await response.json()
+        console.log(data)
 
-        const workouts = data.findWorkoutsByEmail.data.map(workout => ({
+        const workouts = data.map(workout => ({
             ...workout,
             date: Date.parse(workout.date),
             exercises: JSON.parse(workout.exercises),
