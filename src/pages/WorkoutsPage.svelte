@@ -8,7 +8,7 @@
     import {user} from "../stores/user.js"
 
     const getWorkouts = async () => {
-        const response = await fetch("/api/workout", {
+        const response = await fetch("/api/read-workouts", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${$user.token.access_token}`,

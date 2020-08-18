@@ -52,7 +52,7 @@
                     exercises: JSON.stringify($workout),
                 }
 
-                const response = await fetch("/api/workout", {
+                const response = await fetch("/api/create-workout", {
                     method: "POST",
                     body: JSON.stringify(data),
                     headers: {

@@ -10,7 +10,7 @@
     export let params
 
     const getWorkout = async () => {
-        const response = await fetch(`/api/workout/${params.id}`, {
+        const response = await fetch(`/api/read-workout/${params.id}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${$user.token.access_token}`,
