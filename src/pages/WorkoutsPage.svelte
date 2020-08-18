@@ -24,6 +24,8 @@
             exercises: JSON.parse(workout.data.exercises),
         }))
 
+        console.log(workouts)
+
         return workouts
     }
 
