@@ -56,6 +56,9 @@
                 const response = await fetch("/api/workout", {
                     method: "POST",
                     body: JSON.stringify(data),
+                    headers: {
+                        Authorization: `Bearer ${$user.token.access_token}`,
+                    },
                 })
 
                 // TODO: handle fetch error
