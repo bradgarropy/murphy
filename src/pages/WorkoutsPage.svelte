@@ -20,6 +20,7 @@
 
         const workouts = data.map(workout => ({
             ...workout.data,
+            id: workout.ref["@ref"].id,
             date: Date.parse(workout.data.date),
             exercises: JSON.parse(workout.data.exercises),
         }))
