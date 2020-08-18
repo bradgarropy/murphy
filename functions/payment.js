@@ -13,8 +13,6 @@ const handler = async (event, context) => {
             process.env.STRIPE_WEBHOOK_SECRET,
         )
     } catch (err) {
-        console.log(`Webhook Error: ${err.message}`)
-
         return {
             statusCode: 400,
             body: `Webhook Error: ${err.message}`,

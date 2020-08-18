@@ -19,15 +19,12 @@
 
         // TODO: handle fetch error
         const {data} = await response.json()
-        console.log(data)
 
         const workout = {
             ...data,
             date: Date.parse(data.date),
             exercises: JSON.parse(data.exercises),
         }
-
-        console.log(workout)
 
         return workout
     }
