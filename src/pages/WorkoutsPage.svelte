@@ -41,7 +41,7 @@
     {:then workouts}
         <section class="grid content-start justify-center items-center pb-10 text-2xl text-black font-body font-black uppercase tracking-tighter">
             {#each workouts as workout}
-                <Link to={`/workout/${workout._id}`}>
+                <Link to={`/workout/${workout.id}`}>
                     <p>{format(workout.date, "MMMM dd, y")}</p>
                 </Link>
             {/each}
