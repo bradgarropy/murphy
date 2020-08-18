@@ -52,8 +52,6 @@
                     exercises: JSON.stringify($workout),
                 }
 
-                console.log($user)
-
                 const response = await fetch("/api/workout", {
                     method: "POST",
                     body: JSON.stringify(data),

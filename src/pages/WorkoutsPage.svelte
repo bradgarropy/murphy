@@ -7,21 +7,18 @@
 
     import {user} from "../stores/user.js"
 
-    import {USER_WORKOUTS_QUERY} from "../graphql/queries.js"
-
     const getWorkouts = async () => {
-        const response = await fetch("/api/fauna", {
-            method: "POST",
-            body: JSON.stringify({
-                query: USER_WORKOUTS_QUERY,
-                variables: {email: $user.email},
-            }),
+        const response = await fetch("/api/workout", {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${$user.token.access_token}`,
+            },
         })
 
         // TODO: handle fetch error
-        const res = await response.json()
+        const {data} = await response.json()
 
-        const workouts = res.data.findWorkoutsByEmail.data.map(workout => ({
+        const workouts = data.findWorkoutsByEmail.data.map(workout => ({
             ...workout,
             date: Date.parse(workout.date),
             exercises: JSON.parse(workout.exercises),

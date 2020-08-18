@@ -22,9 +22,6 @@ const readUserByEmail = async email => {
 }
 
 const createWorkout = async (user, body) => {
-    console.log(user)
-    console.log(body)
-
     // TODO: validate workout
 
     const params = {
@@ -40,8 +37,13 @@ const createWorkout = async (user, body) => {
     return response
 }
 
-const readWorkoutsByEmail = async user => {
-    console.log("readWorkout")
+const readWorkoutsByEmail = async email => {
+    console.log("readWorkoutsByEmail")
+
+    const query = q.Map(
+        q.Paginate(q.Match(q.Index("workoutsByEmail"), email)),
+        q.Lambda("ref", q.Get(q.Var("ref"))),
+    )
 
     const response = await client.query(query)
     return response
