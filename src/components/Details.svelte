@@ -6,6 +6,9 @@
     export let date = null
     export let exercises
 
+    console.log(date)
+    console.log(exercises)
+
     const rounds = exercises.reduce((acc, curr) => {
         const index = acc.findIndex(e => e.number === curr.round)
 
@@ -30,7 +33,10 @@
         return acc
     }, [])
 
+    console.log(rounds)
+
     const elapsed = exercises.reduce((acc, curr) => acc + curr.time, 0)
+    console.log(elapsed)
 </script>
 
 <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
