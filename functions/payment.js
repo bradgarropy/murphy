@@ -26,10 +26,8 @@ const handler = async (event, context) => {
     }
 
     const faunaResponse = await readUserByEmail(email)
-    console.log(faunaResponse)
 
     const {id} = faunaResponse.data
-    console.log(id)
     const {url, token} = context.clientContext.identity
 
     const updates = {
