@@ -22,7 +22,6 @@ const readUserByEmail = async email => {
 }
 
 const createWorkout = async (user, body) => {
-    console.log("createWorkout")
     console.log(user)
     console.log(body)
 
@@ -34,12 +33,10 @@ const createWorkout = async (user, body) => {
             email: user.email,
         },
     }
-    console.log(params)
 
     const query = q.Create(q.Collection("Workouts"), params)
 
     const response = await client.query(query)
-    console.log(response)
     return response
 }
 

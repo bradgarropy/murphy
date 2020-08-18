@@ -1,13 +1,12 @@
 const fauna = require("./utils/fauna")
 
 const handler = async (event, context) => {
+    console.log(event)
+    console.log(context)
+
     const method = event.httpMethod
     const body = JSON.parse(event.body)
     const {user} = context.clientContext
-
-    console.log(context)
-    console.log(user)
-    console.log(body)
 
     let data
 
@@ -18,7 +17,6 @@ const handler = async (event, context) => {
 
         case "POST":
             data = await fauna.createWorkout(user, body)
-            console.log(data)
             break
     }
 
