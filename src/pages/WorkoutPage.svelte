@@ -4,25 +4,27 @@
     import Details from "../components/Details.svelte"
     import Loading from "../components/Loading.svelte"
 
-    import {WORKOUT_QUERY} from "../graphql/queries.js"
+    import {user} from "../stores/user.js"
+
 
     export let params
 
     const getWorkout = async () => {
-        const response = await fetch("/api/fauna", {
-            method: "POST",
-            body: JSON.stringify({
-                query: WORKOUT_QUERY,
-                variables: {id: params.id},
-            }),
+        const response = await fetch(`/api/workout/${params.id}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${$user.token.access_token}`,
+            },
         })
 
         // TODO: handle fetch error
-        const res = await response.json()
+        const {data} = await response.json()
 
-        const workout = res.data.findWorkoutByID
-        workout.date = Date.parse(workout.date)
-        workout.exercises = JSON.parse(workout.exercises)
+        const workout = {
+            ...data,
+            date: Date.parse(data.date),
+            exercises: JSON.parse(data.exercises),
+        }
 
         return workout
     }

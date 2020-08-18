@@ -12,6 +12,7 @@ const handler = async (event, context) => {
     switch (method) {
         case "GET":
             data = await fauna.readWorkoutsByEmail(user.email)
+            // data = await fauna.readWorkoutById()
             break
 
         case "POST": {

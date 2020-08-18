@@ -38,8 +38,6 @@ const createWorkout = async (user, body) => {
 }
 
 const readWorkoutsByEmail = async email => {
-    console.log("readWorkoutsByEmail")
-
     const query = q.Map(
         q.Paginate(q.Match(q.Index("workoutsByEmail"), email)),
         q.Lambda("ref", q.Get(q.Var("ref"))),
@@ -49,9 +47,16 @@ const readWorkoutsByEmail = async email => {
     return response
 }
 
+const readWorkoutById = async id => {
+    const query = q.Get(q.Ref(q.Collection("Workouts"), id))
+    const response = await client.query(query)
+    return response
+}
+
 module.exports = {
     createUser,
     readUserByEmail,
     createWorkout,
     readWorkoutsByEmail,
+    readWorkoutById,
 }
