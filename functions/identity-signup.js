@@ -1,17 +1,14 @@
-const graphql = require("./utils/graphql")
-const {USER_MUTATION} = require("./graphql/mutations")
+const {createUser} = require("./utils/fauna")
 
 const handler = async event => {
     const {user} = JSON.parse(event.body)
 
-    const variables = {
-        data: {
-            id: user.id,
-            email: user.email,
-        },
+    const data = {
+        id: user.id,
+        email: user.email,
     }
 
-    await graphql({query: USER_MUTATION, variables})
+    await createUser(data)
 
     const body = {
         app_metadata: {

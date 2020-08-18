@@ -1,6 +1,5 @@
 const fetch = require("node-fetch")
-const graphql = require("./utils/graphql")
-const {USER_QUERY} = require("./graphql/queries")
+const {readUserByEmail} = require("./utils/fauna")
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 const handler = async (event, context) => {
@@ -22,18 +21,14 @@ const handler = async (event, context) => {
         }
     }
 
-    // TODO: verify this came from stripe
-
     if (body.type !== "checkout.session.completed") {
         return {statusCode: 200}
     }
 
-    const graphqlResponse = await graphql({
-        query: USER_QUERY,
-        variables: {email},
-    })
+    const faunaResponse = await readUserByEmail(email)
+    console.log(faunaResponse)
 
-    const {id} = graphqlResponse.data.getUserByEmail
+    const {id} = faunaResponse.data.getUserByEmail
     const {url, token} = context.clientContext.identity
 
     const updates = {
@@ -51,11 +46,7 @@ const handler = async (event, context) => {
     // TODO: handle fetch error
     await fetchResponse.json()
 
-    const response = {
-        statusCode: 200,
-        body: "pro",
-    }
-
+    const response = {statusCode: 200}
     return response
 }
 
