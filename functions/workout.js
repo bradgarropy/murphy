@@ -13,6 +13,15 @@ const handler = async (event, context) => {
 
             if (exec) {
                 data = await fauna.readWorkoutById(exec.groups.id)
+
+                if (data.data.email !== user.email) {
+                    const response = {
+                        statusCode: 401,
+                        body: "You are not authorized to view that workout.",
+                    }
+
+                    return response
+                }
             } else {
                 data = await fauna.readWorkoutsByEmail(user.email)
             }
