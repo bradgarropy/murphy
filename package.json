@@ -38,6 +38,7 @@
         "@stripe/stripe-js": "^1.8.0",
         "date-fns": "^2.15.0",
         "faunadb": "^2.14.2",
+        "gotrue-js": "^0.9.26",
         "netlify-identity-widget": "^1.9.1",
         "node-fetch": "^2.6.0",
         "stripe": "^8.84.0",
