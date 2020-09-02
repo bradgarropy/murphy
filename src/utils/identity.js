@@ -7,8 +7,9 @@ netlifyIdentity.on("init", u => {
     user.set(u)
 })
 
-netlifyIdentity.on("login", u => {
-    user.set(u)
+netlifyIdentity.on("login", async u => {
+    const userData = await u.getUserData()
+    user.set(userData)
 
     const returningUser = localStorage.getItem("returningUser")
 
