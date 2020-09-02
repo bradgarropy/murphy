@@ -6,7 +6,6 @@
 
     import {user} from "../stores/user.js"
 
-
     export let params
 
     const getWorkout = async () => {
