@@ -11,10 +11,7 @@ netlifyIdentity.on("login", async u => {
     const userData = await u.getUserData()
     user.set(userData)
 
-    const returningUser = localStorage.getItem("returningUser")
-
-    if (!returningUser || returningUser === "false") {
-        localStorage.setItem("returningUser", "true")
+    if (!userData._fromStorage) {
         netlifyIdentity.close()
         navigate("/")
     }
