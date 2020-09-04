@@ -1,15 +1,20 @@
 import {writable, get} from "svelte/store"
 
 let id
+let wakeLock = undefined
 let previouslyElapsed = 0
 
 const elapsed = writable(0)
 const running = writable(false)
 const laps = writable([{startTime: 0, endTime: null, time: null}])
 
-const start = () => {
+const start = async () => {
     running.set(true)
     const startTime = Date.now()
+
+    if ("wakeLock" in navigator) {
+        wakeLock = await navigator.wakeLock.request("screen")
+    }
 
     id = setInterval(() => {
         elapsed.set(previouslyElapsed + Date.now() - startTime)
@@ -33,11 +38,13 @@ const lap = () => {
     laps.set(newLaps)
 }
 
-const stop = () => {
+const stop = async () => {
     running.set(false)
     previouslyElapsed = get(elapsed)
 
     clearInterval(id)
+
+    wakeLock = await wakeLock.release()
 }
 
 const resetTimer = () => {
