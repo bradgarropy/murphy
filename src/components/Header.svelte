@@ -11,7 +11,7 @@
         <h1 class="text-2xl uppercase font-header tracking-tighter">murphy</h1>
     </Link>
 
-    <nav class="flex col-gap-2">
+    <nav class="flex gap-x-2">
         {#if isPro($user)}
             <Link to="/workouts">
                 <svg

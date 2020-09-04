@@ -5,7 +5,7 @@
 
 <div
     class="flex font-body text-black absolute tracking-tighter font-bold
-    uppercase items-center col-gap-1 bg-white right-0 bottom-0 px-2 py-1
+    uppercase items-center gap-x-1 bg-white right-0 bottom-0 px-2 py-1
     rounded-tl-md"
     in:fly={{duration: 300, opacity: 1, y: 20, easing: sineOut}}
     out:fly={{duration: 300, opacity: 1, y: 20, easing: sineIn}}>
