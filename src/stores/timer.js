@@ -6,9 +6,22 @@ let previouslyElapsed = 0
 
 const elapsed = writable(0)
 const running = writable(false)
+const counting = writable(false)
 const laps = writable([{startTime: 0, endTime: null, time: null}])
 
-const start = async () => {
+const start = () => {
+    if (get(elapsed)) {
+        startTimer()
+    } else {
+        startCountdown()
+    }
+}
+
+const startCountdown = () => {
+    counting.set(true)
+}
+
+const startTimer = async () => {
     running.set(true)
     const startTime = Date.now()
 
@@ -57,4 +70,15 @@ const resetTimer = () => {
     clearInterval(id)
 }
 
-export {running, elapsed, laps, start, lap, stop, resetTimer}
+export {
+    counting,
+    running,
+    elapsed,
+    laps,
+    start,
+    startTimer,
+    startCountdown,
+    lap,
+    stop,
+    resetTimer,
+}

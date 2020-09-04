@@ -11,6 +11,7 @@
     import StartButton from "../components/StartButton.svelte"
 
     import {
+        counting,
         running,
         elapsed,
         start,
@@ -83,7 +84,7 @@
 <main
     class="h-full grid grid-rows-timer row-gap-4 items-center"
     in:fade={{duration: 500}}>
-    {#if !$running && !$elapsed}
+    {#if !$elapsed && !$counting}
         <LetsGo />
     {:else}
         <Timer {exercise} />
