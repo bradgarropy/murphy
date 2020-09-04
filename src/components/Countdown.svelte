@@ -15,4 +15,4 @@
     }, 1000)
 </script>
 
-<p class="text-7xl">{countdown}</p>
+<p class="text-center font-body text-black text-7xl">{countdown}</p>

@@ -17,12 +17,14 @@
 </script>
 
 
-<section
-    class="grid grid-rows-stats h-full items-center text-center text-5xl
-    text-black uppercase tracking-tighter">
-    {#if !$elapsed}
+{#if !$elapsed}
+    <section>
         <Countdown {onCompleted}/>
-    {:else}
+    </section>
+{:else}
+    <section
+        class="grid grid-rows-stats h-full items-center text-center text-5xl
+        text-black uppercase tracking-tighter">
         <WorkoutProgress />
 
         <div>
@@ -34,5 +36,5 @@
             <h2 class="font-body font-black">{$exercises[exercise].name}</h2>
             <RoundProgress exercise={$exercises[exercise].name} />
         </div>
-    {/if}
-</section>
+    </section>
+{/if}
