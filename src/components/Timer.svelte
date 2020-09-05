@@ -1,4 +1,6 @@
 <script>
+    import {onMount} from "svelte"
+
     import Time from "./Time.svelte"
     import RoundProgress from "./RoundProgress.svelte"
     import WorkoutProgress from "./WorkoutProgress.svelte"
@@ -14,17 +16,26 @@
         counting.set(false)
         startTimer()
     }
-</script>
 
+    onMount(() => {
+        if ($elapsed) {
+            return
+        }
+
+        const countdown = document.getElementById("countdown")
+        countdown.playbackRate = 1.08
+        countdown.play()
+    })
+</script>
 
 {#if !$elapsed}
     <section>
-        <Countdown {onCompleted}/>
+        <Countdown {onCompleted} />
     </section>
 {:else}
     <section
         class="grid grid-rows-stats h-full items-center text-center text-5xl
-        text-black uppercase tracking-tighter">
+            text-black uppercase tracking-tighter">
         <WorkoutProgress />
 
         <div>

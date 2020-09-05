@@ -19,6 +19,10 @@
     import "./utils/identity.js"
 </script>
 
+<audio id="countdown" src="/countdown.wav">
+    <track kind="captions" />
+</audio>
+
 <Router>
     <div class="h-full grid grid-rows-layout row-gap-4">
         <Header />
