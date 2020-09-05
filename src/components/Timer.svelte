@@ -1,6 +1,4 @@
 <script>
-    import {onMount} from "svelte"
-
     import Time from "./Time.svelte"
     import RoundProgress from "./RoundProgress.svelte"
     import WorkoutProgress from "./WorkoutProgress.svelte"
@@ -16,16 +14,6 @@
         counting.set(false)
         startTimer()
     }
-
-    onMount(() => {
-        if ($elapsed) {
-            return
-        }
-
-        const countdown = document.getElementById("countdown")
-        countdown.playbackRate = 1.08
-        countdown.play()
-    })
 </script>
 
 {#if !$elapsed}
