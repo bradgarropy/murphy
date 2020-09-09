@@ -14,7 +14,7 @@
     in:fade={{duration: 500}}
     on:submit|preventDefault={onSubmit}
     class="text-5xl text-black font-body font-black uppercase tracking-tighter
-    grid grid-rows-settings row-gap-4 items-center">
+        grid grid-rows-settings row-gap-4 items-center">
     <div class="grid grid-cols-form justify-center content-center items-center">
         <input
             type="checkbox"
@@ -35,7 +35,7 @@
 
     <button
         class="w-full h-full bg-green text-2xl text-white font-bold font-body
-        uppercase">
+            uppercase">
         save
     </button>
 </form>
