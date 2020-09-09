@@ -31,11 +31,12 @@
     const workout = getWorkout()
 </script>
 
-<main class="grid grid-rows-completed justify-center items-center pb-10" in:fade={{duration: 500}}>
+<main
+    class="grid grid-rows-completed justify-center items-center pb-10"
+    in:fade={{duration: 500}}>
     {#await workout}
-        <Loading/>
+        <Loading />
     {:then workout}
         <Details exercises={workout.exercises} date={workout.date} />
     {/await}
-
 </main>

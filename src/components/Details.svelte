@@ -20,10 +20,12 @@
             acc.push({
                 number: curr.round,
                 time: curr.time,
-                exercises: [{
-                    name: curr.name,
-                    time: curr.time,
-                }],
+                exercises: [
+                    {
+                        name: curr.name,
+                        time: curr.time,
+                    },
+                ],
             })
         }
 
@@ -34,10 +36,10 @@
 </script>
 
 <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
-    {date ? format(date, "MMMM dd, y") : "completed"}
+    {date ? format(date, 'MMMM dd, y') : 'completed'}
 </h2>
 
-<Time time={elapsed} />
+<Time class="text-center" time={elapsed} />
 
 <div class="overflow-y-scroll h-full">
     {#each rounds as round}
