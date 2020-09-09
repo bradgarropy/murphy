@@ -57,7 +57,7 @@
 
 <Time class="text-center" time={elapsed} />
 
-<div class="pr-2 overflow-y-scroll h-full scrollbar">
+<div class="grid gap-y-2 pr-2 overflow-y-scroll h-full scrollbar">
     {#each rounds as round}
         <Round {round} />
     {/each}
