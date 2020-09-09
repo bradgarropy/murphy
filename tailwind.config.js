@@ -33,6 +33,7 @@ const config = {
             gridTemplateColumns: {
                 form: "repeat(2, auto)",
                 round: "repeat(3, auto)",
+                workout: "repeat(2, auto)",
             },
             keyframes: {
                 spin: {

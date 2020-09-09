@@ -2,7 +2,6 @@
     import {fade} from "svelte/transition"
     import {navigate} from "svelte-routing"
 
-
     import Timer from "../components/Timer.svelte"
     import LetsGo from "../components/LetsGo.svelte"
     import NextButton from "../components/NextButton.svelte"
@@ -44,7 +43,7 @@
             stop()
             completed.set(true)
 
-            if(isPro($user)) {
+            if (isPro($user)) {
                 // save
                 saving.set(true)
 
