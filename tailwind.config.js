@@ -29,6 +29,7 @@ const config = {
                 settings: "85fr 15fr",
                 completed: "repeat(3, auto)",
                 details: "repeat(3, auto)",
+                workouts: "auto 1fr",
             },
             gridTemplateColumns: {
                 form: "repeat(2, auto)",
