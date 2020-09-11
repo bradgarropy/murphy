@@ -37,9 +37,6 @@
     const elapsed = exercises.reduce((acc, curr) => acc + curr.time, 0)
     const runs = exercises[0].name === "1 mile run"
     const numRounds = exercises[exercises.length - 2].round
-
-    console.log(runs)
-    console.log(numRounds)
 </script>
 
 <div class="grid gap-y-10">
