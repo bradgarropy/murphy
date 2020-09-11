@@ -28,16 +28,16 @@
         return workouts
     }
 
-    const workouts = getWorkouts()
+    const promise = getWorkouts()
 </script>
 
-<main class="" in:fade={{duration: 500}}>
+<main class="text-black" in:fade={{duration: 500}}>
     <h2 class="text-center text-4xl uppercase font-header tracking-tighter pb-6">workouts</h2>
 
-    {#await workouts}
+    {#await promise}
         <Loading/>
     {:then workouts}
-        <section class="grid content-start justify-center items-center pb-10 text-2xl text-black font-body font-black uppercase tracking-tighter">
+        <section class="grid content-start justify-center items-center pb-10 text-2xl font-body font-black uppercase tracking-tighter">
             {#each workouts as workout}
                 <Link to={`/workout/${workout.id}`}>
                     <p>{format(workout.date, "MMMM dd, y")}</p>

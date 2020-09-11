@@ -1,7 +1,9 @@
 <script>
     import {format} from "date-fns"
+
     import Time from "./Time.svelte"
     import Round from "./Round.svelte"
+    import WorkoutSummary from "./WorkoutSummary.svelte"
 
     export let date = null
     export let exercises
@@ -33,32 +35,26 @@
     }, [])
 
     const elapsed = exercises.reduce((acc, curr) => acc + curr.time, 0)
+    const runs = exercises[0].name === "1 mile run"
+    const numRounds = exercises[exercises.length - 2].round
+
+    console.log(runs)
+    console.log(numRounds)
 </script>
 
-<style>
-    .scrollbar::-webkit-scrollbar-track {
-        background-color: #ffffff;
-    }
+<div class="grid gap-y-10">
+    <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
+        {date ? format(date, "MMMM dd, y") : "completed"}
+    </h2>
 
-    .scrollbar::-webkit-scrollbar {
-        width: 5px;
-        background-color: #ffffff;
-    }
+    <div class="text-center">
+        <WorkoutSummary {runs} rounds={numRounds}/>
+        <Time  time={elapsed} />
+    </div>
 
-    .scrollbar::-webkit-scrollbar-thumb {
-        background-color: #312221;
-        border-radius: 5px;
-    }
-</style>
-
-<h2 class="text-center text-4xl uppercase font-header tracking-tighter">
-    {date ? format(date, 'MMMM dd, y') : 'completed'}
-</h2>
-
-<Time class="text-center" time={elapsed} />
-
-<div class="grid gap-y-2 pr-2 overflow-y-scroll h-full scrollbar">
-    {#each rounds as round}
-        <Round {round} />
-    {/each}
+    <div class="grid gap-y-2">
+        {#each rounds as round}
+            <Round {round} />
+        {/each}
+    </div>
 </div>

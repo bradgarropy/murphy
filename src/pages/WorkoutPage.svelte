@@ -28,15 +28,15 @@
         return workout
     }
 
-    const workout = getWorkout()
-</script>
+    const promise = getWorkout()
+    </script>
 
 <main
-    class="grid grid-rows-completed justify-center items-center pb-10"
+    class="grid grid-rows-completed justify-center items-center pb-10 text-black"
     in:fade={{duration: 500}}>
-    {#await workout}
+    {#await promise}
         <Loading />
-    {:then workout}
-        <Details exercises={workout.exercises} date={workout.date} />
+    {:then {exercises, date}}
+        <Details {exercises} {date} />
     {/await}
 </main>
