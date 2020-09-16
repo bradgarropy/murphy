@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1600024668390" clover="3.2.0">
+  <project timestamp="1600024668390" name="All files">
+    <metrics statements="36" coveredstatements="32" conditionals="48" coveredconditionals="25" methods="2" coveredmethods="1" elements="86" coveredelements="58" complexity="0" loc="36" ncloc="36" packages="2" files="4" classes="4"/>
+    <package name="components">
+      <metrics statements="26" coveredstatements="26" conditionals="44" coveredconditionals="23" methods="0" coveredmethods="0"/>
+      <file name="Round.svelte" path="D:\projects\murphee\src\components\Round.svelte">
+        <metrics statements="18" coveredstatements="18" conditionals="34" coveredconditionals="19" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="22" count="3" type="cond" truecount="4" falsecount="1"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="26" count="3" type="cond" truecount="7" falsecount="0"/>
+        <line num="38" count="4" type="cond" truecount="3" falsecount="2"/>
+        <line num="42" count="4" type="cond" truecount="3" falsecount="2"/>
+        <line num="45" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="48" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="51" count="3" type="cond" truecount="0" falsecount="4"/>
+        <line num="55" count="3" type="cond" truecount="0" falsecount="4"/>
+      </file>
+      <file name="Saving.svelte" path="D:\projects\murphee\src\components\Saving.svelte">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="Time.svelte" path="D:\projects\murphee\src\components\Time.svelte">
+        <metrics statements="6" coveredstatements="6" conditionals="10" coveredconditionals="4" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="3" type="cond" truecount="2" falsecount="2"/>
+        <line num="24" count="3" type="cond" truecount="0" falsecount="4"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="10" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="1"/>
+      <file name="utils.js" path="D:\projects\murphee\src\utils\utils.js">
+        <metrics statements="10" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
