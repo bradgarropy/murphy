@@ -1,6 +1,7 @@
 <script>
     import {Router, Route} from "svelte-routing"
 
+    import ProPage from "./pages/ProPage.svelte"
     import HomePage from "./pages/HomePage.svelte"
     import Header from "./components/Header.svelte"
     import Saving from "./components/Saving.svelte"
@@ -65,6 +66,10 @@
 
         <Route path="/thanks">
             <ThanksPage />
+        </Route>
+
+        <Route path="/pro">
+            <ProPage />
         </Route>
     </div>
 </Router>
