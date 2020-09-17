@@ -17,8 +17,8 @@
         navigate("/")
     }
 
-    const onSignup = () => {
-        netlifyIdentity.open("signup")
+    const onGoPro = () => {
+        navigate("/pro")
     }
 
     const onPro = async () => {
@@ -68,10 +68,10 @@
         </button>
 
         <button
-            on:click={onSignup}
-            class="w-64 h-20 bg-yellow text-white text-2xl font-bold font-body
-            uppercase ">
-            signup
+            on:click={onGoPro}
+            class="font-header mb-8 px-6 py-1 bg-yellow text-5xl uppercase transform -skew-x-6 tracking-tighter"
+        >
+            go pro
         </button>
     {/if}
 </main>
