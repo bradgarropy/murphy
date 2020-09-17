@@ -12,7 +12,14 @@
 
     <section class="flex flex-col items-center z-10 relative bg-white -mt-12 mb-24 transform -skew-x-3 uppercase shadow-2xl">
         <div class="flex flex-col gap-y-4 items-center px-10 py-6 transform skew-x-3">
-            <h1 class="font-header text-5xl tracking-tighter">only $1</h1>
+            <h1 class="flex flex-col items-center tracking-tighter">
+                <p class="text-3xl">pro access</p>
+
+                <p class="font-header text-4xl relative">
+                    <span class="text-2xl absolute -ml-4">$</span>
+                    <span>1</span>
+                </p>
+            </h1>
 
             <ul class="flex flex-col gap-y-3 text-xl tracking-tighter">
                 <li class="flex gap-x-3 items-center">
@@ -37,7 +44,7 @@
             </ul>
         </div>
 
-        <button on:click={onGoPro} class="font-header w-full px-6 py-1 bg-yellow text-5xl uppercase tracking-tighter">go pro</button>
+        <button on:click={onGoPro} class="font-header w-full px-6 py-1 bg-yellow text-5xl uppercase tracking-tighter">buy now</button>
     </section>
 
 </main>
