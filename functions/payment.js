@@ -32,15 +32,17 @@ const handler = async (event, context) => {
         password: "foobar",
     }
 
-    let signupResponse = await fetch(`${url}/admin/signup`, {
+    const signupResponse = await fetch(`${url}/admin/signup`, {
         method: "POST",
         headers: {Authorization: `Bearer ${token}`},
         body: JSON.stringify(user),
     })
 
-    // TODO: handle fetch error
-    signupResponse = await signupResponse.json()
     console.log(signupResponse)
+
+    // TODO: handle fetch error
+    const signupData = await signupResponse.json()
+    console.log(signupData)
 
     const response = {statusCode: 200}
     return response
