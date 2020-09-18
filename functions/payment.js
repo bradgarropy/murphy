@@ -6,6 +6,9 @@ const handler = async (event, context) => {
     const body = JSON.parse(event.body)
     const email = body.data.object.customer_email
 
+    console.log(context.clientContext.identity.url)
+    console.log(context.clientContext.identity.token)
+
     try {
         stripe.webhooks.constructEvent(
             event.body,
