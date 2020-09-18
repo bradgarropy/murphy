@@ -5,6 +5,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
     const email = body.data.object.customer_email
+    const {url, token} = context.clientContext.identity
 
     console.log(context.clientContext.identity.url)
     console.log(context.clientContext.identity.token)
@@ -26,28 +27,46 @@ const handler = async (event, context) => {
         return {statusCode: 200}
     }
 
-    const faunaResponse = await readUserByEmail(email)
-
-    const {id} = faunaResponse.data
-    const {url, token} = context.clientContext.identity
-
-    const updates = {
-        app_metadata: {
-            roles: ["free", "pro"],
-        },
+    const user = {
+        email,
+        password: "foobar",
     }
 
-    const fetchResponse = await fetch(`${url}/admin/users/${id}`, {
-        method: "PUT",
+    let signupResponse = await fetch(`${url}/admin/signup`, {
+        method: "POST",
         headers: {Authorization: `Bearer ${token}`},
-        body: JSON.stringify(updates),
+        body: JSON.stringify(user),
     })
 
     // TODO: handle fetch error
-    await fetchResponse.json()
+    signupResponse = await signupResponse.json()
+    console.log(signupResponse)
 
     const response = {statusCode: 200}
     return response
+
+    // const faunaResponse = await readUserByEmail(email)
+
+    // const {id} = faunaResponse.data
+    // const {url, token} = context.clientContext.identity
+
+    // const updates = {
+    //     app_metadata: {
+    //         roles: ["free", "pro"],
+    //     },
+    // }
+
+    // const fetchResponse = await fetch(`${url}/admin/users/${id}`, {
+    //     method: "PUT",
+    //     headers: {Authorization: `Bearer ${token}`},
+    //     body: JSON.stringify(updates),
+    // })
+
+    // // TODO: handle fetch error
+    // await fetchResponse.json()
+
+    // const response = {statusCode: 200}
+    // return response
 }
 
 module.exports = {handler}
