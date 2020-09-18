@@ -9,6 +9,7 @@ const handler = async (event, context) => {
 
     console.log(context.clientContext.identity.url)
     console.log(context.clientContext.identity.token)
+    console.log(body)
 
     try {
         stripe.webhooks.constructEvent(
