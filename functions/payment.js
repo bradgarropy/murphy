@@ -32,7 +32,7 @@ const handler = async (event, context) => {
         password: "foobar",
     }
 
-    const signupResponse = await fetch(`${url}/admin/signup`, {
+    const signupResponse = await fetch(`${url}/signup`, {
         method: "POST",
         headers: {Authorization: `Bearer ${token}`},
         body: JSON.stringify(user),
