@@ -17,13 +17,17 @@
         resetWorkout()
         navigate("/")
     }
+
+    const onGoPro = () => {
+        navigate("/pro")
+    }
 </script>
 
 {#if !$elapsed}
     <Redirect to="/" />
 {:else}
     <main
-        class="grid grid-rows-completed justify-center items-center pb-10"
+        class="grid grid-rows-completed justify-items-center items-center pb-10"
         in:fade={{duration: 500}}>
         <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
             completed
@@ -31,7 +35,7 @@
 
         <Time time={$elapsed} />
 
-        <div class="grid grid-rows-3 gap-6 justify-center">
+        <div class="grid grid-rows-3 gap-6 items-center justify-items-center">
             <button
                 on:click={onDetails}
                 class="w-64 h-20 bg-green text-white text-2xl font-bold
@@ -45,6 +49,11 @@
                 uppercase ">
                 reset
             </button>
+
+            <div class="text-black text-2xl">
+                <span class="font-body font-black uppercase tracking-tighter z-10 relative">save your workout</span>
+                <button on:click={onGoPro} class="font-header uppercase tracking-tighter -ml-4 px-4 py-1 bg-yellow transform -skew-x-6">go pro</button>
+            </div>
         </div>
     </main>
 {/if}

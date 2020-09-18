@@ -2,8 +2,6 @@
     import {fade} from "svelte/transition"
     import netlifyIdentity from "netlify-identity-widget"
 
-    import ListItem from "../components/ListItem.svelte"
-
     import {user} from "../stores/user.js"
 
     const refreshUser = async () => {
