@@ -1,10 +1,10 @@
-const fauna = require("./utils/fauna")
+const {createWorkout} = require("./utils/workouts")
 
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
     const {user} = context.clientContext
 
-    const data = await fauna.createWorkout(user, body)
+    const data = await createWorkout(user, body)
 
     const response = {
         statusCode: 200,

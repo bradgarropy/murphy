@@ -1,4 +1,4 @@
-const fauna = require("./utils/fauna")
+const {readWorkoutById} = require("./utils/workout")
 
 const handler = async (event, context) => {
     const {user} = context.clientContext
@@ -15,7 +15,7 @@ const handler = async (event, context) => {
         return response
     }
 
-    const data = await fauna.readWorkoutById(exec.groups.id)
+    const data = await readWorkoutById(exec.groups.id)
 
     if (data.data.email !== user.email) {
         const response = {
