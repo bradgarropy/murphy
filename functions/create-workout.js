@@ -1,4 +1,4 @@
-const {createWorkout} = require("./utils/workouts")
+const {createWorkout} = require("./utils/workout")
 
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)

@@ -5,8 +5,11 @@
     import Time from "../components/Time.svelte"
     import Redirect from "../components/Redirect.svelte"
 
-    import {elapsed, resetTimer} from "../stores/timer.js"
-    import {resetWorkout} from "../stores/workout.js"
+    import {user} from "../stores/user.js"
+    import {resetWorkout} from "../stores/workout"
+    import {elapsed, resetTimer} from "../stores/timer"
+
+    import {isPro} from "../utils/utils"
 
     const onDetails = () => {
         navigate("/details")
@@ -50,10 +53,12 @@
                 reset
             </button>
 
-            <div class="text-black text-2xl">
-                <span class="font-body font-black uppercase tracking-tighter z-10 relative">save your workout</span>
-                <button on:click={onGoPro} class="font-header uppercase tracking-tighter -ml-4 px-4 py-1 bg-yellow transform -skew-x-6">go pro</button>
-            </div>
+            {#if !isPro($user)}
+                <div class="text-black text-2xl">
+                    <span class="font-body font-black uppercase tracking-tighter z-10 relative">save your workout</span>
+                    <button on:click={onGoPro} class="font-header uppercase tracking-tighter -ml-4 px-4 py-1 bg-yellow transform -skew-x-6">go pro</button>
+                </div>
+            {/if}
         </div>
     </main>
 {/if}
