@@ -12,11 +12,13 @@ const handler = async (event, context) => {
     console.log(body)
 
     try {
-        stripe.webhooks.constructEvent(
+        const stripeEvent = stripe.webhooks.constructEvent(
             event.body,
             event.headers["stripe-signature"],
             process.env.STRIPE_WEBHOOK_SECRET,
         )
+
+        console.log(stripeEvent)
     } catch (err) {
         return {
             statusCode: 400,
