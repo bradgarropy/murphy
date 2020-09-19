@@ -1,5 +1,4 @@
 const fetch = require("node-fetch")
-const {readUserByEmail} = require("./utils/fauna")
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 const handler = async (event, context) => {
@@ -40,34 +39,25 @@ const handler = async (event, context) => {
     console.log(signupResponse)
 
     // TODO: handle fetch error
-    const signupData = await signupResponse.json()
-    console.log(signupData)
+    const {id} = await signupResponse.json()
+
+    const updates = {
+        app_metadata: {
+            roles: ["free", "pro"],
+        },
+    }
+
+    const userResponse = await fetch(`${url}/admin/users/${id}`, {
+        method: "PUT",
+        headers: {Authorization: `Bearer ${token}`},
+        body: JSON.stringify(updates),
+    })
+
+    // TODO: handle fetch error
+    await userResponse.json()
 
     const response = {statusCode: 200}
     return response
-
-    // const faunaResponse = await readUserByEmail(email)
-
-    // const {id} = faunaResponse.data
-    // const {url, token} = context.clientContext.identity
-
-    // const updates = {
-    //     app_metadata: {
-    //         roles: ["free", "pro"],
-    //     },
-    // }
-
-    // const fetchResponse = await fetch(`${url}/admin/users/${id}`, {
-    //     method: "PUT",
-    //     headers: {Authorization: `Bearer ${token}`},
-    //     body: JSON.stringify(updates),
-    // })
-
-    // // TODO: handle fetch error
-    // await fetchResponse.json()
-
-    // const response = {statusCode: 200}
-    // return response
 }
 
 module.exports = {handler}
