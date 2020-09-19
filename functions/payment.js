@@ -1,7 +1,5 @@
 const fetch = require("node-fetch")
-const Stripe = require("stripe")
-
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY, {maxNetworkRetries: 2})
+const stripe = require("./utils/stripe")
 
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
