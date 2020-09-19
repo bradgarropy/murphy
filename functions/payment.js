@@ -4,12 +4,8 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
-    const {customerId} = body.data.object
+    const customerId = body.data.object.customer
     const {url, token} = context.clientContext.identity
-
-    console.log(context.clientContext.identity.url)
-    console.log(context.clientContext.identity.token)
-    console.log(body)
 
     try {
         stripe.webhooks.constructEvent(
