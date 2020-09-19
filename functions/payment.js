@@ -25,10 +25,9 @@ const handler = async (event, context) => {
     }
 
     const customer = await stripe.customers.retrieve(customerId)
-    console.log(customer)
 
     const user = {
-        email: null,
+        email: customer.email,
         password: "foobar",
     }
 
