@@ -4,7 +4,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
-    const email = body.data.object.customer_email
+    const {customerId} = body.data.object
     const {url, token} = context.clientContext.identity
 
     console.log(context.clientContext.identity.url)
@@ -12,13 +12,11 @@ const handler = async (event, context) => {
     console.log(body)
 
     try {
-        const stripeEvent = stripe.webhooks.constructEvent(
+        stripe.webhooks.constructEvent(
             event.body,
             event.headers["stripe-signature"],
             process.env.STRIPE_WEBHOOK_SECRET,
         )
-
-        console.log(stripeEvent)
     } catch (err) {
         return {
             statusCode: 400,
@@ -30,8 +28,11 @@ const handler = async (event, context) => {
         return {statusCode: 200}
     }
 
+    const customer = await stripe.customers.retrieve(customerId)
+    console.log(customer)
+
     const user = {
-        email,
+        email: null,
         password: "foobar",
     }
 
