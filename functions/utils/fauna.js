@@ -3,24 +3,6 @@ const faunadb = require("faunadb")
 const q = faunadb.query
 const client = new faunadb.Client({secret: process.env.FAUNADB_SERVER_SECRET})
 
-const createUser = async user => {
-    const params = {
-        data: user,
-    }
-
-    const query = q.Create(q.Collection("Users"), params)
-
-    const response = await client.query(query)
-    return response
-}
-
-const readUserByEmail = async email => {
-    const query = q.Get(q.Match(q.Index("usersByEmail"), email))
-
-    const response = await client.query(query)
-    return response
-}
-
 const createWorkout = async (user, body) => {
     // TODO: validate workout
 
@@ -54,8 +36,6 @@ const readWorkoutById = async id => {
 }
 
 module.exports = {
-    createUser,
-    readUserByEmail,
     createWorkout,
     readWorkoutsByEmail,
     readWorkoutById,

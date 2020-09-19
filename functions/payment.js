@@ -7,6 +7,7 @@ const handler = async (event, context) => {
     const {url, token} = context.clientContext.identity
 
     try {
+        // validate stripe webook
         stripe.webhooks.constructEvent(
             event.body,
             event.headers["stripe-signature"],
@@ -19,10 +20,12 @@ const handler = async (event, context) => {
         }
     }
 
+    // only handle checkout completed events
     if (body.type !== "checkout.session.completed") {
         return {statusCode: 200}
     }
 
+    // get stripe customer
     const customer = await stripe.customers.retrieve(customerId)
 
     const user = {
@@ -30,13 +33,12 @@ const handler = async (event, context) => {
         password: "foobar",
     }
 
+    // create netlify identity user
     const signupResponse = await fetch(`${url}/signup`, {
         method: "POST",
         headers: {Authorization: `Bearer ${token}`},
         body: JSON.stringify(user),
     })
-
-    console.log(signupResponse)
 
     // TODO: handle fetch error
     const {id} = await signupResponse.json()
@@ -47,6 +49,7 @@ const handler = async (event, context) => {
         },
     }
 
+    // update user roles
     const userResponse = await fetch(`${url}/admin/users/${id}`, {
         method: "PUT",
         headers: {Authorization: `Bearer ${token}`},
