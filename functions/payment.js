@@ -42,9 +42,6 @@ const handler = async (event, context) => {
     // create temporary password
     const password = generate(options)
 
-    // TODO: HOLY SHIT REMOVE THIS!
-    console.log(password)
-
     const signupBody = {
         email: customer.email,
         password,
@@ -87,8 +84,7 @@ const handler = async (event, context) => {
     })
 
     // TODO: handle fetch error
-    const recoverData = await recoverResponse.json()
-    console.log(recoverData)
+    await recoverResponse.json()
 
     const response = {statusCode: 200}
     return response
