@@ -1,4 +1,6 @@
 const fetch = require("node-fetch")
+const {generate} = require("generate-password")
+
 const stripe = require("./utils/stripe")
 
 const handler = async (event, context) => {
@@ -28,22 +30,37 @@ const handler = async (event, context) => {
     // get stripe customer
     const customer = await stripe.customers.retrieve(customerId)
 
-    const user = {
+    const options = {
+        length: 10,
+        numbers: true,
+        symbols: true,
+        lowercase: true,
+        uppercase: true,
+        strict: true,
+    }
+
+    // create temporary password
+    const password = generate(options)
+
+    // TODO: HOLY SHIT REMOVE THIS!
+    console.log(password)
+
+    const signupBody = {
         email: customer.email,
-        password: "foobar",
+        password,
     }
 
     // create netlify identity user
     const signupResponse = await fetch(`${url}/signup`, {
         method: "POST",
         headers: {Authorization: `Bearer ${token}`},
-        body: JSON.stringify(user),
+        body: JSON.stringify(signupBody),
     })
 
     // TODO: handle fetch error
     const {id} = await signupResponse.json()
 
-    const updates = {
+    const userBody = {
         app_metadata: {
             roles: ["free", "pro"],
         },
@@ -53,11 +70,25 @@ const handler = async (event, context) => {
     const userResponse = await fetch(`${url}/admin/users/${id}`, {
         method: "PUT",
         headers: {Authorization: `Bearer ${token}`},
-        body: JSON.stringify(updates),
+        body: JSON.stringify(userBody),
     })
 
     // TODO: handle fetch error
     await userResponse.json()
+
+    const recoverBody = {
+        email: customer.email,
+    }
+
+    const recoverResponse = await fetch(`${url}/recover`, {
+        method: "POST",
+        headers: {Authorization: `Bearer ${token}`},
+        body: JSON.stringify(recoverBody),
+    })
+
+    // TODO: handle fetch error
+    const recoverData = await recoverResponse.json()
+    console.log(recoverData)
 
     const response = {statusCode: 200}
     return response
