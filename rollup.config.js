@@ -1,3 +1,4 @@
+import image from "svelte-image"
 import copy from "rollup-plugin-copy"
 import serve from "rollup-plugin-serve"
 import svelte from "rollup-plugin-svelte"
@@ -16,7 +17,16 @@ const config = {
         sourcemap: process.env.ROLLUP_WATCH,
     },
     plugins: [
-        svelte({dev: process.env.ROLLUP_WATCH}),
+        svelte({
+            dev: process.env.ROLLUP_WATCH,
+            preprocess: {
+                ...image({
+                    outputDir: "images",
+                    publicDir: "static",
+                    placeholder: "blur",
+                }),
+            },
+        }),
         resolve({browser: true}),
         replace({
             BASE_URL: process.env.ROLLUP_WATCH
