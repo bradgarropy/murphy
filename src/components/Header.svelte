@@ -30,7 +30,7 @@
             </Link>
         {/if}
 
-        <Link to="/settings">
+        <Link to="/settings" aria-label="settings">
             <svg
                 class="fill-current"
                 width="36px"
@@ -51,7 +51,7 @@
             </svg>
         </Link>
 
-        <Link to="/account">
+        <Link to="/account" aria-label="settings">
             <svg
                 class="fill-current"
                 width="36px"
