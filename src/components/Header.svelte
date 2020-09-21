@@ -30,12 +30,14 @@
             </Link>
         {/if}
 
-        <Link to="/settings" aria-label="settings">
+        <Link to="/settings">
             <svg
                 class="fill-current"
                 width="36px"
                 height="36px"
-                viewBox="0 0 20 20">
+                viewBox="0 0 20 20"
+                aria-label="settings"
+            >
                 <path
                     fill-rule="evenodd"
                     d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0
@@ -51,12 +53,14 @@
             </svg>
         </Link>
 
-        <Link to="/account" aria-label="settings">
+        <Link to="/account">
             <svg
                 class="fill-current"
                 width="36px"
                 height="36px"
-                viewBox="0 0 20 20">
+                viewBox="0 0 20 20"
+                aria-label="account"
+            >
                 <path
                     fill-rule="evenodd"
                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2
