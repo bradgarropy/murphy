@@ -35,27 +35,29 @@ const handler = async (event, context) => {
     const getUserData = await getUserResponse.json()
     console.log(getUserData)
 
+    // find user
+    const user = getUserData.find(user => user.email === email)
+    console.log(user)
+
+    const updateUserBody = {
+        app_metadata: {
+            roles: ["free", "pro"],
+        },
+    }
+
+    // update user roles
+    const updateUserResponse = await fetch(`${url}/admin/users/${user.id}`, {
+        method: "PUT",
+        headers: {Authorization: `Bearer ${token}`},
+        body: JSON.stringify(updateUserBody),
+    })
+
+    // TODO: handle fetch error
+    const updateUserData = await updateUserResponse.json()
+    console.log(updateUserData)
+
     const response = {statusCode: 200}
     return response
-
-    // const userBody = {
-    //     app_metadata: {
-    //         roles: ["free", "pro"],
-    //     },
-    // }
-
-    // // update user roles
-    // const userResponse = await fetch(`${url}/admin/users/${id}`, {
-    //     method: "PUT",
-    //     headers: {Authorization: `Bearer ${token}`},
-    //     body: JSON.stringify(userBody),
-    // })
-
-    // // TODO: handle fetch error
-    // await userResponse.json()
-
-    // const response = {statusCode: 200}
-    // return response
 }
 
 module.exports = {handler}
