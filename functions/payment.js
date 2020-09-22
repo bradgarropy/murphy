@@ -33,11 +33,9 @@ const handler = async (event, context) => {
 
     // TODO: handle fetch error
     const {users} = await readUsersResponse.json()
-    console.log(users)
 
     // find user
     const user = users.find(user => user.email === email)
-    console.log(user)
 
     const updateUserBody = {
         app_metadata: {
@@ -53,8 +51,7 @@ const handler = async (event, context) => {
     })
 
     // TODO: handle fetch error
-    const updateUserData = await updateUserResponse.json()
-    console.log(updateUserData)
+    await updateUserResponse.json()
 
     const response = {statusCode: 200}
     return response
