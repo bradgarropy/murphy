@@ -2,8 +2,17 @@
     import {fade} from "svelte/transition"
     import netlifyIdentity from "netlify-identity-widget"
 
+    import {user} from "../stores/user"
+
+    import {checkout} from "./stripe"
+
     const onGoPro = async () => {
-        netlifyIdentity.open("signup")
+        if(!$user) {
+            netlifyIdentity.open("signup")
+            return
+        }
+
+        checkout($user.email)
     }
 
 </script>

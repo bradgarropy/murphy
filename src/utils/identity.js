@@ -1,7 +1,9 @@
-import {loadStripe} from "@stripe/stripe-js"
+import {navigate} from "svelte-routing"
 import netlifyIdentity from "netlify-identity-widget"
 
 import {user} from "../stores/user.js"
+
+import {checkout} from "./stripe"
 
 netlifyIdentity.on("init", u => {
     user.set(u)
@@ -11,22 +13,22 @@ netlifyIdentity.on("login", async u => {
     const userData = await u.getUserData()
     user.set(userData)
 
-    if (!userData._fromStorage) {
-        const stripe = await loadStripe("STRIPE_PUBLISHABLE_KEY")
+    const now = Date.now()
+    const created = new Date(userData.created_at)
+    const minute = 60 * 1000
+    const isSignup = now - created < minute
 
-        stripe.redirectToCheckout({
-            lineItems: [
-                {
-                    price: "price_1HBlrkBthckZG10zk9Ho2WRR",
-                    quantity: 1,
-                },
-            ],
-            mode: "payment",
-            customerEmail: userData.email,
-            successUrl: "BASE_URL/thanks",
-            cancelUrl: "BASE_URL/account",
-        })
+    // fresh sign up
+    if (isSignup && !userData._fromStorage) {
+        checkout(userData.email)
     }
+    // fresh login
+    else if (!userData._fromStorage) {
+        netlifyIdentity.close()
+        navigate("/")
+    }
+
+    // do nothing on local storage logins
 })
 
 netlifyIdentity.on("logout", () => {
