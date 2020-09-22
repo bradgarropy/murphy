@@ -57,7 +57,8 @@ const handler = async (event, context) => {
     )
 
     // TODO: handle fetch error
-    await updateUserResponse.json()
+    const updateUserData = await updateUserResponse.json()
+    console.log(updateUserData)
 
     const response = {statusCode: 200}
     return response
