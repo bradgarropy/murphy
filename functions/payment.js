@@ -26,17 +26,17 @@ const handler = async (event, context) => {
         return {statusCode: 200}
     }
 
-    const getUserResponse = await fetch(`${url}/admin/users`, {
+    const readUsersResponse = await fetch(`${url}/admin/users`, {
         method: "GET",
         headers: {Authorization: `Bearer ${token}`},
     })
 
     // TODO: handle fetch error
-    const getUserData = await getUserResponse.json()
-    console.log(getUserData)
+    const {users} = await readUsersResponse.json()
+    console.log(users)
 
     // find user
-    const user = getUserData.find(user => user.email === email)
+    const user = users.find(user => user.email === email)
     console.log(user)
 
     const updateUserBody = {
