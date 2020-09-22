@@ -42,23 +42,23 @@
         "gotrue-js": "^0.9.27",
         "netlify-identity-widget": "^1.9.1",
         "node-fetch": "^2.6.1",
-        "stripe": "^8.93.0",
+        "stripe": "^8.97.0",
         "svelte-routing": "^1.4.2"
     },
     "devDependencies": {
-        "@rollup/plugin-commonjs": "^15.0.0",
+        "@rollup/plugin-commonjs": "^15.1.0",
         "@rollup/plugin-node-resolve": "^9.0.0",
         "babel-eslint": "^10.1.0",
         "cross-env": "^7.0.2",
-        "eslint": "^7.8.1",
-        "eslint-config-bradgarropy": "^1.4.2",
+        "eslint": "^7.9.0",
+        "eslint-config-bradgarropy": "^1.5.0",
         "eslint-plugin-jsx-a11y": "^6.3.1",
         "eslint-plugin-react": "^7.20.6",
-        "eslint-plugin-react-hooks": "^4.1.0",
+        "eslint-plugin-react-hooks": "^4.1.2",
         "eslint-plugin-svelte3": "^2.7.3",
         "npm-run-all": "^4.1.5",
         "postcss-cli": "^7.1.2",
-        "rollup": "^2.26.11",
+        "rollup": "^2.28.1",
         "rollup-plugin-copy": "^3.3.0",
         "rollup-plugin-livereload": "^2.0.0",
         "rollup-plugin-node-resolve": "^5.2.0",
@@ -66,9 +66,9 @@
         "rollup-plugin-serve": "^1.0.4",
         "rollup-plugin-svelte": "^6.0.1",
         "rollup-plugin-terser": "^7.0.2",
-        "svelte": "^3.24.1",
+        "svelte": "^3.25.1",
         "svelte-image": "^0.2.7",
-        "tailwindcss": "^1.8.6"
+        "tailwindcss": "^1.8.10"
     },
     "peerDependencies": {}
 }

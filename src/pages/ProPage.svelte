@@ -1,28 +1,30 @@
 <script>
-    import Image from "svelte-image"
     import {fade} from "svelte/transition"
-    import {loadStripe} from "@stripe/stripe-js"
+    // import {loadStripe} from "@stripe/stripe-js"
+    import netlifyIdentity from "netlify-identity-widget"
 
     const onGoPro = async () => {
-        const stripe = await loadStripe("pk_test_dhKNdBfrivRQXMnWPd7Msrow")
+        netlifyIdentity.open("signup")
 
-        stripe.redirectToCheckout({
-            lineItems: [
-                {
-                    price: "price_1HBlrkBthckZG10zk9Ho2WRR",
-                    quantity: 1,
-                },
-            ],
-            mode: "payment",
-            successUrl: "BASE_URL/thanks",
-            cancelUrl: "BASE_URL/account",
-        })
+        // const stripe = await loadStripe("pk_test_dhKNdBfrivRQXMnWPd7Msrow")
+
+        // stripe.redirectToCheckout({
+        //     lineItems: [
+        //         {
+        //             price: "price_1HBlrkBthckZG10zk9Ho2WRR",
+        //             quantity: 1,
+        //         },
+        //     ],
+        //     mode: "payment",
+        //     successUrl: "BASE_URL/thanks",
+        //     cancelUrl: "BASE_URL/account",
+        // })
     }
 
 </script>
 
 <main in:fade={{duration: 500}} class="-mt-4 flex flex-col items-center text-black">
-    <Image src="/push-ups.jpg" alt="push up" class="z-0"/>
+    <img src="/push-ups.jpg" alt="push up" class="z-0" />
 
     <section class="flex flex-col items-center z-10 relative bg-white -mt-12 mb-24 transform -skew-x-3 uppercase shadow-2xl">
         <div class="flex flex-col gap-y-4 items-center px-10 py-6 transform skew-x-3">
