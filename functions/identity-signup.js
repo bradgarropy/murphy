@@ -1,7 +1,4 @@
-const handler = async (event, context) => {
-    console.log(event)
-    console.log(context)
-
+const handler = async () => {
     const body = {
         app_metadata: {
             roles: ["free"],

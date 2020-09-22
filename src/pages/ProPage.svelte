@@ -1,24 +1,9 @@
 <script>
     import {fade} from "svelte/transition"
-    // import {loadStripe} from "@stripe/stripe-js"
     import netlifyIdentity from "netlify-identity-widget"
 
     const onGoPro = async () => {
         netlifyIdentity.open("signup")
-
-        // const stripe = await loadStripe("pk_test_dhKNdBfrivRQXMnWPd7Msrow")
-
-        // stripe.redirectToCheckout({
-        //     lineItems: [
-        //         {
-        //             price: "price_1HBlrkBthckZG10zk9Ho2WRR",
-        //             quantity: 1,
-        //         },
-        //     ],
-        //     mode: "payment",
-        //     successUrl: "BASE_URL/thanks",
-        //     cancelUrl: "BASE_URL/account",
-        // })
     }
 
 </script>

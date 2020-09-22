@@ -1,4 +1,4 @@
-import {navigate} from "svelte-routing"
+import {loadStripe} from "@stripe/stripe-js"
 import netlifyIdentity from "netlify-identity-widget"
 
 import {user} from "../stores/user.js"
@@ -12,8 +12,20 @@ netlifyIdentity.on("login", async u => {
     user.set(userData)
 
     if (!userData._fromStorage) {
-        netlifyIdentity.close()
-        navigate("/")
+        const stripe = await loadStripe("STRIPE_PUBLISHABLE_KEY")
+
+        stripe.redirectToCheckout({
+            lineItems: [
+                {
+                    price: "price_1HBlrkBthckZG10zk9Ho2WRR",
+                    quantity: 1,
+                },
+            ],
+            mode: "payment",
+            customerEmail: userData.email,
+            successUrl: "BASE_URL/thanks",
+            cancelUrl: "BASE_URL/account",
+        })
     }
 })
 

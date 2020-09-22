@@ -32,6 +32,7 @@ const config = {
             BASE_URL: process.env.ROLLUP_WATCH
                 ? "http://localhost:8888"
                 : "https://murphee.netlify.app",
+            STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY,
         }),
         commonjs(),
         copy({targets: [{src: "static/*", dest: path}]}),
