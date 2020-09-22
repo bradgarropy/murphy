@@ -4,7 +4,7 @@
 
     import {user} from "../stores/user"
 
-    import {checkout} from "./stripe"
+    import {checkout} from "../utils/stripe"
 
     const onGoPro = async () => {
         if(!$user) {
