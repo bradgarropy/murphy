@@ -6,6 +6,7 @@
     import Header from "./components/Header.svelte"
     import Saving from "./components/Saving.svelte"
     import ThanksPage from "./pages/ThanksPage.svelte"
+    import Redirect from "./components/Redirect.svelte"
     import AccountPage from "./pages/AccountPage.svelte"
     import DetailsPage from "./pages/DetailsPage.svelte"
     import WorkoutPage from "./pages/WorkoutPage.svelte"
@@ -82,6 +83,10 @@
 
         <Route path="/pro">
             <ProPage />
+        </Route>
+
+        <Route>
+            <Redirect to="/" />
         </Route>
     </div>
 </Router>
