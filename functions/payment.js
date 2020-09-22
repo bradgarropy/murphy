@@ -35,27 +35,29 @@ const handler = async (event, context) => {
     )
 
     // TODO: handle fetch error
-    const r = await readUsersResponse.json()
-    console.log(r)
+    const {users} = await readUsersResponse.json()
+    console.log(users)
+    console.log(users[0])
+    console.log(users[0].id)
 
-    // // find user
-    // const user = users.find(user => user.email === email)
+    const updateUserBody = {
+        app_metadata: {
+            roles: ["free", "pro"],
+        },
+    }
 
-    // const updateUserBody = {
-    //     app_metadata: {
-    //         roles: ["free", "pro"],
-    //     },
-    // }
+    // update user roles
+    const updateUserResponse = await fetch(
+        `${url}/admin/users/${users[0].id}`,
+        {
+            method: "PUT",
+            headers: {Authorization: `Bearer ${token}`},
+            body: JSON.stringify(updateUserBody),
+        },
+    )
 
-    // // update user roles
-    // const updateUserResponse = await fetch(`${url}/admin/users/${user.id}`, {
-    //     method: "PUT",
-    //     headers: {Authorization: `Bearer ${token}`},
-    //     body: JSON.stringify(updateUserBody),
-    // })
-
-    // // TODO: handle fetch error
-    // await updateUserResponse.json()
+    // TODO: handle fetch error
+    await updateUserResponse.json()
 
     const response = {statusCode: 200}
     return response
