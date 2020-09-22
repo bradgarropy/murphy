@@ -4,6 +4,7 @@
     import netlifyIdentity from "netlify-identity-widget"
 
     import {user} from "../stores/user.js"
+import {isPro} from "../utils/utils.js"
 
     const onLogin = () => {
         netlifyIdentity.open("login")
@@ -37,11 +38,13 @@
             uppercase ">
             login
         </button>
+    {/if}
 
+    {#if !isPro($user)}
         <button
             on:click={onGoPro}
             class="font-header mb-8 px-6 py-1 bg-yellow text-5xl uppercase transform -skew-x-6 tracking-tighter"
-        >
+            >
             go pro
         </button>
     {/if}

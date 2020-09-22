@@ -26,32 +26,36 @@ const handler = async (event, context) => {
         return {statusCode: 200}
     }
 
-    const readUsersResponse = await fetch(`${url}/admin/users`, {
-        method: "GET",
-        headers: {Authorization: `Bearer ${token}`},
-    })
-
-    // TODO: handle fetch error
-    const {users} = await readUsersResponse.json()
-
-    // find user
-    const user = users.find(user => user.email === email)
-
-    const updateUserBody = {
-        app_metadata: {
-            roles: ["free", "pro"],
+    const readUsersResponse = await fetch(
+        `${url}/admin/users?filter=${email}`,
+        {
+            method: "GET",
+            headers: {Authorization: `Bearer ${token}`},
         },
-    }
-
-    // update user roles
-    const updateUserResponse = await fetch(`${url}/admin/users/${user.id}`, {
-        method: "PUT",
-        headers: {Authorization: `Bearer ${token}`},
-        body: JSON.stringify(updateUserBody),
-    })
+    )
 
     // TODO: handle fetch error
-    await updateUserResponse.json()
+    const r = await readUsersResponse.json()
+    console.log(r)
+
+    // // find user
+    // const user = users.find(user => user.email === email)
+
+    // const updateUserBody = {
+    //     app_metadata: {
+    //         roles: ["free", "pro"],
+    //     },
+    // }
+
+    // // update user roles
+    // const updateUserResponse = await fetch(`${url}/admin/users/${user.id}`, {
+    //     method: "PUT",
+    //     headers: {Authorization: `Bearer ${token}`},
+    //     body: JSON.stringify(updateUserBody),
+    // })
+
+    // // TODO: handle fetch error
+    // await updateUserResponse.json()
 
     const response = {statusCode: 200}
     return response
