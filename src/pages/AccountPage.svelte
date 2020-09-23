@@ -22,6 +22,16 @@
 
 <svelte:head>
     <title>MURPHY | account</title>
+
+            <!-- twitter -->
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:site" content="@bradgarropy" />
+            <meta name="twitter:title" content="MURPHY | account" />
+            <meta name="twitter:description" content="⏱ murph workout timer" />
+            <meta
+                name="twitter:image"
+                content="https://murphee.netlify.app/icon-512.png"
+            />
 </svelte:head>
 
 <main
