@@ -26,6 +26,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>MURPHY | completed</title>
+</svelte:head>
+
 {#if !$elapsed}
     <Redirect to="/" />
 {:else}

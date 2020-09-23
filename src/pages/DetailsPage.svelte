@@ -8,6 +8,10 @@
     import {workout} from "../stores/workout.js"
 </script>
 
+<svelte:head>
+    <title>MURPHY | details</title>
+</svelte:head>
+
 <main
     class="grid grid-rows-details justify-center items-center pb-10"
     in:fade={{duration: 500}}>

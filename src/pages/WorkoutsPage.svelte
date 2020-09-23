@@ -31,6 +31,10 @@
     const promise = getWorkouts()
 </script>
 
+<svelte:head>
+    <title>MURPHY | workouts</title>
+</svelte:head>
+
 <main class="grid gap-y-6 grid-rows-workouts justify-center text-black" in:fade={{duration: 500}}>
     <h2 class="text-center text-4xl uppercase font-header tracking-tighter">workouts</h2>
 

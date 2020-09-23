@@ -29,7 +29,11 @@
     }
 
     const promise = getWorkout()
-    </script>
+</script>
+
+<svelte:head>
+    <title>MURPHY | workout</title>
+</svelte:head>
 
 <main
     class="grid grid-rows-completed justify-center items-center pb-10 text-black"

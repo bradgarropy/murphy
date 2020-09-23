@@ -10,6 +10,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>MURPHY | settings</title>
+</svelte:head>
+
 <form
     in:fade={{duration: 500}}
     on:submit|preventDefault={onSubmit}

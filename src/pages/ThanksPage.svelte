@@ -18,6 +18,10 @@
     refreshUser()
 </script>
 
+<svelte:head>
+    <title>MURPHY | thanks</title>
+</svelte:head>
+
 <main in:fade={{duration: 500}} class="font-body tracking-tighter">
     <h2 class="flex justify-center items-baseline text-black uppercase text-5xl my-6 tracking-tighter">
         <span class="font-black z-10 relative">you are a</span>

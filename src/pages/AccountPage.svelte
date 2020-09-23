@@ -4,7 +4,7 @@
     import netlifyIdentity from "netlify-identity-widget"
 
     import {user} from "../stores/user.js"
-import {isPro} from "../utils/utils.js"
+    import {isPro} from "../utils/utils.js"
 
     const onLogin = () => {
         netlifyIdentity.open("login")
@@ -19,6 +19,10 @@ import {isPro} from "../utils/utils.js"
         navigate("/pro")
     }
 </script>
+
+<svelte:head>
+    <title>MURPHY | account</title>
+</svelte:head>
 
 <main
     class="grid content-center justify-center gap-6"

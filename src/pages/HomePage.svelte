@@ -80,6 +80,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>MURPHY | timer</title>
+</svelte:head>
+
 <main
     class="h-full grid grid-rows-timer row-gap-4 items-center"
     in:fade={{duration: 500}}>

@@ -17,6 +17,10 @@
 
 </script>
 
+<svelte:head>
+    <title>MURPHY | pro</title>
+</svelte:head>
+
 <main in:fade={{duration: 500}} class="-mt-4 flex flex-col items-center text-black">
     <img src="/push-ups.jpg" alt="push up" class="z-0" />
 
