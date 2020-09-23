@@ -1,17 +1,23 @@
 {
-    "name": "svelte-starter",
+    "name": "murphy",
     "version": "0.0.1",
-    "description": "🤖 cybernetically enhanced svelte starter",
+    "description": "⏱ murph workout timer",
     "keywords": [
         "svelte",
-        "starter",
-        "template",
+        "tailwindcss",
+        "faunadb",
         "netlify",
-        "prettier"
+        "netlify-identity",
+        "rollup",
+        "murph",
+        "murphy",
+        "crossfit",
+        "workout",
+        "timer"
     ],
-    "homepage": "https://cybernetic-starter.netlify.app",
+    "homepage": "https://murphee.netlify.app",
     "bugs": {
-        "url": "https://github.com/bradgarropy/svelte-starter/issues"
+        "url": "https://github.com/bradgarropy/murphy/issues"
     },
     "license": "MIT",
     "author": {
@@ -22,7 +28,7 @@
     "main": "src/index.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/bradgarropy/svelte-starter"
+        "url": "https://github.com/bradgarropy/murphy"
     },
     "scripts": {
         "start": "npm-run-all --parallel watch:**",
