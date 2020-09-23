@@ -51,7 +51,7 @@
             </ul>
         </section>
 
-        <section class="text-silver">
+        <section>
             <h3 class="text-3xl font-bold">Coming soon</h3>
 
             <ul class="flex flex-col gap-y-2 text-xl tracking-tighter uppercase">
