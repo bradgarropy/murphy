@@ -12,7 +12,7 @@ const handler = async (event, context) => {
         stripe.webhooks.constructEvent(
             event.body,
             event.headers["stripe-signature"],
-            process.env.STRIPE_WHSEC_TEST,
+            process.env.STRIPE_WHSEC_LIVE,
         )
     } catch (err) {
         return {
