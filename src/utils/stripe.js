@@ -6,7 +6,7 @@ const checkout = async email => {
     stripe.redirectToCheckout({
         lineItems: [
             {
-                price: "price_1HUw5bBthckZG10zjIDeUt7u",
+                price: "STRIPE_PRICE",
                 quantity: 1,
             },
         ],

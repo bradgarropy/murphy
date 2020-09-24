@@ -38,6 +38,9 @@ const config = {
             STRIPE_PK: production
                 ? process.env.STRIPE_PK_LIVE
                 : process.env.STRIPE_PK_TEST,
+            STRIPE_PRICE: production
+                ? process.env.STRIPE_PRICE_LIVE
+                : process.env.STRIPE_PRICE_TEST,
         }),
         commonjs(),
         copy({targets: [{src: "static/*", dest: path}]}),
