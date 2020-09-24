@@ -14,8 +14,6 @@ const checkout = async email => {
         customerEmail: email,
         successUrl: `${window.location.origin}/thanks`,
         cancelUrl: `${window.location.origin}/account`,
-        // successUrl: "BASE_URL/thanks",
-        // cancelUrl: "BASE_URL/account",
     })
 }
 

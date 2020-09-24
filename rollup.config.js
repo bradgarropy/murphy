@@ -32,9 +32,6 @@ const config = {
         }),
         resolve({browser: true}),
         replace({
-            BASE_URL: production
-                ? "https://murphee.netlify.app"
-                : "http://dev--murphee.netlify.app",
             STRIPE_PK: production
                 ? process.env.STRIPE_PK_LIVE
                 : process.env.STRIPE_PK_TEST,
