@@ -13,10 +13,6 @@ const production = process.env.CONTEXT === "production"
 const development = !production
 const watch = !!process.env.ROLLUP_WATCH
 
-console.log(`production: ${production}`)
-console.log(`development: ${development}`)
-console.log(`watch: ${watch}`)
-
 const config = {
     input: "src/index.js",
     output: {
