@@ -1,7 +1,7 @@
 import {loadStripe} from "@stripe/stripe-js"
 
 const checkout = async email => {
-    const stripe = await loadStripe("STRIPE_PUBLISHABLE_KEY")
+    const stripe = await loadStripe("STRIPE_PK")
 
     stripe.redirectToCheckout({
         lineItems: [
