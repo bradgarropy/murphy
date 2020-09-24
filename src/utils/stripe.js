@@ -1,5 +1,7 @@
 import {loadStripe} from "@stripe/stripe-js"
 
+console.log(window.location)
+
 const checkout = async email => {
     const stripe = await loadStripe("STRIPE_PK")
 
