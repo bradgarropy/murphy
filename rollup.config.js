@@ -8,11 +8,8 @@ import commonjs from "@rollup/plugin-commonjs"
 import resolve from "@rollup/plugin-node-resolve"
 import livereload from "rollup-plugin-livereload"
 
-console.log(`CONTEXT: ${process.env.CONTEXT}`)
-console.log(`ROLLUP_WATCH: ${process.env.ROLLUP_WATCH}`)
-
 const path = "dist"
-const production = !process.env.ROLLUP_WATCH
+const production = process.env.CONTEXT === "production"
 const development = !production
 
 console.log(`production: ${production}`)
