@@ -34,7 +34,7 @@ const config = {
         replace({
             BASE_URL: production
                 ? "https://murphee.netlify.app"
-                : "http://localhost:8888",
+                : "http://dev--murphee.netlify.app",
             STRIPE_PK: production
                 ? process.env.STRIPE_PK_LIVE
                 : process.env.STRIPE_PK_TEST,
