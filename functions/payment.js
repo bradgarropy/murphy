@@ -1,28 +1,19 @@
 const fetch = require("node-fetch")
 
-const stripe = require("./utils/stripe")
-
-const production = process.env.CONTEXT === "production"
-const STRIPE_WHSEC = production
-    ? process.env.STRIPE_WHSEC_LIVE
-    : process.env.STRIPE_WHSEC_TEST
+const {validate} = require("./utils/stripe")
 
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
     const email = body.data.object.customer_email
     const {url, token} = context.clientContext.identity
 
-    try {
-        // validate stripe webook
-        stripe.webhooks.constructEvent(
-            event.body,
-            event.headers["stripe-signature"],
-            STRIPE_WHSEC,
-        )
-    } catch (err) {
+    // validate stripe webhook
+    const status = validate(event)
+
+    if (!status.isValid) {
         return {
             statusCode: 400,
-            body: `Webhook Error: ${err.message}`,
+            body: `Webhook Error: ${status.error}`,
         }
     }
 
