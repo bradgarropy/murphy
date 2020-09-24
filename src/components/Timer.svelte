@@ -4,9 +4,10 @@
     import WorkoutProgress from "./WorkoutProgress.svelte"
     import Countdown from "./Countdown.svelte"
 
-    import {exercises} from "../stores/exercises.js"
-    import {running, elapsed, startTimer, counting} from "../stores/timer.js"
     import {completed} from "../stores/workout.js"
+    import {exercises} from "../stores/exercises.js"
+    import {getExerciseLabel} from "../utils/utils.js"
+    import {running, elapsed, startTimer, counting} from "../stores/timer.js"
 
     export let exercise
 
@@ -32,7 +33,7 @@
                 blink={!$running && $elapsed && !$completed}
                 class="block" />
 
-            <h2 class="font-body font-black">{$exercises[exercise].name}</h2>
+            <h2 class="font-body font-black">{getExerciseLabel($exercises[exercise].name)}</h2>
             <RoundProgress exercise={$exercises[exercise].name} />
         </div>
     </section>

@@ -1,3 +1,21 @@
+const getExerciseLabel = exercise => {
+    console.log(exercise)
+
+    switch (exercise) {
+        case "pull ups":
+            return `5 ${exercise}`
+
+        case "push ups":
+            return `10 ${exercise}`
+
+        case "squats":
+            return `15 ${exercise}`
+
+        default:
+            return exercise
+    }
+}
+
 const getRoundLabel = round => {
     const {number, exercises} = round
 
@@ -17,4 +35,4 @@ const isPro = user => {
     return pro
 }
 
-export {getRoundLabel, isPro}
+export {getExerciseLabel, getRoundLabel, isPro}

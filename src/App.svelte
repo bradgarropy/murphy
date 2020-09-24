@@ -2,9 +2,9 @@
     import {Router, Route} from "svelte-routing"
 
     import ProPage from "./pages/ProPage.svelte"
-    import HomePage from "./pages/HomePage.svelte"
     import Header from "./components/Header.svelte"
     import Saving from "./components/Saving.svelte"
+    import TimerPage from "./pages/TimerPage.svelte"
     import ThanksPage from "./pages/ThanksPage.svelte"
     import Redirect from "./components/Redirect.svelte"
     import AccountPage from "./pages/AccountPage.svelte"
@@ -48,11 +48,11 @@
         {/if}
 
         <Route path="/">
-            <HomePage />
+            <TimerPage />
         </Route>
 
         <Route path="/timer">
-            <HomePage />
+            <TimerPage />
         </Route>
 
         <Route path="/settings">
