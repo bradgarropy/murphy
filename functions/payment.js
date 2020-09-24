@@ -2,6 +2,18 @@ const fetch = require("node-fetch")
 
 const stripe = require("./utils/stripe")
 
+const production = process.env.CONTEXT === "production"
+const development = !production
+
+const STRIPE_WHSEC = production
+    ? process.env.STRIPE_WHSEC_LIVE
+    : process.env.STRIPE_WHSEC_TEST
+
+console.log(`CONTEXT: ${process.env.CONTEXT}`)
+console.log(`production: ${production}`)
+console.log(`development: ${development}`)
+console.log(`STRIPE_WHSEC: ${STRIPE_WHSEC}`)
+
 const handler = async (event, context) => {
     const body = JSON.parse(event.body)
     const email = body.data.object.customer_email
@@ -12,7 +24,7 @@ const handler = async (event, context) => {
         stripe.webhooks.constructEvent(
             event.body,
             event.headers["stripe-signature"],
-            process.env.STRIPE_WHSEC_LIVE,
+            STRIPE_WHSEC,
         )
     } catch (err) {
         return {
