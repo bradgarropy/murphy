@@ -9,16 +9,21 @@ import resolve from "@rollup/plugin-node-resolve"
 import livereload from "rollup-plugin-livereload"
 
 const path = "dist"
+const production = !process.env.ROLLUP_WATCH
+const development = !production
+
+console.log(`production: ${production}`)
+console.log(`development: ${development}`)
 
 const config = {
     input: "src/index.js",
     output: {
         file: `${path}/bundle.js`,
-        sourcemap: process.env.ROLLUP_WATCH,
+        sourcemap: development,
     },
     plugins: [
         svelte({
-            dev: process.env.ROLLUP_WATCH,
+            dev: development,
             preprocess: {
                 ...image({
                     outputDir: "images",
@@ -29,19 +34,23 @@ const config = {
         }),
         resolve({browser: true}),
         replace({
-            BASE_URL: "https://murphee.netlify.app",
-            STRIPE_PK: process.env.STRIPE_PK_LIVE,
+            BASE_URL: production
+                ? "https://murphee.netlify.app"
+                : "http://localhost:8888",
+            STRIPE_PK: production
+                ? process.env.STRIPE_PK_LIVE
+                : process.env.STRIPE_PK_TEST,
         }),
         commonjs(),
         copy({targets: [{src: "static/*", dest: path}]}),
-        !process.env.ROLLUP_WATCH && terser(),
-        process.env.ROLLUP_WATCH &&
+        production && terser(),
+        development &&
             serve({
                 contentBase: path,
                 port: 5000,
                 historyApiFallback: true,
             }),
-        process.env.ROLLUP_WATCH && livereload(path),
+        development && livereload(path),
     ],
 }
 
