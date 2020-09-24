@@ -30,7 +30,7 @@ const config = {
         resolve({browser: true}),
         replace({
             BASE_URL: "https://murphee.netlify.app",
-            STRIPE_PK: process.env.STRIPE_PK_TEST,
+            STRIPE_PK: process.env.STRIPE_PK_LIVE,
         }),
         commonjs(),
         copy({targets: [{src: "static/*", dest: path}]}),
