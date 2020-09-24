@@ -11,11 +11,11 @@ import livereload from "rollup-plugin-livereload"
 const path = "dist"
 const production = process.env.CONTEXT === "production"
 const development = !production
-const local = !!process.env.ROLLUP_WATCH
+const watch = !!process.env.ROLLUP_WATCH
 
 console.log(`production: ${production}`)
 console.log(`development: ${development}`)
-console.log(`local: ${local}`)
+console.log(`watch: ${watch}`)
 
 const config = {
     input: "src/index.js",
@@ -46,13 +46,13 @@ const config = {
         commonjs(),
         copy({targets: [{src: "static/*", dest: path}]}),
         production && terser(),
-        local &&
+        watch &&
             serve({
                 contentBase: path,
                 port: 5000,
                 historyApiFallback: true,
             }),
-        local && livereload(path),
+        watch && livereload(path),
     ],
 }
 
