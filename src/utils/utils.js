@@ -1,6 +1,4 @@
 const getExerciseLabel = exercise => {
-    console.log(exercise)
-
     switch (exercise) {
         case "pull ups":
             return `5 ${exercise}`
