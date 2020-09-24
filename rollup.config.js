@@ -15,6 +15,7 @@ const local = !!process.env.ROLLUP_WATCH
 
 console.log(`production: ${production}`)
 console.log(`development: ${development}`)
+console.log(`local: ${local}`)
 
 const config = {
     input: "src/index.js",
