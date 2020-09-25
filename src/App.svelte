@@ -35,7 +35,7 @@
     />
 </svelte:head>
 
-<audio id="countdown" src="/countdown.wav">
+<audio id="countdown" src="/countdown.mp3">
     <track kind="captions" />
 </audio>
 
