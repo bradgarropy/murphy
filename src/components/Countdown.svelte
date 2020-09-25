@@ -6,16 +6,17 @@
 
     id = setInterval(() => {
         if (countdown === 1) {
+            document.getElementById("start").play()
             clearInterval(id)
             onCompleted()
             return
         }
 
+        document.getElementById("tick").play()
         countdown = countdown - 1
     }, 1000)
 
-    const audio = document.getElementById("countdown")
-    audio.play()
+    document.getElementById("tick").play()
 </script>
 
 <div class="flex flex-row justify-center font-body font-medium gap-32 text-6xl">
