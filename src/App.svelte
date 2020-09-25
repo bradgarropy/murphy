@@ -35,10 +35,6 @@
     />
 </svelte:head>
 
-<!-- <audio id="countdown" src="/countdown.mp3">
-    <track kind="captions" />
-</audio> -->
-
 <audio id="tick" src="/tick.mp3">
     <track kind="captions" />
 </audio>
