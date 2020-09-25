@@ -40,7 +40,12 @@ const config = {
                 : process.env.STRIPE_PRICE_TEST,
         }),
         commonjs(),
-        copy({targets: [{src: "static/*", dest: path}]}),
+        copy({
+            targets: [
+                {src: "static/*", dest: path},
+                {src: "static/.*", dest: path},
+            ],
+        }),
         production && terser(),
         watch &&
             serve({
