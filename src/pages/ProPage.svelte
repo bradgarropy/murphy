@@ -21,7 +21,7 @@
 </svelte:head>
 
 <main in:fade={{duration: 500}} class="-mt-4 flex flex-col items-center text-black">
-    <img src="/push-ups.jpg" alt="push up" class="z-0" />
+    <img src="/push-ups.jpg" alt="push up" width="2400" height="1539" class="z-0 bg-trueBlack" />
 
     <section class="flex flex-col items-center z-10 relative bg-white -mt-12 mb-24 transform -skew-x-3 uppercase shadow-2xl">
         <div class="flex flex-col gap-y-4 items-center px-10 py-6 transform skew-x-3">

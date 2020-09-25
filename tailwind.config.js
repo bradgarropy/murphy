@@ -2,6 +2,7 @@ const config = {
     purge: ["./src/**/*.html", "./src/**/*.svelte"],
     theme: {
         colors: {
+            trueBlack: "#000000",
             black: "#312221",
             gray: "#8D8F91",
             silver: "#B6B8B9",
