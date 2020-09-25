@@ -7,7 +7,7 @@
     import {completed} from "../stores/workout.js"
     import {exercises} from "../stores/exercises.js"
     import {getExerciseLabel} from "../utils/utils.js"
-    import {running, elapsed, startTimer, counting} from "../stores/timer.js"
+    import {ticking, elapsed, startTimer, counting} from "../stores/timer.js"
 
     export let exercise
 
@@ -30,7 +30,7 @@
         <div>
             <Time
                 time={$elapsed}
-                blink={!$running && $elapsed && !$completed}
+                blink={!$ticking && $elapsed && !$completed}
                 class="block" />
 
             <h2 class="font-body font-black">{getExerciseLabel($exercises[exercise].name)}</h2>

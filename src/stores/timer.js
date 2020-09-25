@@ -5,7 +5,8 @@ let wakeLock = undefined
 let previouslyElapsed = 0
 
 const elapsed = writable(0)
-const running = writable(false)
+const active = writable(false)
+const ticking = writable(false)
 const counting = writable(false)
 const laps = writable([{startTime: 0, endTime: null, time: null}])
 
@@ -22,7 +23,8 @@ const startCountdown = () => {
 }
 
 const startTimer = async () => {
-    running.set(true)
+    active.set(true)
+    ticking.set(true)
     const startTime = Date.now()
 
     if ("wakeLock" in navigator) {
@@ -52,7 +54,7 @@ const lap = () => {
 }
 
 const stop = async () => {
-    running.set(false)
+    ticking.set(false)
     previouslyElapsed = get(elapsed)
 
     clearInterval(id)
@@ -62,7 +64,8 @@ const stop = async () => {
 
 const resetTimer = () => {
     elapsed.set(0)
-    running.set(false)
+    active.set(false)
+    ticking.set(false)
     laps.set([{startTime: 0, endTime: null, time: null}])
 
     previouslyElapsed = 0
@@ -72,7 +75,8 @@ const resetTimer = () => {
 
 export {
     counting,
-    running,
+    active,
+    ticking,
     elapsed,
     laps,
     start,

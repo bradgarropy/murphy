@@ -11,7 +11,8 @@
 
     import {
         counting,
-        running,
+        active,
+        ticking,
         elapsed,
         start,
         lap,
@@ -87,19 +88,19 @@
 <main
     class="h-full grid grid-rows-timer row-gap-4 items-center"
     in:fade={{duration: 500}}>
-    {#if !$elapsed && !$counting}
+    {#if !$active && !$counting}
         <LetsGo />
     {:else}
         <Timer {exercise} />
     {/if}
 
-    {#if !$running}
+    {#if !$ticking}
         <StartButton {onStart} />
     {:else}
         <NextButton {onNext} />
     {/if}
 
-    {#if !$running && $elapsed}
+    {#if !$ticking && $elapsed}
         <ResetButton {onReset} />
     {:else}
         <StopButton {onStop} />
