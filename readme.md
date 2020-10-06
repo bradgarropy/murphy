@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://murphee.netlify.app">
+    <a href="https://murphy.bradgarropy.com">
         <img alt="⏱ murph workout timer" src="/static/icon-512.png" width="150">
     </a>
 </p>
