@@ -1,10 +1,10 @@
 <script>
     import {Router, Route} from "svelte-routing"
 
-    import ProPage from "./pages/ProPage.svelte"
     import Header from "./components/Header.svelte"
     import Saving from "./components/Saving.svelte"
     import TimerPage from "./pages/TimerPage.svelte"
+    import SignupPage from "./pages/SignupPage.svelte"
     import ThanksPage from "./pages/ThanksPage.svelte"
     import Redirect from "./components/Redirect.svelte"
     import AccountPage from "./pages/AccountPage.svelte"
@@ -87,8 +87,8 @@
             <ThanksPage />
         </Route>
 
-        <Route path="/pro">
-            <ProPage />
+        <Route path="/signup">
+            <SignupPage />
         </Route>
 
         <Route>

@@ -5,14 +5,12 @@
 
     import {user} from "../stores/user.js"
 
-    import {isPro} from "../utils/utils.js"
-
     export let path
 </script>
 
 <Route {path} let:params>
-    {#if !isPro($user)}
-        <Redirect to="/account" />
+    {#if !$user}
+        <Redirect to="/signup" />
     {:else}
         <slot {params} />
     {/if}

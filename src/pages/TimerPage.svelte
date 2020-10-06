@@ -24,8 +24,6 @@
     import {exercises} from "../stores/exercises.js"
     import {date, completed, workout, resetWorkout} from "../stores/workout.js"
 
-    import {isPro} from "../utils/utils.js"
-
     let exercise = 0
 
     const onStart = () => {
@@ -44,7 +42,7 @@
             stop()
             completed.set(true)
 
-            if (isPro($user)) {
+            if ($user) {
                 // save
                 saving.set(true)
 

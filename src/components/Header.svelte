@@ -2,8 +2,6 @@
     import {Link} from "svelte-routing"
 
     import {user} from "../stores/user.js"
-
-    import {isPro} from "../utils/utils.js"
 </script>
 
 <header class="bg-yellow relative text-black p-6 flex justify-between">
@@ -12,7 +10,7 @@
     </Link>
 
     <nav class="flex gap-x-2">
-        {#if isPro($user)}
+        {#if $user}
             <Link to="/workouts">
                 <svg
                     fill="currentColor"

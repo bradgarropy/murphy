@@ -24,13 +24,4 @@ const getRoundLabel = round => {
     return `Round ${number}`
 }
 
-const isPro = user => {
-    if (!user) {
-        return false
-    }
-
-    const pro = user?.app_metadata?.roles?.includes("pro")
-    return pro
-}
-
-export {getExerciseLabel, getRoundLabel, isPro}
+export {getExerciseLabel, getRoundLabel}

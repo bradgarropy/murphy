@@ -2,7 +2,6 @@ import image from "svelte-image"
 import copy from "rollup-plugin-copy"
 import serve from "rollup-plugin-serve"
 import svelte from "rollup-plugin-svelte"
-import replace from "rollup-plugin-replace"
 import {terser} from "rollup-plugin-terser"
 import commonjs from "@rollup/plugin-commonjs"
 import resolve from "@rollup/plugin-node-resolve"
@@ -31,14 +30,6 @@ const config = {
             },
         }),
         resolve({browser: true}),
-        replace({
-            STRIPE_PK: production
-                ? process.env.STRIPE_PK_LIVE
-                : process.env.STRIPE_PK_TEST,
-            STRIPE_PRICE: production
-                ? process.env.STRIPE_PRICE_LIVE
-                : process.env.STRIPE_PRICE_TEST,
-        }),
         commonjs(),
         copy({
             targets: [

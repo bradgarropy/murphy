@@ -9,8 +9,6 @@
     import {resetWorkout} from "../stores/workout"
     import {elapsed, resetTimer} from "../stores/timer"
 
-    import {isPro} from "../utils/utils"
-
     const onDetails = () => {
         navigate("/details")
     }
@@ -21,8 +19,8 @@
         navigate("/")
     }
 
-    const onGoPro = () => {
-        navigate("/pro")
+    const onSignup = () => {
+        navigate("/signup")
     }
 </script>
 
@@ -42,7 +40,7 @@
 
         <Time time={$elapsed} />
 
-        <div class="grid grid-rows-3 gap-6 items-center justify-items-center">
+        <div class="grid grid-rows-2 gap-6 items-center justify-items-center">
             <button
                 on:click={onDetails}
                 class="w-64 h-20 bg-green text-white text-2xl font-bold
@@ -57,12 +55,13 @@
                 reset
             </button>
 
-            {#if !isPro($user)}
-                <div class="text-black text-2xl">
-                    <span class="font-body font-black uppercase tracking-tighter z-10 relative">save your workout</span>
-                    <button on:click={onGoPro} class="font-header uppercase tracking-tighter -ml-4 px-4 py-1 bg-yellow transform -skew-x-6">go pro</button>
-                </div>
-            {/if}
         </div>
+
+        {#if !$user}
+            <div class="flex flex-col items-center text-black text-2xl">
+                <p class="font-body font-black uppercase tracking-tighter z-10 relative">save your workout</p>
+                <button on:click={onSignup} class="font-header uppercase tracking-tighter px-4 py-1 bg-yellow transform -skew-x-6">signup</button>
+            </div>
+        {/if}
     </main>
 {/if}

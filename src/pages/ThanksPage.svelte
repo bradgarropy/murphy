@@ -23,13 +23,12 @@
 </svelte:head>
 
 <main in:fade={{duration: 500}} class="font-body tracking-tighter">
-    <h2 class="flex justify-center items-baseline text-black uppercase text-5xl my-6 tracking-tighter">
-        <span class="font-black z-10 relative">you are a</span>
-        <span class="font-header -ml-1 px-4 py-1 bg-yellow transform -skew-x-6">pro</span>
-    </h2>
+    <div class="grid justify-items-center gap-y-8 my-10">
+        <h2 class="text-black uppercase text-5xl tracking-tighter font-header px-8 py-1 bg-yellow transform -skew-x-6">
+            thank you
+        </h2>
 
-    <div class="grid justify-center gap-y-4 mb-10">
-        <section>
+        <section class="content-center">
             <h3 class="text-3xl font-bold">Now you can</h3>
 
             <ul class="flex flex-col gap-y-2 text-xl tracking-tighter uppercase">
@@ -66,6 +65,4 @@
             </ul>
         </section>
     </div>
-
-    <h3 class="text-2xl uppercase font-black tracking-tighter text-center">thank you for your support!</h3>
 </main>

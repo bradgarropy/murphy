@@ -4,37 +4,24 @@
 
       import {user} from "../stores/user"
 
-      import {checkout} from "../utils/stripe"
-
-      const onGoPro = async () => {
+      const onSignup = async () => {
           if(!$user) {
               netlifyIdentity.open("signup")
               return
           }
-
-          checkout($user.email)
       }
 </script>
 
 <svelte:head>
-    <title>MURPHY | pro</title>
+    <title>MURPHY | signup</title>
 </svelte:head>
 
 <main in:fade={{duration: 500}} class="-mt-4 flex flex-col items-center text-black">
     <img src="/push-ups.jpg" alt="push up" width="2400" height="1539" class="z-0 bg-trueBlack" />
 
     <section class="flex flex-col items-center z-10 relative bg-white -mt-12 mb-24 transform -skew-x-3 uppercase shadow-2xl">
-        <div class="flex flex-col gap-y-4 items-center px-10 py-6 transform skew-x-3">
-            <h1 class="flex flex-col items-center tracking-tighter">
-                <p class="text-3xl">pro access</p>
-
-                <p class="font-header text-4xl relative">
-                    <span class="text-2xl absolute -ml-4">$</span>
-                    <span>1</span>
-                </p>
-            </h1>
-
-            <ul class="flex flex-col gap-y-3 text-xl tracking-tighter">
+        <div class="flex flex-col gap-y-8 items-center px-10 py-10 transform skew-x-3">
+            <ul class="flex flex-col gap-y-5 text-xl tracking-tighter">
                 <li class="flex gap-x-3 items-center">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                     <span>save workouts</span>
@@ -55,9 +42,13 @@
                     <span>view round breakdowns</span>
                 </li>
             </ul>
+
+            <h1 class="flex flex-col items-center tracking-tighter text-2xl italic">
+                free forever
+            </h1>
         </div>
 
-        <button on:click={onGoPro} class="font-header w-full px-6 py-1 bg-yellow text-5xl uppercase tracking-tighter">buy now</button>
+        <button on:click={onSignup} class="font-header w-full px-6 py-1 bg-yellow text-5xl uppercase tracking-tighter">signup</button>
     </section>
 
 </main>
