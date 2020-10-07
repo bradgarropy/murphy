@@ -26,7 +26,21 @@
             "name": "Timer",
             "short_name": "Timer",
             "description": "Start a workout",
-            "url": "/",
+            "url": "/timer",
+            "icons": [
+                {
+                    "src": "/icon-192.png",
+                    "type": "image/png",
+                    "sizes": "192x192",
+                    "purpose": "maskable any"
+                }
+            ]
+        },
+        {
+            "name": "Workouts",
+            "short_name": "Workouts",
+            "description": "View past workouts",
+            "url": "/workouts",
             "icons": [
                 {
                     "src": "/icon-192.png",
