@@ -2,6 +2,15 @@
     "short_name": "MURPHY",
     "name": "MURPHY",
     "description": "Murph workout timer.",
+    "categories": [
+        "health",
+        "fitness",
+        "workout",
+        "crossfit",
+        "timer",
+        "murph",
+        "murphy"
+    ],
     "icons": [
         {
             "src": "/icon-192.png",
@@ -63,6 +72,33 @@
                     "purpose": "maskable any"
                 }
             ]
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/start.png",
+            "sizes": "1410x2862",
+            "type": "image/png"
+        },
+        {
+            "src": "/running.png",
+            "sizes": "1410x2862",
+            "type": "image/png"
+        },
+        {
+            "src": "/completed.png",
+            "sizes": "1410x2862",
+            "type": "image/png"
+        },
+        {
+            "src": "/details.png",
+            "sizes": "1410x2862",
+            "type": "image/png"
+        },
+        {
+            "src": "/settings.png",
+            "sizes": "1410x2862",
+            "type": "image/png"
         }
     ]
 }
