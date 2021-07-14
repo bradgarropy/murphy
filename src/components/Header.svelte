@@ -4,7 +4,9 @@
     import {user} from "../stores/user.js"
 </script>
 
-<header class="bg-yellow relative text-black p-6 flex justify-between">
+<header
+    class="bg-yellow relative text-black p-6 flex justify-between items-center"
+>
     <Link to="/">
         <h1 class="text-2xl uppercase font-header tracking-tighter">murphy</h1>
     </Link>

@@ -1,4 +1,5 @@
 const config = {
+    mode: "jit",
     purge: ["./src/**/*.html", "./src/**/*.svelte"],
     theme: {
         colors: {

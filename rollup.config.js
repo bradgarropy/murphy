@@ -1,6 +1,7 @@
 import commonjs from "@rollup/plugin-commonjs"
 import resolve from "@rollup/plugin-node-resolve"
 import copy from "rollup-plugin-copy"
+import css from "rollup-plugin-css-only"
 import livereload from "rollup-plugin-livereload"
 import serve from "rollup-plugin-serve"
 import svelte from "rollup-plugin-svelte"
@@ -20,6 +21,9 @@ const config = {
     },
     plugins: [
         svelte({
+            compilerOptions: {
+                dev: development,
+            },
             preprocess: {
                 ...image({
                     outputDir: "images",
@@ -28,6 +32,7 @@ const config = {
                 }),
             },
         }),
+        css({output: "bundle.css"}),
         resolve({browser: true}),
         commonjs(),
         copy({

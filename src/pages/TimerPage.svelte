@@ -83,7 +83,7 @@
 </svelte:head>
 
 <main
-    class="h-full grid grid-rows-timer row-gap-4 items-center"
+    class="h-full grid grid-rows-timer gap-y-4 items-center"
     in:fade={{duration: 500}}
 >
     {#if !$active && !$counting}
