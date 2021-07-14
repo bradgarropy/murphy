@@ -1,6 +1,6 @@
 <script>
     import netlifyIdentity from "netlify-identity-widget"
-    import {fade} from "svelte/transitiondget"
+    import {fade} from "svelte/transition"
 
     import {user} from "../stores/user.js"
 

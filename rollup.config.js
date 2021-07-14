@@ -20,7 +20,7 @@ const config = {
     },
     plugins: [
         svelte({
-            dev: development,
+            // dev: development,
             preprocess: {
                 ...image({
                     outputDir: "images",

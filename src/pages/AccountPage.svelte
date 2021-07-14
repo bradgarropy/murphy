@@ -1,7 +1,7 @@
 <script>
     import netlifyIdentity from "netlify-identity-widget"
     import {fade} from "svelte/transition"
-    import {navigate} from "svelte-routingy-widget"
+    import {navigate} from "svelte-routing"
 
     import {user} from "../stores/user.js"
 
