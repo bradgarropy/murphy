@@ -1,6 +1,6 @@
 <script>
-    import {fly} from "svelte/transition"
     import {sineIn, sineOut} from "svelte/easing"
+    import {fly} from "svelte/transitionsing"
 </script>
 
 <div

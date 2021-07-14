@@ -1,24 +1,23 @@
 <script>
-    import {Router, Route} from "svelte-routing"
+    import "./utils/identity.js"
+    import "./utils/pwa.js"
+
+    import {Route, Router} from "svelte-routing"
 
     import Header from "./components/Header.svelte"
+    import ProtectedRoute from "./components/ProtectedRoute.svelte"
+    import Redirect from "./components/Redirect.svelte"
     import Saving from "./components/Saving.svelte"
-    import TimerPage from "./pages/TimerPage.svelte"
+    import AccountPage from "./pages/AccountPage.svelte"
+    import CompletedPage from "./pages/CompletedPage.svelte"
+    import DetailsPage from "./pages/DetailsPage.svelte"
+    import SettingsPage from "./pages/SettingsPage.svelte"
     import SignupPage from "./pages/SignupPage.svelte"
     import ThanksPage from "./pages/ThanksPage.svelte"
-    import Redirect from "./components/Redirect.svelte"
-    import AccountPage from "./pages/AccountPage.svelte"
-    import DetailsPage from "./pages/DetailsPage.svelte"
+    import TimerPage from "./pages/TimerPage.svelte"
     import WorkoutPage from "./pages/WorkoutPage.svelte"
-    import SettingsPage from "./pages/SettingsPage.svelte"
     import WorkoutsPage from "./pages/WorkoutsPage.svelte"
-    import CompletedPage from "./pages/CompletedPage.svelte"
-    import ProtectedRoute from "./components/ProtectedRoute.svelte"
-
     import {saving} from "./stores/app.js"
-
-    import "./utils/pwa.js"
-    import "./utils/identity.js"
 </script>
 
 <svelte:head>

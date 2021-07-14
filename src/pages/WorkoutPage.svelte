@@ -3,7 +3,6 @@
 
     import Details from "../components/Details.svelte"
     import Loading from "../components/Loading.svelte"
-
     import {user} from "../stores/user.js"
 
     export let params

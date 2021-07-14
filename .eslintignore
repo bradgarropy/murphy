@@ -1,0 +1,18 @@
+# editor
+.vscode
+
+# dependencies
+node_modules
+
+# build
+dist
+static/images
+
+# test
+coverage
+
+# host
+.netlify
+
+# secrets
+.env*

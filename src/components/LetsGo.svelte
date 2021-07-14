@@ -1,7 +1,6 @@
 <script>
+    import {rounds, runs} from "../stores/settings.js"
     import WorkoutSummary from "./WorkoutSummary.svelte"
-
-    import {runs, rounds} from "../stores/settings.js"
 </script>
 
 <section>

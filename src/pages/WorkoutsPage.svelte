@@ -1,10 +1,9 @@
 <script>
     import {format} from "date-fns"
-    import {Link} from "svelte-routing"
     import {fade} from "svelte/transition"
+    import {Link} from "svelte-routing"
 
     import Loading from "../components/Loading.svelte"
-
     import {user} from "../stores/user.js"
 
     const getWorkouts = async () => {

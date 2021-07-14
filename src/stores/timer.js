@@ -1,4 +1,4 @@
-import {writable, get} from "svelte/store"
+import {get, writable} from "svelte/store"
 
 let id
 let wakeLock = undefined
@@ -74,15 +74,15 @@ const resetTimer = () => {
 }
 
 export {
-    counting,
     active,
-    ticking,
+    counting,
     elapsed,
-    laps,
-    start,
-    startTimer,
-    startCountdown,
     lap,
-    stop,
+    laps,
     resetTimer,
+    start,
+    startCountdown,
+    startTimer,
+    stop,
+    ticking,
 }

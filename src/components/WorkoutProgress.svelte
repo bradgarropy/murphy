@@ -1,5 +1,5 @@
 <script>
-    import {workout, completed} from "../stores/workout.js"
+    import {completed, workout} from "../stores/workout.js"
 
     $: {
         let progress

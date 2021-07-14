@@ -2,12 +2,11 @@
     import {fade} from "svelte/transition"
     import {navigate} from "svelte-routing"
 
-    import Time from "../components/Time.svelte"
     import Redirect from "../components/Redirect.svelte"
-
+    import Time from "../components/Time.svelte"
+    import {elapsed, resetTimer} from "../stores/timer"
     import {user} from "../stores/user.js"
     import {resetWorkout} from "../stores/workout"
-    import {elapsed, resetTimer} from "../stores/timer"
 
     const onDetails = () => {
         navigate("/details")

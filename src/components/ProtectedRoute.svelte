@@ -1,9 +1,8 @@
 <script>
     import {Route} from "svelte-routing"
 
-    import Redirect from "./Redirect.svelte"
-
     import {user} from "../stores/user.js"
+    import Redirect from "./Redirect.svelte"
 
     export let path
 </script>

@@ -1,6 +1,6 @@
 <script>
-    import Time from "./Time.svelte"
     import {exercises} from "../stores/exercises.js"
+    import Time from "./Time.svelte"
 
     export let times = []
 </script>

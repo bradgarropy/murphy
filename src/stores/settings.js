@@ -1,4 +1,4 @@
-import {writable, get} from "svelte/store"
+import {get, writable} from "svelte/store"
 
 const load = name => {
     const item = localStorage.getItem(name)
@@ -25,4 +25,4 @@ const save = () => {
 const runs = writable(load("runs"))
 const rounds = writable(load("rounds"))
 
-export {runs, rounds, save}
+export {rounds, runs, save}

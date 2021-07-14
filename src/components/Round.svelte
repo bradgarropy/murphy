@@ -1,7 +1,7 @@
 <script>
     import {format} from "date-fns"
-    import {writable} from "svelte/store"
     import {cubicOut} from "svelte/easing"
+    import {writable} from "svelte/store"
     import {slide} from "svelte/transition"
 
     import {getRoundLabel} from "../utils/utils.js"

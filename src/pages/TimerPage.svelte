@@ -2,27 +2,26 @@
     import {fade} from "svelte/transition"
     import {navigate} from "svelte-routing"
 
-    import Timer from "../components/Timer.svelte"
     import LetsGo from "../components/LetsGo.svelte"
     import NextButton from "../components/NextButton.svelte"
-    import StopButton from "../components/StopButton.svelte"
     import ResetButton from "../components/ResetButton.svelte"
     import StartButton from "../components/StartButton.svelte"
-
-    import {
-        counting,
-        active,
-        ticking,
-        elapsed,
-        start,
-        lap,
-        stop,
-        resetTimer,
-    } from "../stores/timer.js"
-    import {user} from "../stores/user.js"
+    import StopButton from "../components/StopButton.svelte"
+    import Timer from "../components/Timer.svelte"
     import {saving} from "../stores/app.js"
     import {exercises} from "../stores/exercises.js"
-    import {date, completed, workout, resetWorkout} from "../stores/workout.js"
+    import {
+        active,
+        counting,
+        elapsed,
+        lap,
+        resetTimer,
+        start,
+        stop,
+        ticking,
+    } from "../stores/timer.js"
+    import {user} from "../stores/user.js"
+    import {completed, date, resetWorkout, workout} from "../stores/workout.js"
 
     let exercise = 0
 

@@ -1,15 +1,15 @@
 <script>
-      import {fade} from "svelte/transition"
-      import netlifyIdentity from "netlify-identity-widget"
+    import netlifyIdentity from "netlify-identity-widget"
+    import {fade} from "svelte/transitionwidget"
 
-      import {user} from "../stores/user"
+    import {user} from "../stores/user"
 
-      const onSignup = async () => {
-          if(!$user) {
-              netlifyIdentity.open("signup")
-              return
-          }
-      }
+    const onSignup = async () => {
+        if(!$user) {
+            netlifyIdentity.open("signup")
+            return
+        }
+    }
 </script>
 
 <svelte:head>
