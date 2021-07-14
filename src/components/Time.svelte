@@ -8,6 +8,10 @@
     export let blink = false
 </script>
 
+<time class="font-body tracking-widest text-6xl {blink && 'blink'} {className}">
+    {format(time, "mm:ss:SS")}
+</time>
+
 <style>
     .blink {
         animation: blink-animation 1s steps(4, start) infinite;
@@ -19,7 +23,3 @@
         }
     }
 </style>
-
-<time class="font-body tracking-widest text-6xl {blink && 'blink'} {className}">
-    {format(time, "mm:ss:SS")}
-</time>

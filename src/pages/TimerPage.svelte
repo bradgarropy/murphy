@@ -84,7 +84,8 @@
 
 <main
     class="h-full grid grid-rows-timer row-gap-4 items-center"
-    in:fade={{duration: 500}}>
+    in:fade={{duration: 500}}
+>
     {#if !$active && !$counting}
         <LetsGo />
     {:else}

@@ -25,27 +25,29 @@
 
 <main
     class="grid content-center justify-center gap-6"
-    in:fade={{duration: 500}}>
-
+    in:fade={{duration: 500}}
+>
     {#if $user}
         <button
             on:click={onLogout}
             class="w-64 h-20 bg-red text-white text-2xl font-bold font-body
-            uppercase">
+            uppercase"
+        >
             logout
         </button>
     {:else}
         <button
             on:click={onLogin}
             class="w-64 h-20 bg-green text-white text-2xl font-bold font-body
-            uppercase">
+            uppercase"
+        >
             login
         </button>
 
         <button
             on:click={onSignup}
             class="w-64 h-20 bg-yellow text-black text-2xl font-bold font-body uppercase"
-            >
+        >
             signup
         </button>
     {/if}

@@ -23,16 +23,20 @@
 {:else}
     <section
         class="grid grid-rows-stats h-full items-center text-center text-5xl
-            text-black uppercase tracking-tighter">
+            text-black uppercase tracking-tighter"
+    >
         <WorkoutProgress />
 
         <div>
             <Time
                 time={$elapsed}
                 blink={!$ticking && $elapsed && !$completed}
-                class="block" />
+                class="block"
+            />
 
-            <h2 class="font-body font-black">{getExerciseLabel($exercises[exercise].name)}</h2>
+            <h2 class="font-body font-black">
+                {getExerciseLabel($exercises[exercise].name)}
+            </h2>
             <RoundProgress exercise={$exercises[exercise].name} />
         </div>
     </section>

@@ -18,6 +18,10 @@
     }
 </script>
 
+<div class="w-11/12 h-2 mx-auto bg-silver">
+    <div class="progress bg-green h-full" />
+</div>
+
 <style>
     :root {
         --percentage: 0%;
@@ -27,7 +31,3 @@
         width: var(--percentage);
     }
 </style>
-
-<div class="w-11/12 h-2 mx-auto bg-silver">
-    <div class="progress bg-green h-full" />
-</div>

@@ -36,10 +36,11 @@
 
 <main
     class="grid grid-rows-completed justify-center items-center pb-10 text-black"
-    in:fade={{duration: 500}}>
+    in:fade={{duration: 500}}
+>
     {#await promise}
         <Loading />
-    {:then {exercises, date}}
+    {:then { exercises, date }}
         <Details {exercises} {date} />
     {/await}
 </main>

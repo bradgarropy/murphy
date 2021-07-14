@@ -13,7 +13,8 @@
 
 <main
     class="grid grid-rows-details justify-center items-center pb-10"
-    in:fade={{duration: 500}}>
+    in:fade={{duration: 500}}
+>
     {#if !$laps[0].time}
         <Redirect to="/" />
     {:else}

@@ -3,7 +3,9 @@
     export let rounds
 </script>
 
-<div class="grid grid-cols-workout gap-x-5 text-xl text-black justify-center font-body font-bold uppercase tracking-tighter">
+<div
+    class="grid grid-cols-workout gap-x-5 text-xl text-black justify-center font-body font-bold uppercase tracking-tighter"
+>
     {#if runs}
         <span class="justify-self-end">1</span>
         <span class="justify-self-start">mile run</span>

@@ -18,13 +18,15 @@
     in:fade={{duration: 500}}
     on:submit|preventDefault={onSubmit}
     class="text-5xl text-black font-body font-black uppercase tracking-tighter
-        grid grid-rows-settings row-gap-4 items-center">
+        grid grid-rows-settings row-gap-4 items-center"
+>
     <div class="grid grid-cols-form justify-center content-center items-center">
         <input
             type="checkbox"
             id="runs"
             bind:checked={$runs}
-            class="w-full transform scale-300" />
+            class="w-full transform scale-300"
+        />
         <label for="runs">run</label>
 
         <input
@@ -33,13 +35,15 @@
             bind:value={$rounds}
             min="1"
             max="20"
-            class="text-center" />
+            class="text-center"
+        />
         <label for="rounds">rounds</label>
     </div>
 
     <button
         class="w-full h-full bg-green text-2xl text-white font-bold font-body
-            uppercase">
+            uppercase"
+    >
         save
     </button>
 </form>
