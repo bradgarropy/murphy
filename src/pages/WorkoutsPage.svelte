@@ -38,7 +38,9 @@
     class="grid gap-y-6 grid-rows-workouts justify-center text-black"
     in:fade={{duration: 500}}
 >
-    <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
+    <h2
+        class="text-center text-4xl leading-normal uppercase font-header tracking-tighter"
+    >
         workouts
     </h2>
 
@@ -53,7 +55,7 @@
 
                 <Link to={"/"}>
                     <p
-                        class="grid place-items-center bg-green px-12 w-64 h-20 text-white text-2xl font-bold font-body uppercase"
+                        class="grid place-items-center bg-green px-12 w-64 h-20 text-white text-2xl leading-normal font-bold font-body uppercase"
                     >
                         Let's Go!
                     </p>
@@ -61,7 +63,7 @@
             </div>
         {:else}
             <section
-                class="grid content-start justify-center items-center pb-10 text-2xl font-body font-black uppercase tracking-tighter"
+                class="grid content-start justify-center items-center pb-10 text-2xl leading-normal font-body font-black uppercase tracking-tighter"
             >
                 {#each workouts as workout}
                     <Link to={`/workout/${workout.id}`}>

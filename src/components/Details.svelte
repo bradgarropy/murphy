@@ -40,7 +40,9 @@
 </script>
 
 <div class="grid gap-y-10">
-    <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
+    <h2
+        class="text-center text-4xl leading-normal uppercase font-header tracking-tighter"
+    >
         {date ? format(date, "MMMM dd, y") : "completed"}
     </h2>
 

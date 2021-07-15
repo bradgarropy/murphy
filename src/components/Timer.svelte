@@ -22,7 +22,7 @@
     </section>
 {:else}
     <section
-        class="grid grid-rows-stats h-full items-center text-center text-5xl
+        class="grid grid-rows-stats h-full items-center text-center text-5xl leading-normal
             text-black uppercase tracking-tighter"
     >
         <WorkoutProgress />

@@ -25,16 +25,16 @@
 <main in:fade={{duration: 500}} class="font-body tracking-tighter">
     <div class="grid justify-items-center gap-y-8 my-10">
         <h2
-            class="text-black uppercase text-5xl tracking-tighter font-header px-8 py-1 bg-yellow transform -skew-x-6"
+            class="text-black uppercase text-5xl leading-normal tracking-tighter font-header px-8 py-1 bg-yellow transform -skew-x-6"
         >
             thank you
         </h2>
 
         <section class="content-center">
-            <h3 class="text-3xl font-bold">Now you can</h3>
+            <h3 class="text-3xl leading-normal font-bold">Now you can</h3>
 
             <ul
-                class="flex flex-col gap-y-2 text-xl tracking-tighter uppercase"
+                class="flex flex-col gap-y-2 text-xl leading-normal tracking-tighter uppercase"
             >
                 <li class="flex gap-x-3 items-center">
                     <svg
@@ -101,10 +101,10 @@
         </section>
 
         <section>
-            <h3 class="text-3xl font-bold">Coming soon</h3>
+            <h3 class="text-3xl leading-normal font-bold">Coming soon</h3>
 
             <ul
-                class="flex flex-col gap-y-2 text-xl tracking-tighter uppercase"
+                class="flex flex-col gap-y-2 text-xl leading-normal tracking-tighter uppercase"
             >
                 <li class="flex col-gap-3 items-center">
                     <svg

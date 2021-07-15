@@ -19,7 +19,9 @@
     document.getElementById("tick").play()
 </script>
 
-<div class="flex flex-row justify-center font-body font-medium gap-32 text-6xl">
+<div
+    class="flex flex-row justify-center font-body font-medium gap-32 text-6xl leading-normal"
+>
     <div
         class={`flex items-center justify-center w-32 h-32 text-white rounded-full border-solid border-white border-8 bg-red ${
             countdown > 3 && "invisible"

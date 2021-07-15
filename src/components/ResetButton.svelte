@@ -4,7 +4,7 @@
 
 <button
     on:click={onReset}
-    class="w-full h-full bg-red text-2xl text-white font-bold font-body
+    class="w-full h-full bg-red text-2xl leading-normal text-white font-bold font-body
     uppercase"
 >
     reset

@@ -34,7 +34,9 @@
         <div
             class="flex flex-col gap-y-8 items-center px-10 py-10 transform skew-x-3"
         >
-            <ul class="flex flex-col gap-y-5 text-xl tracking-tighter">
+            <ul
+                class="flex flex-col gap-y-5 text-xl leading-normal tracking-tighter"
+            >
                 <li class="flex gap-x-3 items-center">
                     <svg
                         class="w-6 h-6"
@@ -99,7 +101,7 @@
             </ul>
 
             <h1
-                class="flex flex-col items-center tracking-tighter text-2xl italic"
+                class="flex flex-col items-center tracking-tighter text-2xl leading-normal italic"
             >
                 free forever
             </h1>
@@ -107,7 +109,7 @@
 
         <button
             on:click={onSignup}
-            class="font-header w-full px-6 py-1 bg-yellow text-5xl uppercase tracking-tighter"
+            class="font-header w-full px-6 py-1 bg-yellow text-5xl leading-normal uppercase tracking-tighter"
             >signup</button
         >
     </section>

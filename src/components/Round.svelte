@@ -18,7 +18,7 @@
 </script>
 
 <div
-    class={`grid grid-cols-2 text-xl uppercase font-body ${
+    class={`grid grid-cols-2 text-xl leading-normal uppercase font-body ${
         round.number ? "cursor-pointer" : "cursor-default"
     }`}
     on:click={onClick}
@@ -48,7 +48,7 @@
 
     {#if $expanded}
         <div
-            class="grid grid-cols-2 text-xl uppercase col-span-2 py-2"
+            class="grid grid-cols-2 text-xl leading-normal uppercase col-span-2 py-2"
             transition:slide={{duration: 500, easing: cubicOut}}
         >
             {#each round.exercises as exercise}

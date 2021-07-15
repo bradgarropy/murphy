@@ -17,7 +17,7 @@
 <form
     in:fade={{duration: 500}}
     on:submit|preventDefault={onSubmit}
-    class="text-5xl text-black font-body font-black uppercase tracking-tighter
+    class="text-5xl leading-normal text-black font-body font-black uppercase tracking-tighter
         grid grid-rows-settings gap-y-4 items-center"
 >
     <div class="grid grid-cols-form justify-center content-center items-center">
@@ -41,7 +41,7 @@
     </div>
 
     <button
-        class="w-full h-full bg-green text-2xl text-white font-bold font-body
+        class="w-full h-full bg-green text-2xl leading-normal text-white font-bold font-body
             uppercase"
     >
         save

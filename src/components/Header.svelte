@@ -8,7 +8,11 @@
     class="bg-yellow relative text-black p-6 flex justify-between items-center"
 >
     <Link to="/">
-        <h1 class="text-2xl uppercase font-header tracking-tighter">murphy</h1>
+        <h1
+            class="text-2xl leading-normal uppercase font-header tracking-tighter"
+        >
+            murphy
+        </h1>
     </Link>
 
     <nav class="flex gap-x-2">
