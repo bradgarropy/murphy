@@ -9,8 +9,9 @@
 </script>
 
 <time
-    class="font-body tracking-widest text-6xl leading-normal {blink &&
-        'blink'} {className}"
+    class="font-body tracking-widest text-6xl leading-normal {blink
+        ? 'blink'
+        : ''} {className}"
 >
     {format(time, "mm:ss:SS")}
 </time>
