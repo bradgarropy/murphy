@@ -1,8 +1,8 @@
 <script>
     import {format} from "date-fns"
 
-    import Time from "./Time.svelte"
     import Round from "./Round.svelte"
+    import Time from "./Time.svelte"
     import WorkoutSummary from "./WorkoutSummary.svelte"
 
     export let date = null
@@ -40,13 +40,15 @@
 </script>
 
 <div class="grid gap-y-10">
-    <h2 class="text-center text-4xl uppercase font-header tracking-tighter">
+    <h2
+        class="text-center text-4xl leading-normal uppercase font-header tracking-tighter"
+    >
         {date ? format(date, "MMMM dd, y") : "completed"}
     </h2>
 
     <div class="text-center">
-        <WorkoutSummary {runs} rounds={numRounds}/>
-        <Time  time={elapsed} />
+        <WorkoutSummary {runs} rounds={numRounds} />
+        <Time time={elapsed} />
     </div>
 
     <div class="grid gap-y-2">

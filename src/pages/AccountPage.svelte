@@ -1,7 +1,7 @@
 <script>
+    import netlifyIdentity from "netlify-identity-widget"
     import {fade} from "svelte/transition"
     import {navigate} from "svelte-routing"
-    import netlifyIdentity from "netlify-identity-widget"
 
     import {user} from "../stores/user.js"
 
@@ -25,27 +25,29 @@
 
 <main
     class="grid content-center justify-center gap-6"
-    in:fade={{duration: 500}}>
-
+    in:fade={{duration: 500}}
+>
     {#if $user}
         <button
             on:click={onLogout}
-            class="w-64 h-20 bg-red text-white text-2xl font-bold font-body
-            uppercase">
+            class="w-64 h-20 bg-red text-white text-2xl leading-normal font-bold font-body
+            uppercase"
+        >
             logout
         </button>
     {:else}
         <button
             on:click={onLogin}
-            class="w-64 h-20 bg-green text-white text-2xl font-bold font-body
-            uppercase">
+            class="w-64 h-20 bg-green text-white text-2xl leading-normal font-bold font-body
+            uppercase"
+        >
             login
         </button>
 
         <button
             on:click={onSignup}
-            class="w-64 h-20 bg-yellow text-black text-2xl font-bold font-body uppercase"
-            >
+            class="w-64 h-20 bg-yellow text-black text-2xl leading-normal font-bold font-body uppercase"
+        >
             signup
         </button>
     {/if}

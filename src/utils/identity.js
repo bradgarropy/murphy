@@ -1,5 +1,5 @@
-import {navigate} from "svelte-routing"
 import netlifyIdentity from "netlify-identity-widget"
+import {navigate} from "svelte-routing"
 
 import {user} from "../stores/user.js"
 

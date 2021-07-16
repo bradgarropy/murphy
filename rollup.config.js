@@ -1,11 +1,12 @@
-import image from "svelte-image"
+import commonjs from "@rollup/plugin-commonjs"
+import resolve from "@rollup/plugin-node-resolve"
 import copy from "rollup-plugin-copy"
+import css from "rollup-plugin-css-only"
+import livereload from "rollup-plugin-livereload"
 import serve from "rollup-plugin-serve"
 import svelte from "rollup-plugin-svelte"
 import {terser} from "rollup-plugin-terser"
-import commonjs from "@rollup/plugin-commonjs"
-import resolve from "@rollup/plugin-node-resolve"
-import livereload from "rollup-plugin-livereload"
+import image from "svelte-image"
 
 const path = "dist"
 const production = process.env.CONTEXT === "production"
@@ -20,7 +21,9 @@ const config = {
     },
     plugins: [
         svelte({
-            dev: development,
+            compilerOptions: {
+                dev: development,
+            },
             preprocess: {
                 ...image({
                     outputDir: "images",
@@ -29,6 +32,7 @@ const config = {
                 }),
             },
         }),
+        css({output: "bundle.css"}),
         resolve({browser: true}),
         commonjs(),
         copy({

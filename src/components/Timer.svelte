@@ -1,13 +1,12 @@
 <script>
-    import Time from "./Time.svelte"
-    import RoundProgress from "./RoundProgress.svelte"
-    import WorkoutProgress from "./WorkoutProgress.svelte"
-    import Countdown from "./Countdown.svelte"
-
-    import {completed} from "../stores/workout.js"
     import {exercises} from "../stores/exercises.js"
+    import {counting, elapsed, startTimer, ticking} from "../stores/timer.js"
+    import {completed} from "../stores/workout.js"
     import {getExerciseLabel} from "../utils/utils.js"
-    import {ticking, elapsed, startTimer, counting} from "../stores/timer.js"
+    import Countdown from "./Countdown.svelte"
+    import RoundProgress from "./RoundProgress.svelte"
+    import Time from "./Time.svelte"
+    import WorkoutProgress from "./WorkoutProgress.svelte"
 
     export let exercise
 
@@ -23,17 +22,21 @@
     </section>
 {:else}
     <section
-        class="grid grid-rows-stats h-full items-center text-center text-5xl
-            text-black uppercase tracking-tighter">
+        class="grid grid-rows-stats h-full items-center text-center text-5xl leading-normal
+            text-black uppercase tracking-tighter"
+    >
         <WorkoutProgress />
 
         <div>
             <Time
                 time={$elapsed}
                 blink={!$ticking && $elapsed && !$completed}
-                class="block" />
+                class="block"
+            />
 
-            <h2 class="font-body font-black">{getExerciseLabel($exercises[exercise].name)}</h2>
+            <h2 class="font-body font-black">
+                {getExerciseLabel($exercises[exercise].name)}
+            </h2>
             <RoundProgress exercise={$exercises[exercise].name} />
         </div>
     </section>

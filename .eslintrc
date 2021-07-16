@@ -1,4 +1,6 @@
 {
-    "extends": "bradgarropy",
-    "ignorePatterns": ["dist"]
+    "extends": [
+        "@bradgarropy/eslint-config",
+        "@bradgarropy/eslint-config-svelte"
+    ]
 }

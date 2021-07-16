@@ -1,5 +1,6 @@
 import {derived} from "svelte/store"
-import {runs, rounds} from "./settings.js"
+
+import {rounds, runs} from "./settings.js"
 
 const createExercise = (name, round = null) => {
     const exercise = {
