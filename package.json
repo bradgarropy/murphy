@@ -47,7 +47,7 @@
         "faunadb": "^4.3.0",
         "gotrue-js": "^0.9.29",
         "netlify-identity-widget": "^1.9.1",
-        "node-fetch": "^2.6.1",
+        "node-fetch": "^2.6.7",
         "svelte-routing": "^1.6.0"
     },
     "devDependencies": {
